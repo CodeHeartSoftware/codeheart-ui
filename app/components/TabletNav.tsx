@@ -10,7 +10,7 @@ const Component = styled.div`
     justify-content: center;
     align-items: center;
     height: fit-content;
-    background-color: white; //TODO: move color to stylesheet
+    background-color: var(--theme-color-pink); 
     border-bottom: rgba(0, 0, 0, .1) 1px solid;
 `;
 
@@ -18,7 +18,7 @@ const TitleWrapper = styled.div`
     display: flex;
     justify-content: space-between;
     align-items: center;
-    width: calc(100% - 4rem);
+    width: 100%;
     padding: 0.5rem;
     border-bottom: rgba(0, 0, 0, .1) 1px solid;
 `;
