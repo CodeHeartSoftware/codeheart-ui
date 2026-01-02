@@ -9,7 +9,7 @@ const Component = styled.div`
     justify-content: space-between;
     height: 100px;
     width: 100%;
-    background-color: white;
+    background-color: var(--theme-color-pink);
     border-bottom: rgba(0, 0, 0, .1) 1px solid;
 `;
 

@@ -27,7 +27,7 @@ export const SiteLogoTitle = ({variant = 'desktop'}: Props) => {
 
     return (
         <LogoComponent>
-            {<HeaderLogo src={Logo}/>}
+            <HeaderLogo src={Logo}/>
         </LogoComponent>
-    )
+    );
 }
