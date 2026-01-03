@@ -67,7 +67,7 @@ const WhoWeAre = () => {
         <Component>
             <TextBlock>
                 <Caption>Who we are</Caption>
-                <Headline>We're CodeHeart and we love good digital products.</Headline>
+                <Headline>We&apos;re CodeHeart and we love good digital products.</Headline>
             </TextBlock>
             <Button buttonText={'About Us'}/>
         </Component>

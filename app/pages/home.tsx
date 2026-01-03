@@ -2,6 +2,8 @@ import Hero from "~/components/Hero";
 import WhoWeAre from "~/components/WhoWeAre";
 import Carousel from "~/components/Carousel";
 import CarouselItem from "~/components/CarouselItem";
+import WhatWeDo from "~/components/WhatWeDo";
+import WorkWithUs from "~/components/WorkWithUs";
 
 const otherLogos = [
     { node: <CarouselItem src="/skills/SkillsAWS.png" /> , alt: "Amazon AWS", href: "https://company1.com" },
@@ -17,6 +19,8 @@ export function Home() {
         <Hero/>
         <WhoWeAre/>
         <Carousel logos={otherLogos} />
+        <WhatWeDo />
+        <WorkWithUs />
     </main>
 }
 

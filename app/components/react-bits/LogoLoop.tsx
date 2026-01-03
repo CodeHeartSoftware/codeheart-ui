@@ -1,4 +1,3 @@
-// IMPORTED FROM SHADCDN. THIS IS GENERATED CODE
 import React, { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 
 export type LogoItem =

@@ -1,7 +1,6 @@
 import {styled} from "styled-components";
 import Logo from "../assets/CodeHeartLogoRed.svg";
 import HeroPic from "../assets/stockFlower.png";
-import HeroSticker from "~/assets/HeroSticker";
 
 const Component = styled.div`
     display: flex;
@@ -26,12 +25,6 @@ const HeroImage = styled.img`
     width: 100%;
     height: auto;
     border-radius: 3rem;
-`;
-
-const StickerFrame = styled.div`
-    position: relative;
-    left: 2rem;
-    bottom: 2rem;
 `;
 
 const Hero = () => {

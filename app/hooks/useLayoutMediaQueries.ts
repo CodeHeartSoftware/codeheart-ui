@@ -14,8 +14,6 @@ const useLayoutMediaQueries = () => {
     const [screenMode, setScreenMode] = useState<ScreenSize>('desktop');
 
     useEffect(() => {
-        console.log(`useLayoutMediaQueries called. Value changed to ${isDesktop ? 'desktop' : isTablet ? 'tablet' : isMobile ? 'mobile' : 'other'}`);
-
         if (isMobile) {
             setScreenMode('mobile');
         } else if (isTablet) {

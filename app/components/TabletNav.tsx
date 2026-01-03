@@ -1,8 +1,8 @@
 import {styled} from "styled-components";
 import TabletNavContent from "./TabletNavContent";
 import {SiteLogoTitle} from "./SiteLogoTitle";
+import Button from "./Buttons";
 import RouteList from "../routes/routeList"
-import NavItem from "~/components/NavItem";
 
 const Component = styled.div`
     display: flex;
@@ -19,7 +19,7 @@ const TitleWrapper = styled.div`
     justify-content: space-between;
     align-items: center;
     width: 100%;
-    padding: 0.5rem;
+    padding: 0.5rem 2rem 0.5rem 0rem;
     border-bottom: rgba(0, 0, 0, .1) 1px solid;
 `;
 
@@ -34,12 +34,14 @@ const ContentWrapper = styled.div`
 `;
 
 const TabletNav = () => {
+    const handleButtonClick = () => console.log("handleButtonClick");
 
     return (
         <Component>
             <TitleWrapper>
                 <SiteLogoTitle variant={'tablet'}/>
-                <NavItem title={"Contact"} route={"/contact"}/>
+                {/*<NavItem title={"Contact"} route={"/contact"}/>*/}
+                <Button buttonText={"Contact"} onClick={handleButtonClick} />
             </TitleWrapper>
             <ContentWrapper>
                 <TabletNavContent routeList={RouteList}/>

@@ -22,6 +22,7 @@
   --font-size-xlarge: 50px;
 
   --font-size-caption: var(--font-size-small);
+  --font-size-heading1: var(--font-size-xlarge);
   --font-size-heading2: var(--font-size-large);
 }
 html,
@@ -34,6 +35,7 @@ body {
 
 h1, h2, h3, h4, h5, h6 {
   font-family: var(--font-secondary);
+  color: var(--theme-color-dark);
 }
 
 h1  {
