@@ -1,8 +1,9 @@
 import {useMediaQuery} from "react-responsive";
-import {useEffect} from "react";
+import {useEffect, useState} from "react";
+import type {ScreenSize} from "~/types/ScreenSize";
 
-const MOBILE_BREAKPOINT = 650;
-const TABLET_BREAKPOINT = 850;
+const MOBILE_BREAKPOINT = 800;
+const TABLET_BREAKPOINT = 1200;
 
 const useLayoutMediaQueries = () => {
     const isTablet = useMediaQuery({query: `(max-width: ${TABLET_BREAKPOINT}px)`});
@@ -10,15 +11,23 @@ const useLayoutMediaQueries = () => {
     const isDesktop = !isTablet && !isMobile;
     const isPortrait = useMediaQuery({query: '(orientation: portrait)'});
 
+    const [screenMode, setScreenMode] = useState<ScreenSize>('desktop');
+
     useEffect(() => {
         console.log(`useLayoutMediaQueries called. Value changed to ${isDesktop ? 'desktop' : isTablet ? 'tablet' : isMobile ? 'mobile' : 'other'}`);
+
+        if (isMobile) {
+            setScreenMode('mobile');
+        } else if (isTablet) {
+            setScreenMode('tablet');
+        } else if (isDesktop) {
+            setScreenMode('desktop');
+        }
 
     }, [isTablet, isMobile, isDesktop])
 
     return {
-        isMobile,
-        isTablet,
-        isDesktop,
+        screenMode,
         isPortrait
     };
 };

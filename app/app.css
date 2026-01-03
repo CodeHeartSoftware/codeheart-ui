@@ -3,11 +3,23 @@
 @theme {
   --font-display: "Cherry Bomb One", ui-sans-serif, system-ui, sans-serif,
     "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  --font-secondary: "Outfit", ui-sans-serif, system-ui, sans-serif,
+    "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
 
   --theme-color-red: #F83939;
   --theme-color-pink: #FFE2E2;
   --theme-color-dark: #2B2525;
   --theme-color-alternate: #41B6E6;
+
+  --text-color-caption: #575757;
+
+  --font-size-small: 14px;
+  --font-size-medium: 32px;
+  --font-size-large: 40px;
+  --font-size-xlarge: 50px;
+
+  --font-size-caption: var(--font-size-small);
+  --font-size-heading2: var(--font-size-large);
 }
 html,
 body {
@@ -15,4 +27,23 @@ body {
 
   margin-left: 1rem;
   margin-right: 1rem;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-secondary);
+}
+
+h1  {
+  text-transform: uppercase;
+  font-weight: bold;
+  font-size: var(--font-size-xlarge);
+}
+
+h2 {
+  font-weight: bold;
+  font-size: var(--font-size-xlarge);
+}
+
+p {
+  font-family: var(--font-secondary);
 }

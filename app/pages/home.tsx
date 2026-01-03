@@ -1,12 +1,10 @@
-import {styled} from "styled-components";
 import Hero from "~/components/Hero";
-
-const Page = styled.div`
-background-color: var(--theme-color-pink)`;
+import WhoWeAre from "~/components/WhoWeAre";
 
 export function Home() {
     return <main>
-        <Hero />
+        <Hero/>
+        <WhoWeAre/>
     </main>
-};
+}
 
