@@ -1,12 +1,5 @@
-import {styled} from "styled-components";
-
-const Component = styled.div`
-    width: 100%;
-    border-bottom: var(--theme-color-dark) 1px solid;
-`;
-
 const Divider = () => {
-    return (<Component/>);
-}
+  return <div style={{ width: '100%', borderBottom: '1px solid var(--theme-color-dark)' }} />;
+};
 
 export default Divider;

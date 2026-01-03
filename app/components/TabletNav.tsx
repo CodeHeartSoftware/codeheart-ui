@@ -1,53 +1,53 @@
-import {styled} from "styled-components";
-import TabletNavContent from "./TabletNavContent";
-import {SiteLogoTitle} from "./SiteLogoTitle";
-import Button from "./Buttons";
-import RouteList from "../routes/routeList"
+import { styled } from 'styled-components';
+import TabletNavContent from './TabletNavContent';
+import { SiteLogoTitle } from './SiteLogoTitle';
+import Button from './Buttons';
+import RouteList from '../routes/routeList';
 
 const Component = styled.div`
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    height: fit-content;
-    background-color: var(--theme-color-pink); 
-    border-bottom: rgba(0, 0, 0, .1) 1px solid;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: fit-content;
+  background-color: var(--theme-color-pink);
+  border-bottom: rgba(0, 0, 0, 0.1) 1px solid;
 `;
 
 const TitleWrapper = styled.div`
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    width: 100%;
-    padding: 0.5rem 2rem 0.5rem 0rem;
-    border-bottom: rgba(0, 0, 0, .1) 1px solid;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  padding: 0.5rem 2rem 0.5rem 0;
+  border-bottom: rgba(0, 0, 0, 0.1) 1px solid;
 `;
 
 const ContentWrapper = styled.div`
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-    width: calc(100% - 4rem);
-    padding-top: 1rem;
-    padding-bottom: 1rem;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  width: calc(100% - 4rem);
+  padding-top: 1rem;
+  padding-bottom: 1rem;
 `;
 
 const TabletNav = () => {
-    const handleButtonClick = () => console.log("handleButtonClick");
+  const handleButtonClick = () => console.log('handleButtonClick');
 
-    return (
-        <Component>
-            <TitleWrapper>
-                <SiteLogoTitle variant={'tablet'}/>
-                {/*<NavItem title={"Contact"} route={"/contact"}/>*/}
-                <Button buttonText={"Contact"} onClick={handleButtonClick} />
-            </TitleWrapper>
-            <ContentWrapper>
-                <TabletNavContent routeList={RouteList}/>
-            </ContentWrapper>
-        </Component>
-    );
+  return (
+    <Component>
+      <TitleWrapper>
+        <SiteLogoTitle variant={'tablet'} />
+        {/*<NavItem title={"Contact"} route={"/contact"}/>*/}
+        <Button buttonText={'Contact'} onClick={handleButtonClick} />
+      </TitleWrapper>
+      <ContentWrapper>
+        <TabletNavContent routeList={RouteList} />
+      </ContentWrapper>
+    </Component>
+  );
 };
 
 export default TabletNav;
