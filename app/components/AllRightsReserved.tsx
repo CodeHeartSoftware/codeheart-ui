@@ -1,7 +1,7 @@
-import Text from "./Text";
-
 const AllRightsReserved = () => {
-    return <Text>All Rights Reserved</Text>
+    return (
+        <h4>Made with love. All Rights Reserved.</h4>
+    );
 }
 
 export default AllRightsReserved;

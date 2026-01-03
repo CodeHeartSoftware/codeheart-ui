@@ -8,7 +8,6 @@ const Component = styled.h4`
         text-decoration: underline;
         cursor: pointer;
     }
-    color: black;
 `;
 
 const NavItem = ({title, route}: RouteItem) => {

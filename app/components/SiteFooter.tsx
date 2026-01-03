@@ -1,19 +1,18 @@
-import styled from "styled-components";
+import {styled} from "styled-components";
 import NavItem from "./NavItem";
-import Logo from "../assets/logoBlack.svg";
 import Copyright from "./Copyright";
 import AllRightsReserved from "./AllRightsReserved";
 
 const Component = styled.div`
     width: 100%;
+    padding: 1rem 0rem;
 `;
 
 const FooterRow = styled.div`
     display: flex;
     flex-direction: row;
     align-items: baseline;
-    padding-left: 2rem;
-    padding-right: 2rem;
+    padding: 1rem 2rem;
 `;
 
 const Row1 = styled(FooterRow)`
@@ -33,16 +32,11 @@ const Row2SubsectionA = styled.div`
     gap: 1rem;
 `;
 
-const HeaderLogo = styled.img`
-    height: 5rem;
-    width: auto;
-`;
-
 const SiteFooter = () => {
     return (
         <Component>
             <Row1>
-                {<HeaderLogo src={Logo}/>}
+                {/*{<HeaderLogo src={Logo}/>}*/}
                 <NavItem title={'Contact'} route={'/contact'}/>
                 <NavItem title={'Back to Top'} route={'#'}/>
             </Row1>
