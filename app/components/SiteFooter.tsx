@@ -1,61 +1,45 @@
-import styled from "styled-components";
-import NavItem from "./NavItem";
-import Logo from "../assets/logoBlack.svg";
-import Copyright from "./Copyright";
-import AllRightsReserved from "./AllRightsReserved";
-
-const Component = styled.div`
-    width: 100%;
-`;
-
-const FooterRow = styled.div`
-    display: flex;
-    flex-direction: row;
-    align-items: baseline;
-    padding-left: 2rem;
-    padding-right: 2rem;
-`;
-
-const Row1 = styled(FooterRow)`
-    justify-content: flex-start;
-    gap: 1rem;
-    border-bottom: rgba(0, 0, 0, .1) 1px solid;
-`;
-
-const Row2 = styled(FooterRow)`
-    justify-content: space-between;
-`;
-
-const Row2SubsectionA = styled.div`
-    display: flex;
-    flex-direction: row;
-    align-items: baseline;
-    gap: 1rem;
-`;
-
-const HeaderLogo = styled.img`
-    height: 5rem;
-    width: auto;
-`;
+import NavItem from './NavItem';
+import Copyright from './Copyright';
+import AllRightsReserved from './AllRightsReserved';
+import Divider from '~/components/Divider';
 
 const SiteFooter = () => {
-    return (
-        <Component>
-            <Row1>
-                {<HeaderLogo src={Logo}/>}
-                <NavItem title={'Contact'} route={'/contact'}/>
-                <NavItem title={'Back to Top'} route={'#'}/>
-            </Row1>
-            <Row2>
-                <Row2SubsectionA>
-                    <Copyright/>
-                    <NavItem title={'Legal'} route={'/legal'}/>
-                    <NavItem title={'Privacy'} route={'/privacy'}/>
-                </Row2SubsectionA>
-                <AllRightsReserved/>
-            </Row2>
-        </Component>
-    );
-}
+  return (
+    <div style={{ width: '100%', padding: '1rem 0' }}>
+      <div
+        style={{
+          display: 'flex',
+          flexDirection: 'row',
+          alignItems: 'center',
+          gap: '1rem',
+          justifyContent: 'flex-start',
+          padding: '1rem 2rem'
+        }}
+      >
+        {/*{<HeaderLogo src={Logo}/>}*/}
+        <NavItem title={'Contact'} route={'/contact'} />
+        <NavItem title={'Back to Top'} route={'#'} />
+      </div>
+      <Divider />
+      <div
+        style={{
+          display: 'flex',
+          flexDirection: 'row',
+          justifyContent: 'space-between',
+          alignItems: 'center',
+          gap: '1rem',
+          padding: '1rem 2rem'
+        }}
+      >
+        <div style={{ display: 'flex', flexDirection: 'row', alignItems: 'center', gap: '1rem' }}>
+          <Copyright />
+          <NavItem title={'Legal'} route={'/legal'} />
+          <NavItem title={'Privacy'} route={'/privacy'} />
+        </div>
+        <AllRightsReserved />
+      </div>
+    </div>
+  );
+};
 
 export default SiteFooter;

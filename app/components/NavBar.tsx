@@ -5,17 +5,25 @@ import TabletNav from "./TabletNav";
 
 
 const NavBar = () => {
-    const {isMobile, isTablet} = useLayoutMediaQueries();
+    const {screenMode} = useLayoutMediaQueries();
 
     const renderNav = () => {
-        if (isMobile) {
-            return <MobileNav />;
-        }
-        if (isTablet) {
-            return <TabletNav />;
-        }
+        switch (screenMode) {
+            case "mobile":
+                return (
+                    <MobileNav/>
+                )
+            case "desktop":
+                return (
+                    <DesktopNav/>
+                )
+            default:
+                return (
+                    <TabletNav/>
+                );
 
-        return <DesktopNav />;
+
+        }
 
     }
 

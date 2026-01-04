@@ -1,31 +1,37 @@
-import {styled} from "styled-components";
-import NavItem from "./NavItem";
-import type RouteItem from "../types/RouteItem";
+import { styled } from 'styled-components';
+import NavItem from './NavItem';
+import type RouteItem from '../types/RouteItem';
+import Button from './Buttons';
 
 const Wrapper = styled.div`
-    padding-right: 0.6rem;
+  padding-right: 0.6rem;
 `;
 
 const Component = styled.div`
-    display: flex;
-    flex-direction: row;
-    gap: 1rem;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 1rem;
 `;
 
 interface Props {
-    routeList: RouteItem[];
+  routeList: RouteItem[];
 }
 
-const DesktopNavContent = ({routeList}: Props) => {
-    return (
-        <Wrapper>
-            <Component>
-                {routeList.map((route: RouteItem) => <NavItem title={route.title} route={route.route}/>)}
+const DesktopNavContent = ({ routeList }: Props) => {
+  const handleContactButtonClick = () => console.log('handleContactButtonClick');
 
-                <NavItem title={"Contact"} route={"/contact"} />
-            </Component>
-        </Wrapper>
-    );
-}
+  return (
+    <Wrapper>
+      <Component>
+        {routeList.map((route: RouteItem) => (
+          <NavItem title={route.title} route={route.route} />
+        ))}
+
+        <Button buttonText={'Contact'} onClick={handleContactButtonClick} />
+      </Component>
+    </Wrapper>
+  );
+};
 
 export default DesktopNavContent;

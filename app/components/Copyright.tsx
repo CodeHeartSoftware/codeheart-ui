@@ -1,9 +1,7 @@
-import Text from "./Text";
-
 const Copyright = () => {
     const thisYear = new Date().getFullYear();
 
-    return <Text>© ${thisYear} Blue World</Text>;
+    return <h4>©{thisYear} CodeHeart Software, LLC</h4>;
 }
 
 export default Copyright;
