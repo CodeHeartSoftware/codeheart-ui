@@ -9,7 +9,8 @@ const Button = ({ buttonText, onClick }: Props) => {
       style={{
         backgroundColor: 'var(--theme-color-red)',
         borderRadius: '4px',
-        padding: '8px 12px'
+        padding: '8px 12px',
+        cursor: 'pointer'
       }}
       onClick={onClick}
     >
