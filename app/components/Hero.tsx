@@ -18,7 +18,7 @@ const TabletComponent = styled(DesktopComponent)`
 `;
 
 const MobileComponent = styled(DesktopComponent)`
-  height: 30vh;
+  height: 90vh;
 `;
 
 const Headline = styled.img`
@@ -39,7 +39,7 @@ const TabletImageFrame = styled(DesktopImageFrame)`
 `;
 
 const MobileImageFrame = styled(DesktopImageFrame)`
-  height: 30vh;
+  height: 90vh;
 `;
 
 const DesktopHeroText = styled.div`
@@ -56,7 +56,7 @@ const TabletHeroText = styled(DesktopHeroText)`
 `;
 
 const MobileHeroText = styled(DesktopHeroText)`
-  height: 30vh;
+  height: 80vh;
 `;
 
 const Hero = () => {
@@ -101,7 +101,7 @@ const Hero = () => {
   return (
     <Component>
       <HeroText>
-        <Headline src={Logo}></Headline>
+        {screenMode != 'mobile' && <Headline src={Logo}></Headline>}
         <WhoWeAre />
       </HeroText>
       <HeroImageFrame>

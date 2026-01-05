@@ -13,12 +13,17 @@ const Component = styled.div`
   border-radius: 30px;
 `;
 
-const Title = styled.div`
+const DesktopTitle = styled.div`
   display: flex;
   flex-direction: column;
   width: 50%;
   padding: 2rem;
   gap: 3rem;
+`;
+
+const MobileTitle = styled(DesktopTitle)`
+  width: 100%;
+  justify-content: center;
 `;
 
 const Headline = styled.h1``;
@@ -31,8 +36,14 @@ const Subtitle = styled.div`
 const DesktopSubtitleText = styled.h2``;
 const TabletSubtitleText = styled(DesktopSubtitleText)`
   font-size: var(--font-size-heading2);
+  line-height: calc(1.1 * var(--font-size-heading2));
+  letter-spacing: calc(-0.025 * var(--font-size-heading2));
 `;
-const MobileSubtitleText = styled(DesktopSubtitleText)``;
+const MobileSubtitleText = styled(DesktopSubtitleText)`
+  font-size: var(--font-size-heading3);
+  line-height: calc(1.4 * var(--font-size-heading3));
+  letter-spacing: calc(0.02 * var(--font-size-heading3));
+`;
 
 //Hiding the CardSwap on mobile, so no need to style it
 const DesktopCarouselCardText = styled.h1`
@@ -41,6 +52,8 @@ const DesktopCarouselCardText = styled.h1`
 `;
 const TabletCarouselCardText = styled(DesktopCarouselCardText)`
   font-size: var(--font-size-heading2);
+  line-height: calc(1.1 * var(--font-size-heading2));
+  letter-spacing: calc(-0.025 * var(--font-size-heading2));
 `;
 
 const WorkWithUs = () => {
@@ -54,6 +67,8 @@ const WorkWithUs = () => {
         return DesktopSubtitleText;
       case 'tablet':
         return TabletSubtitleText;
+      case 'mobile':
+        return MobileSubtitleText;
     }
   }, [screenMode]);
 
@@ -64,6 +79,17 @@ const WorkWithUs = () => {
         return DesktopCarouselCardText;
       case 'tablet':
         return TabletCarouselCardText;
+    }
+  }, [screenMode]);
+
+  const Title: any = useMemo(() => {
+    switch (screenMode) {
+      default:
+      case 'desktop':
+      case 'tablet':
+        return DesktopTitle;
+      case 'mobile':
+        return MobileTitle;
     }
   }, [screenMode]);
 

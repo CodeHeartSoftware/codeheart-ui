@@ -12,7 +12,7 @@ const Component = styled.div`
 `;
 
 const MobileComponent = styled(Component)`
-  padding: 7.5rem 2.5rem;
+  height: 100%;
 `;
 
 const TabletComponent = styled(Component)`
@@ -39,6 +39,13 @@ const Headline = styled.p`
   font-weight: bold;
 `;
 
+const DesktopAccent = styled.span``;
+
+const MobileAccent = styled(DesktopAccent)`
+  font-family: var(--font-display);
+  color: var(--theme-color-red);
+`;
+
 const WhoWeAre = () => {
   const { screenMode } = useLayoutMediaQueries();
 
@@ -55,10 +62,23 @@ const WhoWeAre = () => {
     }
   }, [screenMode]);
 
+  const Accent = useMemo(() => {
+    switch (screenMode) {
+      default:
+      case 'tablet':
+      case 'desktop':
+        return DesktopAccent;
+      case 'mobile':
+        return MobileAccent;
+    }
+  }, [screenMode]);
+
   return (
     <Component>
       <TextBlock>
-        <Headline>We&apos;re CodeHeart, and we love building quality digital products.</Headline>
+        <Headline>
+          We&apos;re <Accent>CodeHeart</Accent>, and we love building quality digital products.
+        </Headline>
       </TextBlock>
       <Button buttonText={'About Us'} onClick={handleAboutUsOnClick} />
     </Component>
