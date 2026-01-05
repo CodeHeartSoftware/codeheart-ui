@@ -2,6 +2,7 @@ import { styled } from 'styled-components';
 import TabletNavContent from './TabletNavContent';
 import { SiteLogoTitle } from './SiteLogoTitle';
 import Button from './Buttons';
+import Divider from './Divider';
 import RouteList from '../routes/routeList';
 
 const Component = styled.div`
@@ -11,7 +12,6 @@ const Component = styled.div`
   align-items: center;
   height: fit-content;
   background-color: var(--theme-color-pink);
-  border-bottom: rgba(0, 0, 0, 0.1) 1px solid;
 `;
 
 const TitleWrapper = styled.div`
@@ -20,7 +20,6 @@ const TitleWrapper = styled.div`
   align-items: center;
   width: 100%;
   padding: 0.5rem 2rem 0.5rem 0;
-  border-bottom: rgba(0, 0, 0, 0.1) 1px solid;
 `;
 
 const ContentWrapper = styled.div`
@@ -43,9 +42,11 @@ const TabletNav = () => {
         {/*<NavItem title={"Contact"} route={"/contact"}/>*/}
         <Button buttonText={'Contact'} onClick={handleButtonClick} />
       </TitleWrapper>
+      <Divider />
       <ContentWrapper>
         <TabletNavContent routeList={RouteList} />
       </ContentWrapper>
+      <Divider />
     </Component>
   );
 };

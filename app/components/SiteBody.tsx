@@ -1,25 +1,47 @@
-import {styled} from "styled-components";
-import SiteFooter from "./SiteFooter";
-import NavBar from "~/components/NavBar";
+import { styled } from 'styled-components';
+import SiteFooter from './SiteFooter';
+import NavBar from '~/components/NavBar';
+import useLayoutMediaQueries from '~/hooks/useLayoutMediaQueries';
+import { useMemo } from 'react';
 
 interface Props {
-    children: any;
+  children: any;
 }
 
-const Component = styled.div`
-    display: flex;
-    flex-direction: column;
-    width: 100%;
+const Body = styled.div`
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  margin-left: 1rem;
+  margin-right: 1rem;
 `;
 
-const SiteBody = ({children}: Props) => {
-    return (
-        <Component>
-            <NavBar/>
-            {children}
-            <SiteFooter/>
-        </Component>
-    );
-}
+const MobileBody = styled(Body)`
+  margin-left: 0;
+  margin-right: 0;
+`;
+
+const SiteBody = ({ children }: Props) => {
+  const { screenMode } = useLayoutMediaQueries();
+
+  const Component = useMemo(() => {
+    switch (screenMode) {
+      default:
+      case 'desktop':
+      case 'tablet':
+        return Body;
+      case 'mobile':
+        return MobileBody;
+    }
+  }, [screenMode]);
+
+  return (
+    <Component>
+      <NavBar />
+      {children}
+      <SiteFooter />
+    </Component>
+  );
+};
 
 export default SiteBody;
