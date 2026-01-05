@@ -16,7 +16,7 @@ const MobileComponent = styled(Component)`
 `;
 
 const TabletComponent = styled(Component)`
-  padding: 11rem 7.5rem;
+  padding: 4rem 4rem;
 `;
 
 const DesktopComponent = styled(Component)`
