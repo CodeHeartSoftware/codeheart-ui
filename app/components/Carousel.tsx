@@ -1,5 +1,5 @@
 import { styled } from 'styled-components';
-import LogoLoop from '~/components/react-bits/LogoLoop';
+import LogoLoop from '~/components/imported/LogoLoop';
 import type { LogoMetadata } from '~/types/LogoMetadata';
 
 interface Props {

@@ -1,5 +1,5 @@
 import { styled } from 'styled-components';
-import CardSwap, { Card } from '~/components/react-bits/CardSwap';
+import CardSwap, { Card } from '~/components/imported/CardSwap';
 import Button from '~/components/Buttons';
 import { useEffect, useMemo, useState } from 'react';
 import useLayoutMediaQueries from '~/hooks/useLayoutMediaQueries';
