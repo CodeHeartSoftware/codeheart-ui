@@ -20,7 +20,10 @@ const MobileComponent = styled(TabletComponent)`
   height: 90vh;
 `;
 
-const MetalHeart = styled.img``;
+const MetalHeart = styled.img`
+  max-inline-size: 1800px;
+  align-self: center;
+`;
 
 const Headline = styled.div`
   position: absolute;
