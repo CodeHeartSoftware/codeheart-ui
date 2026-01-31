@@ -1,6 +1,5 @@
 import { styled } from 'styled-components';
 import SiteFooter from './SiteFooter';
-import NavBar from '~/components/NavBar';
 import useLayoutMediaQueries from '~/hooks/useLayoutMediaQueries';
 import { useMemo } from 'react';
 
@@ -12,8 +11,6 @@ const Body = styled.div`
   display: flex;
   flex-direction: column;
   width: 100%;
-  margin-left: 1rem;
-  margin-right: 1rem;
 `;
 
 const MobileBody = styled(Body)`
@@ -37,7 +34,6 @@ const SiteBody = ({ children }: Props) => {
 
   return (
     <Component>
-      <NavBar />
       {children}
       <SiteFooter />
     </Component>

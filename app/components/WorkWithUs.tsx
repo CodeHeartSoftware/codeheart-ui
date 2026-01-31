@@ -1,146 +1,103 @@
 import { styled } from 'styled-components';
-import CardSwap, { Card } from '~/components/imported/CardSwap';
-import Button from '~/components/Buttons';
-import { useEffect, useMemo, useState } from 'react';
-import useLayoutMediaQueries from '~/hooks/useLayoutMediaQueries';
+import MetalThing from './../assets/metalAbstract.png';
 
 const Component = styled.div`
   position: relative;
   display: flex;
-  flex-direction: row;
-  height: 600px;
-  overflow: hidden;
-  border-radius: 30px;
-`;
-
-const DesktopTitle = styled.div`
-  display: flex;
   flex-direction: column;
-  width: 50%;
-  padding: 2rem;
-  gap: 3rem;
-`;
-
-const MobileTitle = styled(DesktopTitle)`
   width: 100%;
-  justify-content: center;
+  align-items: flex-end;
+  overflow: hidden;
+  padding: 0 3.5rem;
 `;
 
-const Headline = styled.h1``;
-const Subtitle = styled.div`
+const Headline = styled.h1`
+  position: relative;
+  font-family: var(--font-display);
+  font-size: var(--font-size-xxlarge);
+  line-height: var(--font-size-xxlarge);
+  color: var(--theme-color-off-white);
+
+  z-index: 1;
+`;
+
+const Subheading = styled.p`
+  font-family: var(--font-tertiary);
+  font-size: var(--font-size-small);
+  color: var(--theme-color-off-white);
+
+  z-index: 1;
+`;
+
+const ContactRow = styled.div`
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+
+  z-index: 1;
+`;
+const LinksWrapper = styled.div`
+  display: flex;
+  flex-direction: row;
+  gap: 1rem;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem;
+  margin: 6rem 0;
+  background-color: var(--theme-color-off-white);
+  width: fit-content;
+`;
+const LinksWrapperLeft = styled.div`
   display: flex;
   flex-direction: column;
+  align-items: flex-end;
   gap: 1rem;
 `;
+const LinksWrapperRight = styled.p`
+  font-family: var(--font-tertiary);
+  font-size: var(--font-size-small);
+  color: var(--theme-color-cherry-red);
+  max-width: 40rem;
+`;
+const ContactLink = styled.a`
+  font-family: var(--font-secondary);
+  font-size: var(--font-size-small);
+  color: var(--theme-color-cherry-red);
+  text-transform: uppercase;
+  cursor: pointer;
+`;
 
-const DesktopSubtitleText = styled.h2``;
-const TabletSubtitleText = styled(DesktopSubtitleText)`
-  font-size: var(--font-size-heading2);
-  line-height: calc(1.1 * var(--font-size-heading2));
-  letter-spacing: calc(-0.025 * var(--font-size-heading2));
-`;
-const MobileSubtitleText = styled(DesktopSubtitleText)`
-  font-size: var(--font-size-heading3);
-  line-height: calc(1.4 * var(--font-size-heading3));
-  letter-spacing: calc(0.02 * var(--font-size-heading3));
+const Background = styled.div`
+  position: absolute;
+  width: 100%;
+
+  z-index: 0;
 `;
 
-//Hiding the CardSwap on mobile, so no need to style it
-const DesktopCarouselCardText = styled.h1`
-  color: var(--theme-color-pink);
-  padding-left: 0.5rem;
-`;
-const TabletCarouselCardText = styled(DesktopCarouselCardText)`
-  font-size: var(--font-size-heading2);
-  line-height: calc(1.1 * var(--font-size-heading2));
-  letter-spacing: calc(-0.025 * var(--font-size-heading2));
-`;
+const BackgroundImagery = styled.img``;
 
 const WorkWithUs = () => {
-  const { screenMode } = useLayoutMediaQueries();
-  const [cardSwapWidth, setCardSwapWidth] = useState(500);
-
-  const SubtitleText: any = useMemo(() => {
-    switch (screenMode) {
-      default:
-      case 'desktop':
-        return DesktopSubtitleText;
-      case 'tablet':
-        return TabletSubtitleText;
-      case 'mobile':
-        return MobileSubtitleText;
-    }
-  }, [screenMode]);
-
-  const CarouselCardText: any = useMemo(() => {
-    switch (screenMode) {
-      default:
-      case 'desktop':
-        return DesktopCarouselCardText;
-      case 'tablet':
-        return TabletCarouselCardText;
-    }
-  }, [screenMode]);
-
-  const Title: any = useMemo(() => {
-    switch (screenMode) {
-      default:
-      case 'desktop':
-      case 'tablet':
-        return DesktopTitle;
-      case 'mobile':
-        return MobileTitle;
-    }
-  }, [screenMode]);
-
-  useEffect(() => {
-    switch (screenMode) {
-      default:
-      case 'desktop':
-        setCardSwapWidth(500);
-        break;
-      case 'tablet':
-        setCardSwapWidth(375);
-        break;
-      case 'mobile':
-        setCardSwapWidth(300);
-    }
-  }, [screenMode]);
-
   return (
     <Component>
-      <Title>
-        <Headline>Work with us!</Headline>
-        <Subtitle>
-          <SubtitleText>Discover how we can turn your ideas into a digital reality.</SubtitleText>
-
-          <div>
-            <Button buttonText={'Get started'} />
-          </div>
-        </Subtitle>
-      </Title>
-      {screenMode != 'mobile' && (
-        <CardSwap width={cardSwapWidth} cardDistance={60} verticalDistance={70} delay={3000} pauseOnHover={false}>
-          <Card>
-            <CarouselCardText>Reliable</CarouselCardText>
-          </Card>
-          <Card>
-            <CarouselCardText>Experienced</CarouselCardText>
-          </Card>
-          <Card>
-            <CarouselCardText>Communicative</CarouselCardText>
-          </Card>
-          <Card>
-            <CarouselCardText>Collaborative</CarouselCardText>
-          </Card>
-          <Card>
-            <CarouselCardText>Transparent</CarouselCardText>
-          </Card>
-          <Card>
-            <CarouselCardText>Fast</CarouselCardText>
-          </Card>
-        </CardSwap>
-      )}
+      <Headline>Contact</Headline>
+      <Subheading> Thanks for taking the time to view the site this far! We’d love to hear from you.</Subheading>
+      <ContactRow>
+        <LinksWrapper>
+          <LinksWrapperLeft>
+            <ContactLink>Upwork</ContactLink>
+            <ContactLink>Fiverr</ContactLink>
+            <ContactLink>Email</ContactLink>
+          </LinksWrapperLeft>
+          <LinksWrapperRight>
+            Here are some methods for which you can inquire more about the work we do here at CodeHeart.
+          </LinksWrapperRight>
+        </LinksWrapper>
+      </ContactRow>
+      <Background>
+        <BackgroundImagery src={MetalThing} />
+      </Background>
     </Component>
   );
 };

@@ -4,22 +4,30 @@
 @custom-variant dark (&:is(.dark *));
 
 @theme {
-    --font-display: "Cherry Bomb One", ui-sans-serif, system-ui, sans-serif,
+    --font-display: "Vina Sans", ui-sans-serif, system-ui, sans-serif,
     "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
-    --font-secondary: "Outfit", ui-sans-serif, system-ui, sans-serif,
+    --font-secondary: "Changa", ui-sans-serif, system-ui, sans-serif,
     "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+    --font-tertiary: "Montserrat Alternates", ui-sans-serif, system-ui, sans-serif, " Apple Color Emoji ", " Segoe UI Emoji ", " Segoe UI Symbol ", " Noto Color Emoji ";
 
+    /*Valentines Theme Color Palette*/
     --theme-color-red: #F83939;
     --theme-color-pink: #FFE2E2;
     --theme-color-dark: #2B2525;
     --theme-color-alternate: #41B6E6;
 
+    /*Bold Theme Color Palette*/
+    --theme-color-cherry-red: #EC3232;
+    --theme-color-off-white: #ECECEC;
+
     --text-color-caption: #575757;
 
-    --font-size-small: 14px;
+    --font-size-small: 20px;
     --font-size-medium: 32px;
-    --font-size-large: 40px;
-    --font-size-xlarge: 50px;
+    --font-size-large: 60px;
+    --font-size-xlarge: 96px;
+    --font-size-xxlarge: 250px;
+    --font-size-xxxlarge: 350px;
 
     --font-size-caption: var(--font-size-small);
     --font-size-heading1: var(--font-size-xlarge);
@@ -28,7 +36,7 @@
 }
 html,
 body {
-    background-color: var(--theme-color-pink);
+    background-color: var(--theme-color-cherry-red);
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -37,13 +45,13 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 h1 {
-    text-transform: uppercase;
-    font-weight: bold;
+    text-transform: lowercase;
+    font-weight: normal;
     font-size: var(--font-size-xlarge);
 }
 
 h2 {
-    font-weight: bold;
+    font-weight: normal;
     font-size: var(--font-size-xlarge);
 }
 
