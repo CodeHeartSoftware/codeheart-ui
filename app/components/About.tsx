@@ -7,7 +7,7 @@ const Component = styled.div`
   width: 100%;
   background-color: var(--theme-color-off-white);
   align-items: flex-end;
-  padding: 2rem 3.5rem;
+  padding: 2rem 7rem 3rem 3.5rem;
 `;
 
 const Headline = styled.h1`
@@ -39,9 +39,11 @@ const PortraitWrapper = styled.div`
   position: absolute;
   align-self: flex-start;
   justify-self: flex-start;
-  height: 80%;
+  height: 75%;
 `;
-const Portrait = styled.img``;
+const Portrait = styled.img`
+  padding-left: 10rem;
+`;
 
 const About = () => {
   return (
