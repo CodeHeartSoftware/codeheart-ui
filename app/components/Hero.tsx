@@ -1,9 +1,9 @@
 import { styled } from 'styled-components';
 import Logo from '../assets/CodeHeartLogoRed.svg';
-import Ballpit from '~/components/react-bits/Ballpit';
 import WhoWeAre from '~/components/WhoWeAre';
 import useLayoutMediaQueries from '~/hooks/useLayoutMediaQueries';
 import { useMemo } from 'react';
+import Ballpit from './imported/Ballpit';
 
 const DesktopComponent = styled.div`
   position: relative;
@@ -40,6 +40,8 @@ const TabletImageFrame = styled(DesktopImageFrame)`
 
 const MobileImageFrame = styled(DesktopImageFrame)`
   height: 90vh;
+  pointer-events: none;
+  z-index: 2;
 `;
 
 const DesktopHeroText = styled.div`
@@ -48,7 +50,7 @@ const DesktopHeroText = styled.div`
   flex-direction: column;
   width: 100%;
   height: 60vh;
-  z-index: 2;
+  z-index: 3;
 `;
 
 const TabletHeroText = styled(DesktopHeroText)`
@@ -104,13 +106,14 @@ const Hero = () => {
         {screenMode != 'mobile' && <Headline src={Logo}></Headline>}
         <WhoWeAre />
       </HeroText>
+      <div className="absolute z-10 h-full w-full" />
       <HeroImageFrame>
         <Ballpit
           count={100}
           gravity={1.1}
           friction={0.8}
           wallBounce={2}
-          followCursor={true}
+          followCursor={false}
           colors={[0xf83939, 0xffe2e2, 0xffffff]}
         />
       </HeroImageFrame>

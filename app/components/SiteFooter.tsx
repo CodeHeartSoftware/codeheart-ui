@@ -31,7 +31,7 @@ const SiteFooter = () => {
           padding: '1rem 2rem'
         }}
       >
-        <div style={{ display: 'flex', flexDirection: 'row', alignItems: 'center', gap: '1rem' }}>
+        <div style={{ display: 'flex', flexDirection: 'row', alignItems: 'flex-start', gap: '1rem' }}>
           <Copyright />
           <NavItem title={'Legal'} route={'/legal'} />
           <NavItem title={'Privacy'} route={'/privacy'} />
