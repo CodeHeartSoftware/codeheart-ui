@@ -4,15 +4,20 @@
 @custom-variant dark (&:is(.dark *));
 
 @theme {
-    --font-display: "Cherry Bomb One", ui-sans-serif, system-ui, sans-serif,
+    --font-display: "Vina Sans", ui-sans-serif, system-ui, sans-serif,
     "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
-    --font-secondary: "Outfit", ui-sans-serif, system-ui, sans-serif,
+    --font-secondary: "Changa", ui-sans-serif, system-ui, sans-serif,
     "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
 
+    /*Valentines Theme Color Palette*/
     --theme-color-red: #F83939;
     --theme-color-pink: #FFE2E2;
     --theme-color-dark: #2B2525;
     --theme-color-alternate: #41B6E6;
+
+    /*Bold Theme Color Palette*/
+    --theme-color-cherry-red: #EC3232;
+    --theme-color-off-white: #ECECEC;
 
     --text-color-caption: #575757;
 
@@ -20,6 +25,7 @@
     --font-size-medium: 32px;
     --font-size-large: 40px;
     --font-size-xlarge: 50px;
+    --font-size-xxlarge: 250px;
 
     --font-size-caption: var(--font-size-small);
     --font-size-heading1: var(--font-size-xlarge);
