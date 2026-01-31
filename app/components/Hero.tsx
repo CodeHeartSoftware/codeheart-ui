@@ -35,6 +35,7 @@ const HeadlineText = styled.h1`
   font-size: var(--font-size-xxlarge);
   line-height: 350px;
   font-weight: normal;
+  text-transform: lowercase;
 `;
 const SubHeadline = styled.div`
   position: absolute;
@@ -73,9 +74,10 @@ const CallToActionWrapper = styled.div`
 `;
 const CallToAction = styled.h2`
   font-family: var(--font-display);
-  font-size: var(--font-size-xlarge);
+  font-size: var(--font-size-large);
   color: var(--theme-color-cherry-red);
   border-bottom: 15px solid var(--theme-color-cherry-red);
+  text-transform: uppercase;
 `;
 
 const DownArrowWrapper = styled.div`
