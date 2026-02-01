@@ -118,7 +118,7 @@ const Hero = () => {
           Heart
         </HeadlineText>
       </Headline>
-      <MetalHeart src={Heart} className="z-20" />
+      <MetalHeart src={Heart} className="z-20" data-usal="fade-u" />
       <SubHeadline className="z-30" data-usal="fade-l delay-200">
         <HeadlineText>Software</HeadlineText>
       </SubHeadline>
