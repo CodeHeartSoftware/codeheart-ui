@@ -57,10 +57,12 @@ const BoldText = styled.h1`
 const Services = () => {
   return (
     <Component>
-      <Title>
+      <Title data-usal="fade-d">
         <Headline>Services</Headline>
       </Title>
-      <Carousel logos={otherLogos} />
+      <div data-usal="fade-l">
+        <Carousel logos={otherLogos} />
+      </div>
       <Body>
         <ServiceCard
           title="Front End"
@@ -84,10 +86,10 @@ const Services = () => {
           leftImage={MockDesktop}
         />
         <BoldTextSection>
-          <BoldText>Web Design</BoldText>
-          <BoldText>Mobile Design</BoldText>
-          <BoldText>Database Design</BoldText>
-          <BoldText>API Design</BoldText>
+          <BoldText data-usal="fade-r">Web Design</BoldText>
+          <BoldText data-usal="fade-l">Mobile Design</BoldText>
+          <BoldText data-usal="fade-r">Database Design</BoldText>
+          <BoldText data-usal="fade-l">API Design</BoldText>
         </BoldTextSection>
       </Body>
     </Component>

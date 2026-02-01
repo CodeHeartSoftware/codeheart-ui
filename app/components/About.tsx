@@ -49,12 +49,12 @@ const About = () => {
   return (
     <Component>
       <PortraitWrapper>
-        <Portrait src={PersonalPortrait} />
+        <Portrait data-usal="fade-r" src={PersonalPortrait} />
       </PortraitWrapper>
-      <Headline>About</Headline>
+      <Headline data-usal="fade-u">About</Headline>
       <AboutText>
         {/* TODO: re-write this section with my own words */}
-        <ParagraphColumn1>
+        <ParagraphColumn1 data-usal="fade-l delay-400">
           I help small businesses and creative entrepreneurs bring their ideas to life with thoughtful branding and
           websites that actually work.
           <br />
@@ -65,7 +65,7 @@ const About = () => {
           been designing for over 6 years, and in that time, I’ve worked with coaches, makers, freelancers, and founders
           from all kinds of industries.
         </ParagraphColumn1>
-        <ParagraphColumn2>
+        <ParagraphColumn2 data-usal="fade-l delay-600">
           When I’m not designing, you’ll usually find me curled up with a good book, walking my rescue dog, Luna, or
           trying to perfect my oat milk latte at home. I’m a big believer in slow mornings, creative freedom, and
           building a business that fits your version of success.

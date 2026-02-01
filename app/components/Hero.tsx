@@ -111,22 +111,28 @@ const Hero = () => {
   return (
     <Component>
       <Headline>
-        <HeadlineText className="z-0">Code</HeadlineText>
-        <HeadlineText className="z-30">Heart</HeadlineText>
+        <HeadlineText className="z-0" data-usal="fade-r">
+          Code
+        </HeadlineText>
+        <HeadlineText className="z-30" data-usal="fade-r delay-100">
+          Heart
+        </HeadlineText>
       </Headline>
       <MetalHeart src={Heart} className="z-20" />
-      <SubHeadline className="z-30">
+      <SubHeadline className="z-30" data-usal="fade-l delay-200">
         <HeadlineText>Software</HeadlineText>
       </SubHeadline>
-      <Blurb className="z-30">
+      <Blurb className="z-30" data-usal="fade-l">
         <BlurbBody>
-          <BlurbText>We design and build highly-performant, secure digital products.</BlurbText>
-          <CallToActionWrapper>
+          <BlurbText data-usal="fade-l delay-100">
+            We design and build highly-performant, secure digital products.
+          </BlurbText>
+          <CallToActionWrapper data-usal="fade-l delay-200">
             <CallToAction>Start a project</CallToAction>
           </CallToActionWrapper>
         </BlurbBody>
       </Blurb>
-      <DownArrowWrapper>
+      <DownArrowWrapper data-usal="fade-d delay-500">
         <DownArrow src={Arrow} />
       </DownArrowWrapper>
     </Component>

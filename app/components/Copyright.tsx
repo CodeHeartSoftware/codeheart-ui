@@ -3,6 +3,7 @@ const Copyright = () => {
 
   return (
     <h4
+      data-usal="fade-r"
       style={{
         fontFamily: 'var(--font-display)',
         fontSize: 'var(--font-size-small)',
