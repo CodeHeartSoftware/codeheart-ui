@@ -1,33 +1,32 @@
-import {styled} from "styled-components";
-import {SiteLogoTitle} from "./SiteLogoTitle";
-import DesktopNavContent from "./DesktopNavContent";
-import RouteList from "../routes/routeList"
+import { styled } from 'styled-components';
+import RouteList from '../routes/routeList';
+import type RouteItem from '~/types/RouteItem';
+import NavItem from '~/components/NavItem';
 
 const Component = styled.div`
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    height: fit-content;
-    width: 100%;
-    background-color: var(--theme-color-pink);
-    border-bottom: var(--theme-color-dark) 1px solid;
+  position: fixed;
+  top: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: fit-content;
+  width: 100%;
+
+  z-index: 20;
 `;
 
-const TitleWrapper = styled.div`
-    display: flex;
-    max-width: 12rem;
-    padding: 0.5rem;
-`;
+export interface DesktopNavProps {
+  isNotAtTop?: boolean;
+}
 
-const DesktopNav = () => {
-    return (
-        <Component>
-            <TitleWrapper>
-                <SiteLogoTitle/>
-            </TitleWrapper>
-            <DesktopNavContent routeList={RouteList}/>
-        </Component>
-    );
+const DesktopNav = ({ isNotAtTop }: DesktopNavProps) => {
+  return (
+    <Component className={isNotAtTop ? 'bg-(--theme-color-off-white)' : ''}>
+      {RouteList.map((route: RouteItem) => (
+        <NavItem title={route.title} route={route.route} />
+      ))}
+    </Component>
+  );
 };
 
 export default DesktopNav;

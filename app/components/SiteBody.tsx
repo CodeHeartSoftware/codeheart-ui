@@ -2,6 +2,7 @@ import { styled } from 'styled-components';
 import SiteFooter from './SiteFooter';
 import useLayoutMediaQueries from '~/hooks/useLayoutMediaQueries';
 import { useMemo } from 'react';
+import NavBar from '~/components/NavBar';
 
 interface Props {
   children: any;

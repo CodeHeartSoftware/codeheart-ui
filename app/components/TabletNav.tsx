@@ -1,7 +1,5 @@
 import { styled } from 'styled-components';
 import TabletNavContent from './TabletNavContent';
-import { SiteLogoTitle } from './SiteLogoTitle';
-import Button from './Buttons';
 import Divider from './Divider';
 import RouteList from '../routes/routeList';
 
@@ -11,7 +9,7 @@ const Component = styled.div`
   justify-content: center;
   align-items: center;
   height: fit-content;
-  background-color: var(--theme-color-pink);
+  background-color: var(--theme-color-off-white);
 `;
 
 const TitleWrapper = styled.div`
@@ -37,12 +35,6 @@ const TabletNav = () => {
 
   return (
     <Component>
-      <TitleWrapper>
-        <SiteLogoTitle variant={'tablet'} />
-        {/*<NavItem title={"Contact"} route={"/contact"}/>*/}
-        <Button buttonText={'Contact'} onClick={handleButtonClick} />
-      </TitleWrapper>
-      <Divider />
       <ContentWrapper>
         <TabletNavContent routeList={RouteList} />
       </ContentWrapper>

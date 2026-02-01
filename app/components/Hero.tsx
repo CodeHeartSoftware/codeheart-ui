@@ -112,13 +112,13 @@ const Hero = () => {
     <Component>
       <Headline>
         <HeadlineText className="z-0">Code</HeadlineText>
-        <HeadlineText className="z-20">Heart</HeadlineText>
+        <HeadlineText className="z-30">Heart</HeadlineText>
       </Headline>
-      <MetalHeart src={Heart} className="z-10" />
-      <SubHeadline className="z-20">
+      <MetalHeart src={Heart} className="z-20" />
+      <SubHeadline className="z-30">
         <HeadlineText>Software</HeadlineText>
       </SubHeadline>
-      <Blurb className="z-20">
+      <Blurb className="z-30">
         <BlurbBody>
           <BlurbText>We design and build highly-performant, secure digital products.</BlurbText>
           <CallToActionWrapper>
