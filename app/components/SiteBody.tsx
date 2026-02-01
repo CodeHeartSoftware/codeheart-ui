@@ -35,7 +35,6 @@ const SiteBody = ({ children }: Props) => {
 
   return (
     <Component>
-      <NavBar />
       {children}
       <SiteFooter />
     </Component>
