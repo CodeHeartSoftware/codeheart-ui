@@ -81,21 +81,23 @@ const BackgroundImagery = styled.img``;
 const WorkWithUs = () => {
   return (
     <Component>
-      <Headline>Contact</Headline>
-      <Subheading> Thanks for taking the time to view the site this far! We’d love to hear from you.</Subheading>
+      <Headline data-usal="fade-d">Contact</Headline>
+      <Subheading data-usal="fade-l delay-400">
+        Thanks for taking the time to view the site this far! We’d love to hear from you.
+      </Subheading>
       <ContactRow>
-        <LinksWrapper>
-          <LinksWrapperLeft>
+        <LinksWrapper data-usal="flip-u">
+          <LinksWrapperLeft data-usal="split-item split-fade-r split-delay-400">
             <ContactLink>Upwork</ContactLink>
             <ContactLink>Fiverr</ContactLink>
             <ContactLink>Email</ContactLink>
           </LinksWrapperLeft>
-          <LinksWrapperRight>
+          <LinksWrapperRight data-usal="fade-l delay-600">
             Here are some methods for which you can inquire more about the work we do here at CodeHeart.
           </LinksWrapperRight>
         </LinksWrapper>
       </ContactRow>
-      <Background>
+      <Background data-usal="flip-dl">
         <BackgroundImagery src={MetalThing} />
       </Background>
     </Component>

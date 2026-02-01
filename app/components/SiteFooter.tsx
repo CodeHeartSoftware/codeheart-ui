@@ -3,7 +3,7 @@ import Copyright from '~/components/Copyright';
 
 const SiteFooter = () => {
   return (
-    <div style={{ width: '100%', padding: '1rem' }}>
+    <div style={{ width: '100%', padding: '1rem' }} data-usal="fade-d">
       <img src={FooterLogo} style={{ width: '100%' }} />
       <div style={{ paddingTop: '1rem', borderBottom: `15px solid var(--theme-color-off-white)` }} />
       <div style={{ display: 'flex', justifyContent: 'space-between' }}>
@@ -14,6 +14,7 @@ const SiteFooter = () => {
             fontSize: 'var(--font-size-small)',
             color: 'var(--theme-color-off-white)'
           }}
+          data-usal="fade-l"
         >
           Back to Top
         </a>

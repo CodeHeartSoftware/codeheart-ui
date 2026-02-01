@@ -4,6 +4,7 @@ const Component = styled.div`
   display: flex;
   background-color: var(--theme-color-off-white);
   max-height: 800px;
+  overflow: hidden;
 `;
 
 const RightBody = styled.div`
@@ -49,18 +50,18 @@ interface ServiceCardProps {
 
 const ServiceCard = ({ title, titleSecondLine, subtitle, blurb, leftImage }: ServiceCardProps) => {
   return (
-    <Component>
+    <Component data-usal="fade-r">
       <RightBody>
-        <TitleSection>
+        <TitleSection data-usal="fade-r delay-400">
           <div>
             <Title>{title}</Title>
             <Title>{titleSecondLine}</Title>
           </div>
-          <Subtitle>{subtitle}</Subtitle>
+          <Subtitle data-usal="fade-r delay-400">{subtitle}</Subtitle>
         </TitleSection>
-        <Blurb>{blurb}</Blurb>
+        <Blurb data-usal="fade-r delay-600">{blurb}</Blurb>
       </RightBody>
-      <LeftImage src={leftImage} />
+      <LeftImage data-usal="fade-l" src={leftImage} />
     </Component>
   );
 };

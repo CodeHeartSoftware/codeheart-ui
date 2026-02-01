@@ -3,6 +3,8 @@ import { isRouteErrorResponse, Links, Meta, Outlet, Scripts, ScrollRestoration }
 import type { Route } from './+types/root';
 import './app.css';
 import SiteBody from '~/components/SiteBody';
+import { USALProvider } from '@usal/react';
+import NavBar from '~/components/NavBar';
 
 export const links: Route.LinksFunction = () => [
   { rel: 'preconnect', href: 'https://fonts.googleapis.com' },
@@ -27,7 +29,10 @@ export function Layout({ children }: { children: React.ReactNode }) {
         <Links />
       </head>
       <body>
-        <SiteBody>{children}</SiteBody>
+        <NavBar />
+        <USALProvider>
+          <SiteBody>{children}</SiteBody>
+        </USALProvider>
         <ScrollRestoration />
         <Scripts />
       </body>
