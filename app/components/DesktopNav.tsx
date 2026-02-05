@@ -2,6 +2,7 @@ import { styled } from 'styled-components';
 import RouteList from '../routes/routeList';
 import type RouteItem from '~/types/RouteItem';
 import NavItem from '~/components/NavItem';
+import useScrollDetector from '~/hooks/useScrollDetector';
 
 const Component = styled.div`
   position: fixed;
@@ -12,18 +13,22 @@ const Component = styled.div`
   height: fit-content;
   width: 100%;
 
-  z-index: 20;
+  z-index: 40;
 `;
 
-export interface DesktopNavProps {
-  isNotAtTop?: boolean;
-}
+const NavItemWrapper = styled.div`
+  padding: 1rem;
+`;
 
-const DesktopNav = ({ isNotAtTop }: DesktopNavProps) => {
+const DesktopNav = () => {
+  const { isAtTop } = useScrollDetector();
+
   return (
-    <Component className={isNotAtTop ? 'bg-(--theme-color-off-white)' : ''}>
+    <Component className={!isAtTop ? 'animate-increase-bg-opacity' : ''}>
       {RouteList.map((route: RouteItem) => (
-        <NavItem title={route.title} route={route.route} />
+        <NavItemWrapper>
+          <NavItem title={route.title} route={route.route} />
+        </NavItemWrapper>
       ))}
     </Component>
   );

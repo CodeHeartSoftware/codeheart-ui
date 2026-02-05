@@ -45,6 +45,7 @@ const BoldTextSection = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  text-align: center;
 `;
 const BoldText = styled.h1`
   font-family: var(--font-display);
@@ -56,7 +57,7 @@ const BoldText = styled.h1`
 
 const Services = () => {
   return (
-    <Component>
+    <Component id="services">
       <Title data-usal="fade-d">
         <Headline>Services</Headline>
       </Title>

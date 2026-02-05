@@ -1,19 +1,19 @@
 import { useEffect, useState } from 'react';
 
 const useScrollDetector = () => {
-  const [isNotTop, setIsNotTop] = useState(false);
+  const [isAtTop, setIsAtTop] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
-      // Check if scroll position is greater than 0
-      setIsNotTop(window.scrollY > 200);
+      // Check if scroll position is greater than 90
+      setIsAtTop(window.scrollY <= 90);
     };
 
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  return { isNotTop };
+  return { isAtTop };
 };
 
 export default useScrollDetector;
