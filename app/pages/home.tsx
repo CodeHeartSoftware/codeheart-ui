@@ -1,6 +1,6 @@
 import Hero from '~/components/Hero';
 import Services from '~/components/Services';
-import WorkWithUs from '~/components/WorkWithUs';
+import Contact from '~/components/Contact';
 import About from '~/components/About';
 
 export function Home() {
@@ -9,7 +9,7 @@ export function Home() {
       <Hero />
       <Services />
       <About />
-      <WorkWithUs />
+      <Contact />
     </main>
   );
 }

@@ -47,7 +47,7 @@ const Portrait = styled.img`
 
 const About = () => {
   return (
-    <Component>
+    <Component id="about">
       <PortraitWrapper>
         <Portrait data-usal="fade-r" src={PersonalPortrait} />
       </PortraitWrapper>

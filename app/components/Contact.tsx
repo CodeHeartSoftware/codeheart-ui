@@ -78,9 +78,9 @@ const Background = styled.div`
 
 const BackgroundImagery = styled.img``;
 
-const WorkWithUs = () => {
+const Contact = () => {
   return (
-    <Component>
+    <Component id="contact">
       <Headline data-usal="fade-d">Contact</Headline>
       <Subheading data-usal="fade-l delay-400">
         Thanks for taking the time to view the site this far! We’d love to hear from you.
@@ -104,4 +104,4 @@ const WorkWithUs = () => {
   );
 };
 
-export default WorkWithUs;
+export default Contact;

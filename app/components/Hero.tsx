@@ -36,7 +36,7 @@ const HeadlineText = styled.h1`
   font-family: var(--font-display);
   color: var(--theme-color-cherry-red);
   font-size: var(--font-size-xxlarge);
-  line-height: 350px;
+  line-height: var(--font-size-xxlarge);
   font-weight: normal;
   text-transform: lowercase;
 `;
@@ -117,6 +117,9 @@ const Hero = () => {
         <HeadlineText className="z-30" data-usal="fade-r delay-100">
           Heart
         </HeadlineText>
+        <DownArrowWrapper data-usal="fade-d delay-500">
+          <DownArrow src={Arrow} />
+        </DownArrowWrapper>
       </Headline>
       <MetalHeart src={Heart} className="z-20" data-usal="fade-u" />
       <SubHeadline className="z-30" data-usal="fade-l delay-200">
@@ -132,9 +135,6 @@ const Hero = () => {
           </CallToActionWrapper>
         </BlurbBody>
       </Blurb>
-      <DownArrowWrapper data-usal="fade-d delay-500">
-        <DownArrow src={Arrow} />
-      </DownArrowWrapper>
     </Component>
   );
 };

@@ -1,5 +1,6 @@
 import { styled } from 'styled-components';
 import type RouteItem from '../types/RouteItem';
+import { Link } from 'react-router';
 
 const Component = styled.div`
   display: flex;
@@ -24,7 +25,9 @@ const NavItem = ({ title, route }: RouteItem) => {
 
   return (
     <Component onClick={handleOnClick}>
-      <ComponentText>{title}</ComponentText>
+      <ComponentText>
+        <Link to={route}>{title}</Link>
+      </ComponentText>
     </Component>
   );
 };

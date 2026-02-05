@@ -26,17 +26,29 @@
     --font-size-medium: 32px;
     --font-size-large: 60px;
     --font-size-xlarge: 96px;
-    --font-size-xxlarge: 250px;
-    --font-size-xxxlarge: 350px;
+    --font-size-xxlarge: 150px;
+    --font-size-xxxlarge: 250px;
 
     --font-size-caption: var(--font-size-small);
     --font-size-heading1: var(--font-size-xlarge);
     --font-size-heading2: var(--font-size-large);
     --font-size-heading3: var(--font-size-medium);
+
+    --animate-increase-bg-opacity: increaseOpacity 0.5s forwards;
+
+    @keyframes increaseOpacity {
+        0% {
+            background-color: transparent;
+        }
+        100% {
+            background-color: var(--theme-color-off-white);
+        }
+    }
 }
 html,
 body {
     background-color: var(--theme-color-cherry-red);
+    overflow-x: hidden;
 }
 
 h1, h2, h3, h4, h5, h6 {
