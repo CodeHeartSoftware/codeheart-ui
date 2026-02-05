@@ -5,7 +5,6 @@ import { Link } from 'react-router';
 const Component = styled.div`
   display: flex;
   align-items: baseline;
-  padding: 1rem;
 `;
 const ComponentText = styled.h1`
   font-family: var(--font-display);

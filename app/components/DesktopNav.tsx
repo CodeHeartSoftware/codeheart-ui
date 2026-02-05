@@ -16,13 +16,19 @@ const Component = styled.div`
   z-index: 40;
 `;
 
+const NavItemWrapper = styled.div`
+  padding: 1rem;
+`;
+
 const DesktopNav = () => {
   const { isAtTop } = useScrollDetector();
 
   return (
     <Component className={!isAtTop ? 'animate-increase-bg-opacity' : ''}>
       {RouteList.map((route: RouteItem) => (
-        <NavItem title={route.title} route={route.route} />
+        <NavItemWrapper>
+          <NavItem title={route.title} route={route.route} />
+        </NavItemWrapper>
       ))}
     </Component>
   );

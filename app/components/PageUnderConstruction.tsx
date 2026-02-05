@@ -1,3 +1,5 @@
+import { Link } from 'react-router';
+
 const PageUnderConstruction = () => {
   return (
     <div
@@ -21,6 +23,16 @@ const PageUnderConstruction = () => {
       >
         Page Under Construction
       </h2>
+      <h3
+        style={{
+          fontFamily: 'var(--font-display)',
+          fontSize: 'var(--font-size-large)',
+          color: 'var(--theme-color-cherry-red)',
+          borderBottom: '15px solid var(--theme-color-cherry-red)'
+        }}
+      >
+        <Link to="/">Back to Home</Link>
+      </h3>
     </div>
   );
 };

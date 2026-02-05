@@ -3,6 +3,7 @@ import useLayoutMediaQueries from '~/hooks/useLayoutMediaQueries';
 import { useMemo } from 'react';
 import Heart from './../assets/metalHeart.png';
 import Arrow from './../assets/downArrowBold.png';
+import { Link } from 'react-router';
 
 const DesktopComponent = styled.div`
   position: relative;
@@ -131,7 +132,9 @@ const Hero = () => {
             We design and build highly-performant, secure digital products.
           </BlurbText>
           <CallToActionWrapper data-usal="fade-l delay-200">
-            <CallToAction>Start a project</CallToAction>
+            <CallToAction>
+              <Link to="#contact">Start a project</Link>
+            </CallToAction>
           </CallToActionWrapper>
         </BlurbBody>
       </Blurb>
