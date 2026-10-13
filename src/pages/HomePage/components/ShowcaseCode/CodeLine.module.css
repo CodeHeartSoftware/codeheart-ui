@@ -1,0 +1,44 @@
+.line {
+  display: flex;
+  min-height: 1.85em;
+}
+
+.gutter {
+  flex-shrink: 0;
+  width: 48px;
+  padding-right: 16px;
+  color: rgba(255, 255, 255, 0.22);
+  text-align: right;
+}
+
+.content {
+  overflow: hidden;
+  white-space: pre;
+  text-overflow: ellipsis;
+  clip-path: inset(0 100% 0 0);
+  animation: type-line 0.32s steps(18) both;
+  animation-delay: calc(0.3s + var(--line-index) * 0.2s);
+}
+
+.line:last-child .content::after {
+  display: inline-block;
+  width: 7px;
+  height: 1.1em;
+  margin-left: 3px;
+  background: var(--color-coral);
+  content: "";
+  vertical-align: text-bottom;
+  animation: caret-blink 1s steps(1) infinite;
+}
+
+@keyframes type-line {
+  to {
+    clip-path: inset(0 0 0 0);
+  }
+}
+
+@keyframes caret-blink {
+  50% {
+    opacity: 0;
+  }
+}

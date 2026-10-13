@@ -1,0 +1,44 @@
+.card {
+  padding: 28px 30px 20px 0;
+}
+
+.card + .card {
+  padding-left: 30px;
+  border-left: 1px solid rgba(50, 16, 29, 0.22);
+}
+
+.number {
+  color: #86516a;
+  font-size: 10px;
+  font-weight: 600;
+}
+
+.card h3 {
+  margin: 70px 0 20px;
+  font-family: var(--font-display);
+  font-size: 29px;
+  font-weight: 500;
+  letter-spacing: -0.04em;
+}
+
+.card p {
+  max-width: 290px;
+  margin: 0;
+  color: var(--color-text-muted);
+  font-size: 13px;
+  line-height: 1.7;
+}
+
+@media (max-width: 760px) {
+  .card,
+  .card + .card {
+    min-height: 220px;
+    padding: 28px 0;
+    border-top: 1px solid rgba(50, 16, 29, 0.22);
+    border-left: 0;
+  }
+
+  .card h3 {
+    margin-top: 45px;
+  }
+}

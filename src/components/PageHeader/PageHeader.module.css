@@ -1,0 +1,29 @@
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 100px;
+  border-bottom: 1px solid var(--color-line);
+}
+
+.backLink {
+  display: inline-flex;
+  align-items: center;
+  gap: 14px;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.backArrow {
+  transition: transform 0.2s ease;
+}
+
+.backLink:hover .backArrow {
+  transform: translateX(4px);
+}
+
+@media (max-width: 760px) {
+  .header {
+    height: 76px;
+  }
+}

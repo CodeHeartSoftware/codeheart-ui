@@ -1,0 +1,40 @@
+/*
+ * Design tokens. Every color, font, easing, and radius used by a component's
+ * CSS module should come from here as `var(--token)`. `static` keeps all of
+ * them emitted even when no Tailwind utility references them.
+ *
+ * Breakpoints can't be variables inside @media, so use these exact values:
+ *   tablet: @media (max-width: 1100px)
+ *   mobile: @media (max-width: 760px)
+ */
+@theme static {
+  --color-ink: #32101d;
+  --color-cream: #fff5f7;
+  --color-paper: #fffafb;
+  --color-coral: #ed335b;
+  --color-coral-dark: #c91d46;
+  --color-plum: #2a0b17;
+  --color-berry: #a92e55;
+  --color-blush: #f3bfd0;
+  --color-tone-blush: #e8b0c6;
+  --color-tone-rose: #f19ab0;
+  --color-tone-berry: #d86a8e;
+  --color-line: rgba(50, 16, 29, 0.16);
+  --color-line-on-dark: rgba(255, 255, 255, 0.17);
+
+  --color-text-muted: #76515f;
+  --color-text-subtle: #8a6471;
+  --color-text-faint: #865f6c;
+  --color-text-on-dark: #c9aeb7;
+  --color-text-on-coral: rgba(255, 255, 255, 0.72);
+
+  --font-sans: "DM Sans", sans-serif;
+  --font-display: "Manrope", sans-serif;
+  --font-serif: "Playfair Display", serif;
+  --font-mono: ui-monospace, "SF Mono", Menlo, monospace;
+
+  --ease-spring: cubic-bezier(0.2, 0.8, 0.2, 1);
+  --ease-rise: cubic-bezier(0.16, 1, 0.3, 1);
+
+  --radius-pill: 999px;
+}

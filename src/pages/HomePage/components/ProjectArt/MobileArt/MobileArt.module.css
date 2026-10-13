@@ -1,0 +1,146 @@
+.phone {
+  position: relative;
+  width: min(52%, 330px);
+  height: 88%;
+  overflow: hidden;
+  border: 9px solid var(--color-ink);
+  border-radius: 42px;
+  background: var(--color-paper);
+  box-shadow: 0 35px 65px rgba(91, 24, 51, 0.24);
+  transform: translateY(6%);
+}
+
+.notch {
+  position: absolute;
+  top: 7px;
+  left: 50%;
+  z-index: 2;
+  width: 35%;
+  height: 18px;
+  border-radius: 10px;
+  background: var(--color-ink);
+  transform: translateX(-50%);
+}
+
+.screen {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  padding: 58px 25px 25px;
+}
+
+.screen > small {
+  color: #8b6673;
+  font-size: 8px;
+}
+
+.screen > strong {
+  margin-top: 7px;
+  font-family: var(--font-display);
+  font-size: clamp(15px, 1.5vw, 22px);
+}
+
+.moodRow {
+  display: flex;
+  gap: 8px;
+  margin: 22px 0;
+}
+
+.moodRow i {
+  width: 25%;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background: #f5dfe7;
+}
+
+.moodRow .activeMood {
+  background: var(--color-coral);
+  box-shadow: inset 0 0 0 5px var(--color-paper);
+  outline: 1px solid var(--color-coral);
+}
+
+.appointment {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px;
+  border-radius: 10px;
+  background: #f8dde6;
+}
+
+.avatar {
+  display: grid;
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  color: white;
+  background: #a52d55;
+  font-size: 8px;
+  place-items: center;
+}
+
+.appointmentDetails {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  font-size: 8px;
+}
+
+.appointmentDetails small {
+  color: #89616f;
+  font-size: 7px;
+}
+
+.pulseCard {
+  flex: 1;
+  margin-top: 13px;
+  padding: 14px;
+  border-radius: 10px;
+  color: white;
+  background: #681b39;
+}
+
+.pulseCard small {
+  display: block;
+  font-size: 8px;
+  opacity: 0.7;
+}
+
+.pulseBars {
+  display: flex;
+  align-items: end;
+  gap: 8%;
+  height: 70%;
+}
+
+.pulseBars i {
+  flex: 1;
+  height: 45%;
+  border-radius: 5px 5px 0 0;
+  background: #e8a0b7;
+}
+
+.pulseBars i:nth-child(2) {
+  height: 72%;
+}
+
+.pulseBars i:nth-child(3) {
+  height: 58%;
+}
+
+.pulseBars i:nth-child(4) {
+  height: 90%;
+  background: #ff6689;
+}
+
+.pulseBars i:nth-child(5) {
+  height: 68%;
+}
+
+@media (max-width: 760px) {
+  .phone {
+    width: min(49%, 245px);
+    height: 110%;
+    transform: translateY(1%);
+  }
+}

@@ -1,0 +1,29 @@
+/* Syntax colors for the editor mockup only. */
+.keyword {
+  color: #ff6b8e;
+}
+
+.string {
+  color: var(--color-blush);
+}
+
+.function {
+  color: #ffd2a8;
+}
+
+.variable {
+  color: var(--color-paper);
+}
+
+.punctuation {
+  color: var(--color-text-on-dark);
+}
+
+.comment {
+  color: var(--color-text-subtle);
+  font-style: italic;
+}
+
+.plain {
+  color: var(--color-text-on-dark);
+}

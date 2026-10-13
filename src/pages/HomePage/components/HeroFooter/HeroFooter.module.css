@@ -1,0 +1,64 @@
+.footer {
+  position: absolute;
+  right: 0;
+  bottom: 28px;
+  left: 0;
+  display: flex;
+  align-items: center;
+  color: var(--color-text-faint);
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.footer span + span {
+  margin-left: 45px;
+}
+
+.scrollButton {
+  display: flex;
+  align-items: center;
+  gap: 13px;
+  margin-left: auto;
+  padding: 0;
+  border: 0;
+  background: none;
+  cursor: pointer;
+  letter-spacing: inherit;
+  text-transform: inherit;
+}
+
+.scrollButton i {
+  position: relative;
+  width: 32px;
+  height: 32px;
+  border: 1px solid var(--color-line);
+  border-radius: 50%;
+}
+
+/* Equal sides make the rotated L a down chevron; it sits a little high to look centered. */
+.scrollButton i::after {
+  position: absolute;
+  top: 9px;
+  left: 11px;
+  width: 8px;
+  height: 8px;
+  border-right: 1px solid;
+  border-bottom: 1px solid;
+  content: "";
+  transform: rotate(45deg);
+  animation: bob 1.6s ease-in-out infinite;
+}
+
+@keyframes bob {
+  50% {
+    transform: translateY(4px) rotate(45deg);
+  }
+}
+
+@media (max-width: 760px) {
+  .footer {
+    display: none;
+  }
+}

@@ -1,0 +1,16 @@
+.tag {
+  border-radius: var(--radius-pill);
+  font-weight: 600;
+}
+
+.ink {
+  padding: 8px 12px;
+  border: 1px solid rgba(50, 16, 29, 0.25);
+  font-size: 10px;
+}
+
+.paper {
+  padding: 10px 16px;
+  border: 1px solid rgba(255, 255, 255, 0.24);
+  font-size: 11px;
+}

@@ -1,0 +1,21 @@
+.link {
+  position: relative;
+}
+
+.link::after {
+  position: absolute;
+  right: 0;
+  bottom: -6px;
+  left: 0;
+  height: 1px;
+  background: var(--color-coral);
+  content: "";
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform 0.25s ease;
+}
+
+.link:hover::after {
+  transform: scaleX(1);
+  transform-origin: left;
+}

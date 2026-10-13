@@ -1,0 +1,133 @@
+@import url("https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=Manrope:wght@400;500;600;700&family=Playfair+Display:ital,wght@1,500&display=swap");
+@import "tailwindcss";
+@import "./styles/tokens.css";
+
+/*
+ * Global CSS is limited to resets, the `.shell` layout container, page
+ * transitions, and accessibility overrides. Component styles live in
+ * co-located *.module.css.
+ */
+
+:root {
+  color: var(--color-ink);
+  background: var(--color-cream);
+  font-family: var(--font-sans);
+  font-synthesis: none;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  background: var(--color-cream);
+}
+
+button,
+a {
+  font: inherit;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button {
+  color: inherit;
+}
+
+@layer components {
+  .shell {
+    width: min(1360px, calc(100% - 80px));
+    margin-inline: auto;
+  }
+
+  @media (max-width: 1100px) {
+    .shell {
+      width: min(100% - 48px, 960px);
+    }
+  }
+
+  @media (max-width: 760px) {
+    .shell {
+      width: calc(100% - 36px);
+    }
+  }
+}
+
+/*
+ * Page transitions. AppLink runs route changes as view transitions and sets
+ * html[data-nav-direction]: forward slides the new page in from the right,
+ * back (to home) slides it in from the left. Browsers without View Transitions
+ * simply navigate instantly.
+ */
+::view-transition-old(root),
+::view-transition-new(root) {
+  animation-duration: 0.45s;
+  animation-timing-function: var(--ease-spring);
+  animation-fill-mode: both;
+}
+
+::view-transition-old(root) {
+  animation-name: page-out-to-left;
+}
+
+::view-transition-new(root) {
+  animation-name: page-in-from-right;
+}
+
+html[data-nav-direction="back"]::view-transition-old(root) {
+  animation-name: page-out-to-right;
+}
+
+html[data-nav-direction="back"]::view-transition-new(root) {
+  animation-name: page-in-from-left;
+}
+
+@keyframes page-out-to-left {
+  to {
+    opacity: 0;
+    transform: translateX(-12%);
+  }
+}
+
+@keyframes page-in-from-right {
+  from {
+    opacity: 0;
+    transform: translateX(12%);
+  }
+}
+
+@keyframes page-out-to-right {
+  to {
+    opacity: 0;
+    transform: translateX(12%);
+  }
+}
+
+@keyframes page-in-from-left {
+  from {
+    opacity: 0;
+    transform: translateX(-12%);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  ::view-transition-group(*),
+  ::view-transition-old(*),
+  ::view-transition-new(*) {
+    animation: none !important;
+  }
+
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}

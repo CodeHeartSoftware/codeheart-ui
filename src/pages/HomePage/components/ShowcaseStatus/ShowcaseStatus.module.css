@@ -1,0 +1,67 @@
+.status {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  height: 42px;
+  padding: 0 18px;
+  border-top: 1px solid var(--color-line-on-dark);
+  color: var(--color-text-on-dark);
+  background: rgba(0, 0, 0, 0.18);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.pulse {
+  width: 64px;
+  flex-shrink: 0;
+  fill: none;
+  stroke: var(--color-coral);
+  stroke-dasharray: 140;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-width: 2;
+  animation: heartbeat 1.6s linear infinite;
+}
+
+.messages {
+  display: grid;
+}
+
+.building,
+.live {
+  grid-area: 1 / 1;
+}
+
+.building {
+  animation: status-out 0.3s ease 3s forwards;
+}
+
+.live {
+  color: var(--color-paper);
+  opacity: 0;
+  animation: status-in 0.3s ease 3s forwards;
+}
+
+@keyframes heartbeat {
+  from {
+    stroke-dashoffset: 140;
+  }
+
+  to {
+    stroke-dashoffset: -140;
+  }
+}
+
+@keyframes status-out {
+  to {
+    opacity: 0;
+  }
+}
+
+@keyframes status-in {
+  to {
+    opacity: 1;
+  }
+}

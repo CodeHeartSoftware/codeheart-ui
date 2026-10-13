@@ -1,0 +1,7 @@
+.dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--color-coral);
+  box-shadow: 0 0 0 4px rgba(237, 51, 91, 0.16);
+}

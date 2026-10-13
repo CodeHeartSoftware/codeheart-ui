@@ -1,0 +1,41 @@
+.section {
+  padding-block: 130px;
+  background: var(--color-blush);
+}
+
+.heading {
+  display: flex;
+  align-items: end;
+  justify-content: space-between;
+  margin-bottom: 70px;
+}
+
+.title {
+  max-width: 850px;
+  margin: 0;
+}
+
+.list {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  border-top: 1px solid rgba(50, 16, 29, 0.22);
+}
+
+@media (max-width: 760px) {
+  .section {
+    padding-block: 90px;
+  }
+
+  .heading {
+    display: block;
+    margin-bottom: 45px;
+  }
+
+  .title {
+    margin-block: 25px 40px;
+  }
+
+  .list {
+    display: block;
+  }
+}

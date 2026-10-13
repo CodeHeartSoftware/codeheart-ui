@@ -1,0 +1,12 @@
+.arrow {
+  width: 19px;
+  fill: none;
+  stroke: currentColor;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-width: 1.7;
+}
+
+.diagonal {
+  transform: rotate(-45deg);
+}

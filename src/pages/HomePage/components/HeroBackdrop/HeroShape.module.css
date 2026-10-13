@@ -1,0 +1,78 @@
+/*
+ * `translate` carries the pointer parallax and `transform` carries the drift loop, so the two
+ * compose instead of overriding each other.
+ */
+.shape {
+  position: absolute;
+  top: var(--top);
+  left: var(--left);
+  width: calc(var(--size) * 1px);
+  aspect-ratio: 1;
+  translate: calc(var(--pointer-ratio-x) * var(--depth) * -1px) calc(var(--pointer-ratio-y) * var(--depth) * -1px);
+  transform: rotate(var(--rotate));
+  transition: translate 1.2s var(--ease-spring);
+  animation: drift var(--duration) ease-in-out var(--delay) infinite alternate;
+  will-change: transform, translate;
+}
+
+.blob {
+  border-radius: 50%;
+}
+
+.blobCoral {
+  background: radial-gradient(circle, rgba(237, 51, 91, 0.16), transparent 68%);
+}
+
+.blobBlush {
+  background: radial-gradient(circle, rgba(243, 191, 208, 0.7), transparent 68%);
+}
+
+.blobBerry {
+  background: radial-gradient(circle, rgba(169, 46, 85, 0.12), transparent 68%);
+}
+
+.ring {
+  border: 1.5px solid rgba(237, 51, 91, 0.22);
+  border-radius: 50%;
+}
+
+.pill {
+  aspect-ratio: 2.6;
+  border-radius: var(--radius-pill);
+  background: linear-gradient(120deg, rgba(237, 51, 91, 0.16), rgba(243, 191, 208, 0.35));
+}
+
+.square {
+  border: 1.5px solid rgba(50, 16, 29, 0.14);
+  border-radius: 14px;
+}
+
+.triangle {
+  background: rgba(169, 46, 85, 0.14);
+  clip-path: polygon(50% 6%, 96% 92%, 4% 92%);
+}
+
+.plus {
+  background:
+    linear-gradient(var(--color-coral), var(--color-coral)) center / 100% 2px no-repeat,
+    linear-gradient(var(--color-coral), var(--color-coral)) center / 2px 100% no-repeat;
+  opacity: 0.45;
+}
+
+.dot {
+  border-radius: 50%;
+  background: var(--color-coral);
+  opacity: 0.35;
+}
+
+@keyframes drift {
+  to {
+    transform: translate(var(--drift-x), var(--drift-y)) rotate(calc(var(--rotate) + var(--spin)));
+  }
+}
+
+@media (max-width: 760px) {
+  .shape {
+    width: calc(var(--size) * 0.6px);
+  }
+}

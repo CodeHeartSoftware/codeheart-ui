@@ -1,0 +1,22 @@
+.link {
+  display: inline-flex;
+  align-items: center;
+  gap: 20px;
+  padding-bottom: 7px;
+  border-bottom: 1px solid currentColor;
+  font-weight: 600;
+}
+
+.sm {
+  font-size: 13px;
+}
+
+.md {
+  gap: 22px;
+  padding-bottom: 8px;
+  font-size: 16px;
+}
+
+.lg {
+  font-size: 17px;
+}

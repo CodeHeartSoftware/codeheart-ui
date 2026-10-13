@@ -1,0 +1,124 @@
+.card {
+  position: relative;
+  display: grid;
+  grid-template-columns: 40% 60%;
+  min-height: 590px;
+  overflow: hidden;
+  border-radius: 24px;
+  color: var(--color-ink);
+  scroll-margin-top: 40px;
+}
+
+.blush {
+  background: var(--color-tone-blush);
+}
+
+.rose {
+  background: var(--color-tone-rose);
+}
+
+.berry {
+  background: var(--color-tone-berry);
+}
+
+.info {
+  display: flex;
+  flex-direction: column;
+  padding: 48px;
+}
+
+.number {
+  font-size: 11px;
+  font-weight: 600;
+}
+
+.summary {
+  margin-block: auto;
+}
+
+.summary h3 {
+  margin: 0 0 16px;
+  font-family: var(--font-display);
+  font-size: clamp(54px, 6vw, 84px);
+  font-weight: 500;
+  letter-spacing: -0.07em;
+  line-height: 0.95;
+}
+
+.summary p {
+  max-width: 310px;
+  margin: 0;
+  font-size: 16px;
+  line-height: 1.55;
+}
+
+.art {
+  position: relative;
+  display: grid;
+  min-width: 0;
+  place-items: center;
+  transition: transform 0.6s var(--ease-spring);
+}
+
+/* Every mockup sits level; hovering (or tabbing to the card's link) zooms the art in slightly. */
+.card:hover .art,
+.card:focus-within .art {
+  transform: scale(1.04);
+}
+
+.cardLink {
+  position: absolute;
+  top: 34px;
+  right: 34px;
+  z-index: 3;
+  display: grid;
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.73);
+  place-items: center;
+  transition:
+    transform 0.25s ease,
+    background 0.25s ease;
+}
+
+.card:hover .cardLink {
+  background: white;
+  transform: rotate(45deg);
+}
+
+@media (max-width: 1100px) {
+  .card {
+    min-height: 510px;
+  }
+}
+
+@media (max-width: 760px) {
+  .card {
+    display: flex;
+    min-height: 650px;
+    flex-direction: column;
+  }
+
+  .info {
+    height: 310px;
+    padding: 30px;
+  }
+
+  .summary {
+    margin-block: 25px;
+  }
+
+  .summary h3 {
+    font-size: 58px;
+  }
+
+  .art {
+    flex: 1;
+  }
+
+  .cardLink {
+    top: 26px;
+    right: 26px;
+  }
+}

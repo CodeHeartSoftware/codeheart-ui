@@ -1,0 +1,63 @@
+.frame {
+  position: relative;
+  isolation: isolate;
+}
+
+/* Soft coral block peeking out behind the photo. */
+.frame::before {
+  position: absolute;
+  inset: 22px -22px -22px 22px;
+  z-index: -1;
+  border-radius: 28px;
+  background: var(--color-blush);
+  content: "";
+}
+
+.photo {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 28px;
+  box-shadow: 0 30px 60px rgba(50, 16, 29, 0.16);
+}
+
+.caption {
+  position: absolute;
+  bottom: 24px;
+  left: -28px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 18px 12px 14px;
+  border-radius: 16px;
+  background: var(--color-paper);
+  box-shadow: 0 16px 34px rgba(50, 16, 29, 0.14);
+}
+
+.caption span {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.caption b {
+  font-family: var(--font-display);
+  font-size: 16px;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+}
+
+.caption small {
+  color: var(--color-text-faint);
+  font-size: 9px;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+@media (max-width: 760px) {
+  .caption {
+    left: 14px;
+    bottom: 14px;
+  }
+}

@@ -1,0 +1,11 @@
+.logoMark {
+  overflow: visible;
+}
+
+.coral {
+  fill: var(--color-coral);
+}
+
+.paper {
+  fill: var(--color-paper);
+}

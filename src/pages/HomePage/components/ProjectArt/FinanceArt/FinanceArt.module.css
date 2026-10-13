@@ -1,0 +1,103 @@
+.device {
+  position: absolute;
+  width: 91%;
+  height: 73%;
+  overflow: hidden;
+  border: 9px solid var(--color-ink);
+  border-radius: 20px 20px 0 0;
+  background: var(--color-paper);
+  box-shadow: 0 35px 65px rgba(91, 24, 51, 0.25);
+  transform: translateY(12%);
+}
+
+.deviceBar {
+  display: flex;
+  gap: 5px;
+  height: 25px;
+  padding: 9px 12px;
+  background: #f5e7ec;
+}
+
+.deviceBar i {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #ba96a3;
+}
+
+.screen {
+  padding: 5% 8%;
+}
+
+.heading {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  font-size: 9px;
+}
+
+.heading b {
+  font-size: clamp(13px, 1.4vw, 20px);
+}
+
+.balanceCard {
+  position: relative;
+  height: 180px;
+  margin-top: 5%;
+  padding: 25px;
+  overflow: hidden;
+  border-radius: 12px;
+  color: white;
+  background: #57152f;
+}
+
+.balanceCard small {
+  display: block;
+  font-size: 8px;
+  opacity: 0.7;
+}
+
+.balanceCard strong {
+  display: block;
+  margin-top: 5px;
+  font-size: clamp(18px, 2vw, 30px);
+}
+
+.chartLine {
+  position: absolute;
+  right: 0;
+  bottom: 10px;
+  left: 0;
+  height: 80px;
+}
+
+.chartLine svg {
+  width: 100%;
+  height: 100%;
+}
+
+.chartLine path {
+  fill: none;
+  stroke: #ff6b8e;
+  stroke-width: 4;
+  vector-effect: non-scaling-stroke;
+}
+
+.statRow {
+  display: flex;
+  gap: 12px;
+  margin-top: 18px;
+}
+
+.statRow span {
+  width: 30%;
+  height: 50px;
+  border-radius: 8px;
+  background: #f2dce5;
+}
+
+@media (max-width: 760px) {
+  .device {
+    height: 90%;
+  }
+}
