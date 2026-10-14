@@ -1,6 +1,6 @@
 .section {
   padding-block: 130px;
-  background: var(--color-blush);
+  background: var(--color-bg-accent);
 }
 
 .heading {
@@ -18,7 +18,7 @@
 .list {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  border-top: 1px solid rgba(50, 16, 29, 0.22);
+  border-top: 1px solid var(--color-line-strong);
 }
 
 @media (max-width: 760px) {

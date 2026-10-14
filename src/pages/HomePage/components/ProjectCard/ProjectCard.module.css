@@ -39,7 +39,8 @@
 .summary h3 {
   margin: 0 0 16px;
   font-family: var(--font-display);
-  font-size: clamp(54px, 6vw, 84px);
+  /* Scales with the viewport so long single words ("Thunderdome") fit the 40% text column. */
+  font-size: clamp(48px, 4.6vw, 84px);
   font-weight: 500;
   letter-spacing: -0.07em;
   line-height: 0.95;
@@ -87,38 +88,66 @@
   transform: rotate(45deg);
 }
 
+/* Below desktop the two-column card gets too narrow for the titles, so text stacks above the art. */
 @media (max-width: 1100px) {
   .card {
-    min-height: 510px;
-  }
-}
-
-@media (max-width: 760px) {
-  .card {
     display: flex;
-    min-height: 650px;
+    min-height: 0;
     flex-direction: column;
   }
 
   .info {
-    height: 310px;
-    padding: 30px;
+    padding: 40px 40px 32px;
   }
 
   .summary {
-    margin-block: 25px;
+    margin-block: 32px 28px;
   }
 
   .summary h3 {
-    font-size: 58px;
+    font-size: clamp(44px, 8vw, 72px);
+  }
+
+  .summary p {
+    max-width: 520px;
   }
 
   .art {
-    flex: 1;
+    flex: none;
+    height: clamp(320px, 52vw, 460px);
   }
 
   .cardLink {
-    top: 26px;
-    right: 26px;
+    top: 30px;
+    right: 30px;
+  }
+}
+
+@media (max-width: 760px) {
+  .info {
+    padding: 28px 24px 24px;
+  }
+
+  .summary {
+    margin-block: 24px 22px;
+  }
+
+  .summary h3 {
+    font-size: clamp(36px, 10.5vw, 52px);
+  }
+
+  .summary p {
+    font-size: 15px;
+  }
+
+  .art {
+    height: clamp(280px, 86vw, 360px);
+  }
+
+  .cardLink {
+    top: 20px;
+    right: 20px;
+    width: 46px;
+    height: 46px;
   }
 }

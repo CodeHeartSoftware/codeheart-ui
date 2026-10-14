@@ -7,7 +7,7 @@ import styles from "./AboutContactSection.module.css";
 const AboutContactSection = () => (
   <section className={styles.section}>
     <div className="shell">
-      <SectionKicker tone="inverse">{HowWeWorkStrings.contact.KICKER}</SectionKicker>
+      <SectionKicker tone="muted">{HowWeWorkStrings.contact.KICKER}</SectionKicker>
       <h2 className={styles.title}>
         {HowWeWorkStrings.contact.TITLE_LEAD}
         <em>{HowWeWorkStrings.contact.TITLE_EMPHASIS}</em>

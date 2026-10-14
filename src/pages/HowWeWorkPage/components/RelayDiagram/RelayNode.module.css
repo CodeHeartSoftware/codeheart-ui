@@ -1,4 +1,6 @@
 .node {
+  --step: 0; /* overridden inline by RelayNode */
+
   position: relative;
   display: inline-flex;
   align-items: center;
@@ -28,7 +30,7 @@
 .distant {
   border: 1px solid var(--color-line);
   color: var(--color-text-muted);
-  background: var(--color-paper);
+  background: var(--color-surface);
   opacity: calc(1 - var(--step) * 0.14);
 }
 
@@ -39,8 +41,8 @@
 
 .direct {
   border: 1px solid rgba(237, 51, 91, 0.3);
-  color: var(--color-ink);
-  background: var(--color-paper);
+  color: var(--color-text);
+  background: var(--color-surface);
   box-shadow: 0 10px 24px rgba(50, 16, 29, 0.08);
 }
 
@@ -51,4 +53,14 @@
 .direct + .direct::before {
   height: 64px;
   background: var(--color-coral);
+}
+
+/* Two chains share a phone's width, so pills shrink and long roles may wrap. */
+@media (max-width: 760px) {
+  .node {
+    max-width: 100%;
+    padding: 7px 11px;
+    font-size: 11px;
+    white-space: normal;
+  }
 }

@@ -15,14 +15,15 @@ const toneClassNames: Record<LogoMarkTone, string> = {
   paper: styles.paper,
 };
 
-const DEFAULT_SIZE = 34;
+const DEFAULT_SIZE = 30;
 
 /**
- * "<3" outlined from JetBrains Mono ExtraBold (800). Shipped as paths rather than live text so the
- * logo renders identically everywhere without waiting on a web font. Keep public/favicon.svg in sync.
+ * "<3" outlined from Catamaran ExtraBold (800), SIL Open Font License. Shipped as paths rather than
+ * live text so the logo renders identically everywhere without waiting on a web font.
+ * Keep public/favicon.svg in sync.
  */
 const LOGO_PATH =
-  "M530 -49 70 -257V-400L530 -609V-473L254 -352Q234 -343 212.0 -337.0Q190 -331 177 -329Q190 -327 212.0 -321.5Q234 -316 254 -307L530 -186ZM896 10Q821 10 766.5 -15.5Q712 -41 682.0 -88.5Q652 -136 652 -200H802Q802 -160 826.5 -137.5Q851 -115 896 -115Q942 -115 966.0 -137.0Q990 -159 990 -200V-260Q990 -301 965.5 -323.5Q941 -346 896 -346H810V-475L957 -605H687V-730H1110V-601L896 -412V-473Q1009 -473 1074.5 -416.0Q1140 -359 1140 -261V-200Q1140 -136 1110.5 -88.5Q1081 -41 1026.0 -15.5Q971 10 896 10Z";
+  "M345 -142 194 -249 345 -355 317 -488 30 -284V-214L317 -8ZM609 -579Q549 -579 492.5 -561.5Q436 -544 385 -507L459 -402Q490 -423 526.0 -437.5Q562 -452 598 -452Q626 -452 644.5 -444.5Q663 -437 672.5 -424.0Q682 -411 682 -394Q682 -363 652.0 -344.0Q622 -325 570 -325H496L512 -203H585Q639 -203 666.5 -181.5Q694 -160 694 -123Q694 -100 680.5 -83.5Q667 -67 645.5 -58.0Q624 -49 597 -49Q558 -49 523.0 -60.5Q488 -72 447 -97L365 7Q416 38 478.5 57.5Q541 77 596 77Q672 77 729.0 51.0Q786 25 817.0 -20.0Q848 -65 848 -121Q848 -157 834.5 -187.5Q821 -218 800.5 -241.0Q780 -264 759 -273Q778 -282 796.0 -302.5Q814 -323 825.5 -350.0Q837 -377 837 -404Q837 -453 809.5 -493.0Q782 -533 731.5 -556.0Q681 -579 609 -579Z";
 
 /** The CodeHeart "<3" mark. Purely decorative; pair it with visible or aria-labelled brand text. */
 const LogoMark = ({ size = DEFAULT_SIZE, tone = "coral", className }: LogoMarkProps) => (
@@ -30,7 +31,7 @@ const LogoMark = ({ size = DEFAULT_SIZE, tone = "coral", className }: LogoMarkPr
     aria-hidden="true"
     className={cx(styles.logoMark, toneClassNames[tone], className)}
     style={{ width: size }}
-    viewBox="50 -750 1110 780"
+    viewBox="10 -599 858 696"
   >
     <path d={LOGO_PATH} />
   </svg>

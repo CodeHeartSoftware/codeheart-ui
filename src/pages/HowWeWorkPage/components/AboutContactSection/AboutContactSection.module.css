@@ -1,7 +1,7 @@
 .section {
   padding-block: 130px;
-  color: var(--color-paper);
-  background: var(--color-coral);
+  color: var(--color-text);
+  background: var(--color-bg-accent);
 }
 
 .title {
@@ -15,7 +15,7 @@
 }
 
 .title em {
-  color: var(--color-paper);
+  color: var(--color-coral);
   font-family: var(--font-serif);
   font-weight: 500;
 }

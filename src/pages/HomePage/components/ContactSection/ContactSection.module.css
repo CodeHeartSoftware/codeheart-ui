@@ -1,8 +1,6 @@
 .contact {
   position: relative;
   overflow: hidden;
-  background: var(--color-blush);
-  color: var(--color-ink);
 }
 
 .inner {
@@ -20,7 +18,9 @@
   line-height: 0.98;
 }
 
+/* Its own line under "Let’s make something". */
 .title em {
+  display: block;
   color: var(--color-coral);
   font-family: var(--font-serif);
   font-weight: 500;

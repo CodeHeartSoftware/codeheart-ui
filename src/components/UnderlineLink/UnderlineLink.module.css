@@ -1,10 +1,18 @@
 .link {
+  position: relative;
   display: inline-flex;
   align-items: center;
   gap: 20px;
   padding-bottom: 7px;
   border-bottom: 1px solid currentColor;
   font-weight: 600;
+}
+
+/* Invisible padding that enlarges the tap target without changing the layout. */
+.link::before {
+  position: absolute;
+  inset: -10px -6px;
+  content: "";
 }
 
 .sm {

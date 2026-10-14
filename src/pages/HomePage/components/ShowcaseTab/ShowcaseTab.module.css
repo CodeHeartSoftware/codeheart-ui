@@ -56,3 +56,25 @@
     transform: scaleX(1);
   }
 }
+
+/* On phones the tabs split the toolbar evenly and truncate instead of scrolling out of view. */
+@media (max-width: 760px) {
+  .tab {
+    flex: 1 1 0;
+    min-width: 0;
+    padding: 15px 8px;
+    overflow: hidden;
+    font-size: 11px;
+    text-overflow: ellipsis;
+  }
+
+  .tab::after {
+    right: 8px;
+    left: 8px;
+  }
+
+  .progress {
+    left: 8px;
+    width: calc(100% - 16px);
+  }
+}

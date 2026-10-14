@@ -1,5 +1,5 @@
 .number {
-  color: #a07886;
+  color: var(--color-text-subtle);
   font-size: 12px;
   font-weight: 600;
 }

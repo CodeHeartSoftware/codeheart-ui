@@ -9,8 +9,8 @@
  */
 
 :root {
-  color: var(--color-ink);
-  background: var(--color-cream);
+  color: var(--color-text);
+  background: var(--color-bg);
   font-family: var(--font-sans);
   font-synthesis: none;
 }
@@ -22,7 +22,7 @@
 body {
   margin: 0;
   min-width: 320px;
-  background: var(--color-cream);
+  background: var(--color-bg);
 }
 
 button,

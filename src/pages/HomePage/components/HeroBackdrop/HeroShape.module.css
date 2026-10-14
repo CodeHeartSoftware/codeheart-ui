@@ -1,14 +1,29 @@
 /*
  * `translate` carries the pointer parallax and `transform` carries the drift loop, so the two
  * compose instead of overriding each other.
+ *
+ * The per-shape vars below are defaults; `buildShapeStyleVars` overrides them with inline styles.
+ * `--pointer-ratio-*` is inherited from the hero section, so it only gets a `var()` fallback here —
+ * declaring it on `.shape` would block the inherited value.
  */
 .shape {
+  --top: 0;
+  --left: 0;
+  --size: 0;
+  --rotate: 0deg;
+  --depth: 0;
+  --drift-x: 0px;
+  --drift-y: 0px;
+  --spin: 0deg;
+  --duration: 0s;
+  --delay: 0s;
+
   position: absolute;
   top: var(--top);
   left: var(--left);
   width: calc(var(--size) * 1px);
   aspect-ratio: 1;
-  translate: calc(var(--pointer-ratio-x) * var(--depth) * -1px) calc(var(--pointer-ratio-y) * var(--depth) * -1px);
+  translate: calc(var(--pointer-ratio-x, 0) * var(--depth) * -1px) calc(var(--pointer-ratio-y, 0) * var(--depth) * -1px);
   transform: rotate(var(--rotate));
   transition: translate 1.2s var(--ease-spring);
   animation: drift var(--duration) ease-in-out var(--delay) infinite alternate;
@@ -24,7 +39,7 @@
 }
 
 .blobBlush {
-  background: radial-gradient(circle, rgba(243, 191, 208, 0.7), transparent 68%);
+  background: radial-gradient(circle, var(--color-shape-blush), transparent 68%);
 }
 
 .blobBerry {
@@ -43,7 +58,7 @@
 }
 
 .square {
-  border: 1.5px solid rgba(50, 16, 29, 0.14);
+  border: 1.5px solid var(--color-shape-line);
   border-radius: 14px;
 }
 

@@ -63,8 +63,8 @@
   padding: 7px 7px 7px 22px;
   border: 0;
   border-radius: var(--radius-pill);
-  color: var(--color-paper);
-  background: var(--color-ink);
+  color: var(--color-on-action);
+  background: var(--color-action);
   font-size: 14px;
   font-weight: 600;
   cursor: pointer;

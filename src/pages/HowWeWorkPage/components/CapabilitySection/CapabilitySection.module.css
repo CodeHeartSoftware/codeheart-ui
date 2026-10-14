@@ -1,7 +1,7 @@
 .section {
   padding-block: 130px;
   color: var(--color-paper);
-  background: var(--color-plum);
+  background: var(--color-bg-deep);
 }
 
 .heading {

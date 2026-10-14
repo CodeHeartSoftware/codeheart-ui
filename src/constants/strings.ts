@@ -90,7 +90,7 @@ export const HomeStrings = {
   contact: {
     KICKER: "Your idea, our next chapter",
     TITLE_LEAD: "Let’s make something",
-    TITLE_EMPHASIS: " people care about.",
+    TITLE_EMPHASIS: "people care about.",
     CTA: "Start a project",
   },
 } as const;
@@ -140,8 +140,8 @@ export const HowWeWorkStrings = {
   why: {
     KICKER: "Why we do it",
     TITLE: "Lean by design.",
-    PARAGRAPH_ONE: "Traditional agencies come with layers of account managers, meetings, and handoffs. Every layer adds time and cost and puts more distance between your idea and the person building it.",
-    PARAGRAPH_TWO: "CodeHeart works differently. One experienced engineer can move across product thinking, engineering, infrastructure, and team leadership. There are no management fees or markups — you pay for experience, and all of it goes into your product.",
+    PARAGRAPH_ONE: "We do this to make the biggest possible impact. When the person who understands your product is also the one building it, nothing gets lost in translation, decisions take hours instead of weeks, and every hour of work moves your product forward.",
+    PARAGRAPH_TWO: "It’s also why we can price competitively. There are no account managers, sales teams, or agency markups to fund, so there’s almost no overhead. Your budget pays for senior engineering, not the layers around it.",
     RELAY_LABEL: "How a request reaches the person building it",
     AGENCY_LABEL: "Traditional agency",
     CODEHEART_LABEL: "How we work",

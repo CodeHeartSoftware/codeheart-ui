@@ -34,8 +34,8 @@
   gap: 20px;
   padding: 8px 8px 8px 24px;
   border-radius: var(--radius-pill);
-  color: var(--color-paper);
-  background: var(--color-ink);
+  color: var(--color-on-action);
+  background: var(--color-action);
   font-size: 15px;
   font-weight: 600;
   transition:

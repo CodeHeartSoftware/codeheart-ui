@@ -21,7 +21,7 @@
   gap: 13px;
   margin-left: 52px;
   padding: 12px 18px;
-  border: 1px solid var(--color-ink);
+  border: 1px solid var(--color-text);
   border-radius: var(--radius-pill);
   font-size: 13px;
   font-weight: 600;
@@ -31,8 +31,8 @@
 }
 
 .cta:hover {
-  color: var(--color-cream);
-  background: var(--color-ink);
+  color: var(--color-bg);
+  background: var(--color-text);
 }
 
 .menuButton {
@@ -50,18 +50,24 @@
 
   .menuButton {
     display: flex;
+    min-width: 44px;
+    min-height: 44px;
     flex-direction: column;
+    align-items: center;
+    justify-content: center;
     gap: 5px;
+    margin-right: -10px;
     margin-left: auto;
-    padding: 10px 0 10px 10px;
+    padding: 0;
     border: 0;
     background: transparent;
+    cursor: pointer;
   }
 
   .menuButton span {
     width: 25px;
     height: 1px;
-    background: var(--color-ink);
+    background: var(--color-text);
   }
 
   .links {
@@ -75,7 +81,7 @@
     padding: 22px;
     border: 1px solid var(--color-line);
     border-radius: 12px;
-    background: var(--color-paper);
+    background: var(--color-surface);
     box-shadow: 0 20px 40px rgba(50, 16, 29, 0.12);
   }
 

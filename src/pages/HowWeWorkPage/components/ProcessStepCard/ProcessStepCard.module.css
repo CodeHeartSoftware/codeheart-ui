@@ -4,12 +4,12 @@
 
 .card + .card {
   padding-left: 30px;
-  border-left: 1px solid rgba(50, 16, 29, 0.22);
+  border-left: 1px solid var(--color-line-strong);
 }
 
 .number {
-  color: #86516a;
-  font-size: 10px;
+  color: var(--color-text-faint);
+  font-size: 11px;
   font-weight: 600;
 }
 
@@ -32,13 +32,13 @@
 @media (max-width: 760px) {
   .card,
   .card + .card {
-    min-height: 220px;
-    padding: 28px 0;
-    border-top: 1px solid rgba(50, 16, 29, 0.22);
+    min-height: 0;
+    padding: 24px 0;
+    border-top: 1px solid var(--color-line-strong);
     border-left: 0;
   }
 
   .card h3 {
-    margin-top: 45px;
+    margin-top: 22px;
   }
 }

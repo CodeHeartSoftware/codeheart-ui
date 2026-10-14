@@ -9,9 +9,9 @@
   min-height: 100svh;
   overflow: hidden;
   background:
-    radial-gradient(circle at 76% 25%, rgba(255, 255, 255, 0.88), transparent 28%),
+    radial-gradient(circle at 76% 25%, var(--color-hero-glow), transparent 28%),
     radial-gradient(circle at 8% 80%, rgba(237, 51, 91, 0.07), transparent 26%),
-    var(--color-cream);
+    var(--color-bg);
   isolation: isolate;
 }
 
@@ -19,7 +19,7 @@
   position: absolute;
   inset: 0;
   z-index: -2;
-  background-image: radial-gradient(rgba(50, 16, 29, 0.11) 0.75px, transparent 0.75px);
+  background-image: radial-gradient(var(--color-hero-dots) 0.75px, transparent 0.75px);
   background-size: 12px 12px;
   content: "";
   mask-image: linear-gradient(to right, black, transparent 58%);

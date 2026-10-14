@@ -28,7 +28,7 @@
 
 .aside p {
   margin: 0 0 30px;
-  color: #795662;
+  color: var(--color-text-muted);
   font-size: 14px;
   line-height: 1.7;
 }

@@ -1,4 +1,6 @@
 .line {
+  --line-index: 0; /* overridden inline by CodeLine; inherited by .content */
+
   display: flex;
   min-height: 1.85em;
 }

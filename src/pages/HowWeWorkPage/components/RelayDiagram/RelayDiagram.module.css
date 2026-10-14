@@ -4,3 +4,9 @@
   gap: 28px;
   margin: 0;
 }
+
+@media (max-width: 760px) {
+  .diagram {
+    gap: 16px;
+  }
+}

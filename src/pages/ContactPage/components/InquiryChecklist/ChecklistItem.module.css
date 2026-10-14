@@ -5,8 +5,8 @@
   padding: 18px 20px;
   border: 1px solid var(--color-line);
   border-radius: 14px;
-  background: var(--color-paper);
-  color: var(--color-ink);
+  background: var(--color-surface);
+  color: var(--color-text);
   font-size: 15px;
   line-height: 1.55;
 }

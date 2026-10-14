@@ -6,7 +6,7 @@
   display: flex;
   align-items: center;
   color: var(--color-text-faint);
-  font-size: 10px;
+  font-size: 11px;
   font-weight: 600;
   letter-spacing: 0.12em;
   text-transform: uppercase;
@@ -17,6 +17,7 @@
 }
 
 .scrollButton {
+  position: relative;
   display: flex;
   align-items: center;
   gap: 13px;
@@ -27,6 +28,13 @@
   cursor: pointer;
   letter-spacing: inherit;
   text-transform: inherit;
+}
+
+/* Invisible padding that enlarges the tap target without changing the layout. */
+.scrollButton::before {
+  position: absolute;
+  inset: -6px -6px;
+  content: "";
 }
 
 .scrollButton i {

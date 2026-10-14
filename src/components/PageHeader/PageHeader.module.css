@@ -7,11 +7,19 @@
 }
 
 .backLink {
+  position: relative;
   display: inline-flex;
   align-items: center;
   gap: 14px;
   font-size: 13px;
   font-weight: 600;
+}
+
+/* Invisible padding that enlarges the tap target without changing the layout. */
+.backLink::before {
+  position: absolute;
+  inset: -12px -8px;
+  content: "";
 }
 
 .backArrow {

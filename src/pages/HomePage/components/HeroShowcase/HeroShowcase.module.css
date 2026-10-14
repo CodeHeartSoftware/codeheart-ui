@@ -25,7 +25,7 @@
   border: 1px solid rgba(255, 255, 255, 0.08);
   border-radius: 18px;
   color: var(--color-paper);
-  background: var(--color-plum);
+  background: var(--color-bg-deep);
   box-shadow:
     0 45px 90px rgba(42, 11, 23, 0.35),
     0 12px 24px rgba(42, 11, 23, 0.2);
@@ -96,6 +96,20 @@
   }
 
   .stage {
-    height: 300px;
+    height: 340px;
+  }
+
+  /* Give the three tabs the whole toolbar so none hide off-screen. */
+  .toolbar {
+    gap: 0;
+    padding: 0 6px;
+  }
+
+  .dots {
+    display: none;
+  }
+
+  .tabs {
+    flex: 1;
   }
 }
