@@ -1,0 +1,115 @@
+.showcase {
+  position: absolute;
+  top: calc(50% + 20px);
+  right: 4vw;
+  /* Above HeroIntro (z-index 3), whose full-width text box overlaps this area. */
+  z-index: 4;
+  width: min(46vw, 640px);
+  perspective: 1400px;
+  translate: 0 -50%;
+  animation: showcase-enter 1s var(--ease-rise) 0.45s both;
+}
+
+.showcase::before {
+  position: absolute;
+  inset: 8% -6% -10% 10%;
+  z-index: -1;
+  border-radius: 50%;
+  background: rgba(237, 51, 91, 0.28);
+  content: "";
+  filter: blur(80px);
+}
+
+.window {
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 18px;
+  color: var(--color-paper);
+  background: var(--color-bg-deep);
+  box-shadow:
+    0 45px 90px rgba(42, 11, 23, 0.35),
+    0 12px 24px rgba(42, 11, 23, 0.2);
+  transform: rotateY(calc(var(--tilt-x) * -0.6)) rotateX(calc(var(--tilt-y) * 0.6));
+  transition: transform 0.8s var(--ease-spring);
+}
+
+.toolbar {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  padding: 0 16px;
+  border-bottom: 1px solid var(--color-line-on-dark);
+  background: rgba(0, 0, 0, 0.18);
+}
+
+.dots {
+  display: flex;
+  gap: 6px;
+}
+
+.dots i {
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.18);
+}
+
+.dots i:first-child {
+  background: var(--color-coral);
+}
+
+.tabs {
+  display: flex;
+  min-width: 0;
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+
+.stage {
+  position: relative;
+  height: 330px;
+  overflow: hidden;
+}
+
+@keyframes showcase-enter {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+}
+
+@media (max-width: 1100px) {
+  .showcase {
+    position: relative;
+    top: auto;
+    right: auto;
+    width: min(100% - 48px, 640px);
+    margin: 56px auto 120px;
+    translate: none;
+  }
+}
+
+@media (max-width: 760px) {
+  .showcase {
+    width: calc(100% - 36px);
+    margin: 44px auto 56px;
+  }
+
+  .stage {
+    height: 340px;
+  }
+
+  /* Give the three tabs the whole toolbar so none hide off-screen. */
+  .toolbar {
+    gap: 0;
+    padding: 0 6px;
+  }
+
+  .dots {
+    display: none;
+  }
+
+  .tabs {
+    flex: 1;
+  }
+}

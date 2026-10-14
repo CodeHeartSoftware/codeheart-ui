@@ -2,6 +2,10 @@
 .env
 /node_modules/
 
+# Vite
+/.vite/
+/dist/
+
 # React Router
 /.react-router/
 /build/

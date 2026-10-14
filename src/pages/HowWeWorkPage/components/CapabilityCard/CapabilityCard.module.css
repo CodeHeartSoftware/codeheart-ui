@@ -1,0 +1,46 @@
+.card {
+  min-height: 330px;
+  padding: 35px 38px;
+}
+
+.card + .card {
+  border-left: 1px solid var(--color-line-on-dark);
+}
+
+.number {
+  color: #d9a6b8;
+  font-size: 11px;
+  font-weight: 600;
+}
+
+.card h3 {
+  margin: 80px 0 20px;
+  font-family: var(--font-display);
+  font-size: 29px;
+  font-weight: 500;
+  letter-spacing: -0.04em;
+}
+
+.card p {
+  max-width: 290px;
+  margin: 0;
+  color: var(--color-text-on-dark);
+  font-size: 13px;
+  line-height: 1.7;
+}
+
+@media (max-width: 760px) {
+  .card {
+    min-height: 0;
+    padding: 26px 0;
+  }
+
+  .card + .card {
+    border-top: 1px solid var(--color-line-on-dark);
+    border-left: 0;
+  }
+
+  .card h3 {
+    margin-top: 22px;
+  }
+}

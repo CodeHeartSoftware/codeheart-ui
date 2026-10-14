@@ -1,0 +1,23 @@
+.brand {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 11px;
+  font-family: var(--font-display);
+  font-size: 21px;
+  font-weight: 700;
+  letter-spacing: -0.05em;
+}
+
+/* Invisible padding that enlarges the tap target without changing the layout. */
+.brand::before {
+  position: absolute;
+  inset: -8px -6px;
+  content: "";
+}
+
+@media (max-width: 760px) {
+  .brand {
+    font-size: 19px;
+  }
+}

@@ -1,0 +1,23 @@
+.row {
+  display: grid;
+  grid-template-columns: 2.4em 1fr auto;
+  padding: 0.2em 0.5em;
+  border-radius: 4px;
+}
+
+.rank {
+  color: var(--color-text-subtle);
+}
+
+.record {
+  font-variant-numeric: tabular-nums;
+}
+
+.leader {
+  color: var(--color-paper);
+  background: rgba(237, 51, 91, 0.18);
+}
+
+.leader .rank {
+  color: var(--color-coral);
+}

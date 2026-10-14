@@ -1,0 +1,80 @@
+.tab {
+  position: relative;
+  flex-shrink: 0;
+  padding: 16px 14px;
+  border: 0;
+  color: var(--color-text-on-dark);
+  background: none;
+  font-size: 12px;
+  font-weight: 600;
+  white-space: nowrap;
+  cursor: pointer;
+  transition: color 0.2s ease;
+}
+
+.tab::after {
+  position: absolute;
+  right: 14px;
+  bottom: 0;
+  left: 14px;
+  height: 2px;
+  background: rgba(255, 255, 255, 0.12);
+  content: "";
+}
+
+.tab:hover,
+.active {
+  color: var(--color-paper);
+}
+
+.active::after {
+  background: var(--color-coral);
+}
+
+.progress {
+  position: absolute;
+  bottom: 0;
+  left: 14px;
+  z-index: 1;
+  width: calc(100% - 28px);
+  height: 2px;
+  background: var(--color-paper);
+  transform-origin: left;
+  animation: tab-progress 8s linear both;
+}
+
+.progressPaused {
+  animation-play-state: paused;
+}
+
+@keyframes tab-progress {
+  from {
+    transform: scaleX(0);
+  }
+
+  to {
+    transform: scaleX(1);
+  }
+}
+
+/* On phones the tabs split the toolbar evenly and truncate instead of scrolling out of view. */
+@media (max-width: 760px) {
+  .tab {
+    flex: 1 1 0;
+    min-width: 0;
+    padding: 15px 8px;
+    overflow: hidden;
+    font-size: 11px;
+    text-overflow: ellipsis;
+  }
+
+  .tab::after {
+    right: 8px;
+    left: 8px;
+  }
+
+  .progress {
+    left: 8px;
+    width: calc(100% - 16px);
+  }
+}

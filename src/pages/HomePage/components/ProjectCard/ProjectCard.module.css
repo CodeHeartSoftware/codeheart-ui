@@ -1,0 +1,153 @@
+.card {
+  position: relative;
+  display: grid;
+  grid-template-columns: 40% 60%;
+  min-height: 590px;
+  overflow: hidden;
+  border-radius: 24px;
+  color: var(--color-ink);
+  scroll-margin-top: 40px;
+}
+
+.blush {
+  background: var(--color-tone-blush);
+}
+
+.rose {
+  background: var(--color-tone-rose);
+}
+
+.berry {
+  background: var(--color-tone-berry);
+}
+
+.info {
+  display: flex;
+  flex-direction: column;
+  padding: 48px;
+}
+
+.number {
+  font-size: 11px;
+  font-weight: 600;
+}
+
+.summary {
+  margin-block: auto;
+}
+
+.summary h3 {
+  margin: 0 0 16px;
+  font-family: var(--font-display);
+  /* Scales with the viewport so long single words ("Thunderdome") fit the 40% text column. */
+  font-size: clamp(48px, 4.6vw, 84px);
+  font-weight: 500;
+  letter-spacing: -0.07em;
+  line-height: 0.95;
+}
+
+.summary p {
+  max-width: 310px;
+  margin: 0;
+  font-size: 16px;
+  line-height: 1.55;
+}
+
+.art {
+  position: relative;
+  display: grid;
+  min-width: 0;
+  place-items: center;
+  transition: transform 0.6s var(--ease-spring);
+}
+
+/* Every mockup sits level; hovering (or tabbing to the card's link) zooms the art in slightly. */
+.card:hover .art,
+.card:focus-within .art {
+  transform: scale(1.04);
+}
+
+.cardLink {
+  position: absolute;
+  top: 34px;
+  right: 34px;
+  z-index: 3;
+  display: grid;
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.73);
+  place-items: center;
+  transition:
+    transform 0.25s ease,
+    background 0.25s ease;
+}
+
+.card:hover .cardLink {
+  background: white;
+  transform: rotate(45deg);
+}
+
+/* Below desktop the two-column card gets too narrow for the titles, so text stacks above the art. */
+@media (max-width: 1100px) {
+  .card {
+    display: flex;
+    min-height: 0;
+    flex-direction: column;
+  }
+
+  .info {
+    padding: 40px 40px 32px;
+  }
+
+  .summary {
+    margin-block: 32px 28px;
+  }
+
+  .summary h3 {
+    font-size: clamp(44px, 8vw, 72px);
+  }
+
+  .summary p {
+    max-width: 520px;
+  }
+
+  .art {
+    flex: none;
+    height: clamp(320px, 52vw, 460px);
+  }
+
+  .cardLink {
+    top: 30px;
+    right: 30px;
+  }
+}
+
+@media (max-width: 760px) {
+  .info {
+    padding: 28px 24px 24px;
+  }
+
+  .summary {
+    margin-block: 24px 22px;
+  }
+
+  .summary h3 {
+    font-size: clamp(36px, 10.5vw, 52px);
+  }
+
+  .summary p {
+    font-size: 15px;
+  }
+
+  .art {
+    height: clamp(280px, 86vw, 360px);
+  }
+
+  .cardLink {
+    top: 20px;
+    right: 20px;
+    width: 46px;
+    height: 46px;
+  }
+}

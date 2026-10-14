@@ -1,0 +1,12 @@
+.tagList {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.ink {
+  gap: 8px;
+}
+
+.paper {
+  gap: 10px;
+}

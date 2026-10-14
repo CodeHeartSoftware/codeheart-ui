@@ -1,0 +1,25 @@
+.code {
+  position: absolute;
+  inset: 0;
+  margin: 0;
+  padding: 26px 26px 26px 0;
+  overflow: hidden;
+  font-family: var(--font-mono);
+  font-size: 13px;
+  line-height: 1.85;
+  animation: code-dim 0.5s ease 2.8s forwards;
+}
+
+@keyframes code-dim {
+  to {
+    opacity: 0.25;
+    filter: blur(2px);
+  }
+}
+
+@media (max-width: 760px) {
+  .code {
+    padding: 18px 18px 18px 0;
+    font-size: 11px;
+  }
+}

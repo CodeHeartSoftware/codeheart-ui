@@ -1,0 +1,146 @@
+.content {
+  position: relative;
+  z-index: 3;
+  padding-top: clamp(90px, 14vh, 160px);
+}
+
+.title {
+  max-width: 890px;
+  margin: 25px 0 25px;
+  font-family: var(--font-display);
+  font-size: clamp(68px, 7.4vw, 114px);
+  font-weight: 500;
+  letter-spacing: -0.075em;
+  line-height: 0.91;
+}
+
+.titleLine {
+  display: block;
+  opacity: 0;
+  transform: translateY(55px);
+  animation: title-rise 0.9s var(--ease-rise) forwards;
+}
+
+.titleLineTwo {
+  animation-delay: 0.12s;
+}
+
+.titleLineThree {
+  animation-delay: 0.24s;
+}
+
+.title em {
+  position: relative;
+  color: var(--color-coral);
+  font-family: var(--font-serif);
+  font-weight: 500;
+  letter-spacing: -0.045em;
+}
+
+.title em::after {
+  position: absolute;
+  right: 10%;
+  bottom: -7px;
+  left: 14%;
+  height: 9px;
+  background: url("data:image/svg+xml,%3Csvg viewBox='0 0 300 12' preserveAspectRatio='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M2 8C82 2 208 2 298 5' fill='none' stroke='%23ed335b' stroke-width='3' stroke-linecap='round'/%3E%3C/svg%3E")
+    center / 100% 100% no-repeat;
+  content: "";
+}
+
+.copy {
+  max-width: 480px;
+  margin: 0 0 35px;
+  color: var(--color-text-muted);
+  font-size: 17px;
+  line-height: 1.65;
+}
+
+.cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 20px;
+  padding: 7px 7px 7px 22px;
+  border: 0;
+  border-radius: var(--radius-pill);
+  color: var(--color-on-action);
+  background: var(--color-action);
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+.cta:hover {
+  box-shadow: 0 12px 30px rgba(50, 16, 29, 0.2);
+  transform: translateY(-3px);
+}
+
+.ctaArrow {
+  display: grid;
+  width: 39px;
+  height: 39px;
+  border-radius: 50%;
+  color: var(--color-paper);
+  background: var(--color-coral);
+  place-items: center;
+}
+
+.fadeIn {
+  opacity: 0;
+  animation: fade-in 0.7s 0.35s ease forwards;
+}
+
+.delayOne {
+  animation-delay: 0.55s;
+}
+
+.delayTwo {
+  animation-delay: 0.72s;
+}
+
+@keyframes title-rise {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fade-in {
+  to {
+    opacity: 1;
+  }
+}
+
+@media (max-width: 1100px) {
+  .content {
+    padding-top: 100px;
+  }
+
+  .title {
+    font-size: clamp(62px, 8.2vw, 88px);
+  }
+
+  .copy {
+    max-width: 420px;
+  }
+}
+
+@media (max-width: 760px) {
+  .content {
+    padding-top: 65px;
+  }
+
+  .title {
+    margin-top: 20px;
+    font-size: clamp(52px, 15vw, 75px);
+    line-height: 0.96;
+  }
+
+  .copy {
+    max-width: 85%;
+    font-size: 15px;
+  }
+}
