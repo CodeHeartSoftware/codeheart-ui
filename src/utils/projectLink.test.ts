@@ -19,6 +19,13 @@ describe("getProjectCardLink", () => {
     expect(link.label).toContain("source code");
   });
 
+  it("prefers the case study over the source code", () => {
+    const link = getProjectCardLink({ ...project, repoUrl: "https://github.com/me/kite", caseStudyRoute: "/work/kite" });
+
+    expect(link.destination).toEqual({ to: "/work/kite" });
+    expect(link.label).toBe("Read the case study: Kite");
+  });
+
   it("falls back to the contact page", () => {
     const link = getProjectCardLink(project);
 

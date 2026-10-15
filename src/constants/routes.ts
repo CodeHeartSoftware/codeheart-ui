@@ -2,6 +2,8 @@ export const Routes = {
   HOME: "/",
   HOW_WE_WORK: "/how-we-work",
   CONTACT: "/contact",
+  WORK_THUNDERDOME: "/work/thunderdome",
+  WORK_QUANT_FUSION: "/work/quant-fusion",
 } as const;
 
 export const ExternalLinks = {
@@ -13,5 +15,6 @@ export const SectionIds = {
   TOP: "top",
   WORK: "work",
   APPROACH: "approach",
+  SERVICES: "services",
   STUDIO: "studio",
 } as const;

@@ -1,6 +1,10 @@
+import { Routes } from "@/constants/routes";
 import { prefersReducedMotion } from "./motion";
 
 export const toSectionHref = (sectionId: string): string => `#${sectionId}`;
+
+/** Route to a homepage section from another page; the router's ScrollRestoration scrolls to the hash. */
+export const toHomeSectionRoute = (sectionId: string): string => `${Routes.HOME}${toSectionHref(sectionId)}`;
 
 export const isSectionHref = (href: string): boolean => href.startsWith("#") && href.length > 1;
 

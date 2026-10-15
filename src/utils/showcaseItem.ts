@@ -3,10 +3,20 @@ import type { Project, ShowcaseItem } from "@/types/content";
 import { formatIndexNumber } from "./formatIndexNumber";
 import { toSectionHref } from "./scroll";
 
-/**
- * Turns a featured project into a hero showcase item. Its CTA opens the project's public source
- * when it has one, otherwise it jumps to the project's card on the page.
- */
+type ShowcaseCta = Pick<ShowcaseItem, "ctaLabel" | "destination">;
+
+/** The case study when there is one, then the public source, otherwise the project's card on the page. */
+const getShowcaseCta = (project: Project): ShowcaseCta => {
+  if (project.caseStudyRoute) {
+    return { ctaLabel: HomeStrings.showcase.CASE_STUDY_CTA, destination: { to: project.caseStudyRoute } };
+  }
+  if (project.repoUrl) {
+    return { ctaLabel: HomeStrings.showcase.VIEW_CODE_CTA, destination: { href: project.repoUrl } };
+  }
+  return { ctaLabel: HomeStrings.showcase.CTA, destination: { href: toSectionHref(project.id) } };
+};
+
+/** Turns a featured project into a hero showcase item. */
 export const projectToShowcaseItem = (project: Project, index: number): ShowcaseItem => ({
   id: project.id,
   title: project.title,
@@ -14,6 +24,5 @@ export const projectToShowcaseItem = (project: Project, index: number): Showcase
   tags: project.tags,
   tone: project.tone,
   kicker: HomeStrings.showcase.featuredKicker(formatIndexNumber(index)),
-  ctaLabel: project.repoUrl ? HomeStrings.showcase.VIEW_CODE_CTA : HomeStrings.showcase.CTA,
-  destination: { href: project.repoUrl ?? toSectionHref(project.id) },
+  ...getShowcaseCta(project),
 });

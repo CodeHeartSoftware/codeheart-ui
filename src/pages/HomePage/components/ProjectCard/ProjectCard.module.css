@@ -67,11 +67,24 @@
   transform: scale(1.04);
 }
 
+/* Stretched over the whole card so a tap anywhere opens it. */
 .cardLink {
+  position: absolute;
+  inset: 0;
+  z-index: 3;
+  border-radius: inherit;
+}
+
+/* Inset, because the card's `overflow: hidden` would clip an outer ring. */
+.cardLink:focus-visible {
+  outline: 3px solid var(--color-coral);
+  outline-offset: -6px;
+}
+
+.arrowBadge {
   position: absolute;
   top: 34px;
   right: 34px;
-  z-index: 3;
   display: grid;
   width: 52px;
   height: 52px;
@@ -83,7 +96,8 @@
     background 0.25s ease;
 }
 
-.card:hover .cardLink {
+.card:hover .arrowBadge,
+.cardLink:focus-visible .arrowBadge {
   background: white;
   transform: rotate(45deg);
 }
@@ -117,7 +131,7 @@
     height: clamp(320px, 52vw, 460px);
   }
 
-  .cardLink {
+  .arrowBadge {
     top: 30px;
     right: 30px;
   }
@@ -144,7 +158,7 @@
     height: clamp(280px, 86vw, 360px);
   }
 
-  .cardLink {
+  .arrowBadge {
     top: 20px;
     right: 20px;
     width: 46px;

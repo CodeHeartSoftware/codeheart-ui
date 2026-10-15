@@ -8,6 +8,8 @@ export const TestIds = {
   PROJECT_LIST: "project-list",
   CAPABILITY_LIST: "capability-list",
   PROCESS_LIST: "process-list",
+  SERVICE_LIST: "service-list",
+  HERO_PRIMARY_CTA: "hero-primary-cta",
 } as const;
 
 export const buildProjectCardTestId = (projectId: string) => `project-card-${projectId}`;

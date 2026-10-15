@@ -1,3 +1,4 @@
+import BulletList from "@/components/BulletList/BulletList";
 import type { ProcessStep } from "@/types/content";
 import { formatIndexNumber } from "@/utils/formatIndexNumber";
 import styles from "./ProcessStepCard.module.css";
@@ -12,6 +13,7 @@ const ProcessStepCard = ({ step, index }: ProcessStepCardProps) => (
     <span className={styles.number}>{formatIndexNumber(index)}</span>
     <h3>{step.step}</h3>
     <p>{step.text}</p>
+    {step.points && <BulletList items={step.points} className={styles.points} />}
   </article>
 );
 

@@ -1,14 +1,15 @@
+/* Bottom padding keeps the CTAs clear of the absolutely positioned hero footer. */
 .content {
   position: relative;
   z-index: 3;
-  padding-top: clamp(90px, 14vh, 160px);
+  padding-block: clamp(70px, 10vh, 140px) 110px;
 }
 
 .title {
   max-width: 890px;
-  margin: 25px 0 25px;
+  margin: 22px 0 22px;
   font-family: var(--font-display);
-  font-size: clamp(68px, 7.4vw, 114px);
+  font-size: clamp(64px, 6.6vw, 104px);
   font-weight: 500;
   letter-spacing: -0.075em;
   line-height: 0.91;
@@ -48,12 +49,29 @@
   content: "";
 }
 
-.copy {
+.subtitle {
   max-width: 480px;
-  margin: 0 0 35px;
+  margin: 0 0 14px;
+  font-family: var(--font-display);
+  font-size: 22px;
+  font-weight: 600;
+  letter-spacing: -0.03em;
+  line-height: 1.3;
+}
+
+.copy {
+  max-width: 440px;
+  margin: 0 0 32px;
   color: var(--color-text-muted);
-  font-size: 17px;
+  font-size: 15px;
   line-height: 1.65;
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 18px 28px;
 }
 
 .cta {
@@ -76,6 +94,16 @@
 .cta:hover {
   box-shadow: 0 12px 30px rgba(50, 16, 29, 0.2);
   transform: translateY(-3px);
+}
+
+.secondaryCta {
+  padding: 0 0 5px;
+  border: 0;
+  border-bottom: 1px solid currentColor;
+  background: none;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
 }
 
 .ctaArrow {
@@ -123,6 +151,7 @@
     font-size: clamp(62px, 8.2vw, 88px);
   }
 
+  .subtitle,
   .copy {
     max-width: 420px;
   }
@@ -139,8 +168,12 @@
     line-height: 0.96;
   }
 
+  .subtitle {
+    font-size: 19px;
+  }
+
+  .subtitle,
   .copy {
-    max-width: 85%;
-    font-size: 15px;
+    max-width: none;
   }
 }

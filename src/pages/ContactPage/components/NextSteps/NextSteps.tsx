@@ -1,3 +1,4 @@
+import Reveal from "@/components/Reveal/Reveal";
 import SectionKicker from "@/components/SectionKicker/SectionKicker";
 import { CONTACT_NEXT_STEPS } from "@/constants/content";
 import { ContactStrings } from "@/constants/strings";
@@ -5,7 +6,7 @@ import NextStepItem from "./NextStepItem";
 import styles from "./NextSteps.module.css";
 
 const NextSteps = () => (
-  <section>
+  <Reveal as="section" from="right" delayed>
     <SectionKicker>{ContactStrings.nextSteps.KICKER}</SectionKicker>
     <h2 className={styles.title}>{ContactStrings.nextSteps.TITLE}</h2>
     <ol className={styles.list}>
@@ -13,7 +14,7 @@ const NextSteps = () => (
         <NextStepItem key={step.step} step={step} index={index} />
       ))}
     </ol>
-  </section>
+  </Reveal>
 );
 
 export default NextSteps;

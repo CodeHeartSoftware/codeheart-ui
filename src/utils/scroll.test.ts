@@ -1,9 +1,15 @@
 import { afterEach, describe, expect, it, vi } from "vitest";
-import { isSectionHref, scrollToSection, toSectionHref } from "./scroll";
+import { isSectionHref, scrollToSection, toHomeSectionRoute, toSectionHref } from "./scroll";
 
 describe("toSectionHref", () => {
   it("prefixes the section id with a hash", () => {
     expect(toSectionHref("work")).toBe("#work");
+  });
+});
+
+describe("toHomeSectionRoute", () => {
+  it("points at the section on the home page", () => {
+    expect(toHomeSectionRoute("services")).toBe("/#services");
   });
 });
 

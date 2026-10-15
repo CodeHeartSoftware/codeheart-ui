@@ -1,13 +1,14 @@
+import Reveal from "@/components/Reveal/Reveal";
 import SectionKicker from "@/components/SectionKicker/SectionKicker";
 import { HowWeWorkStrings } from "@/constants/strings";
 import { cx } from "@/utils/classNames";
 import RelayDiagram from "../RelayDiagram/RelayDiagram";
-import SectionNumber from "../SectionNumber/SectionNumber";
-import SectionTitle from "../SectionTitle/SectionTitle";
+import SectionNumber from "@/components/SectionNumber/SectionNumber";
+import SectionTitle from "@/components/SectionTitle/SectionTitle";
 import styles from "./WhySection.module.css";
 
 const WhySection = () => (
-  <section className={cx("shell", styles.section)}>
+  <Reveal as="section" from="left" className={cx("shell", styles.section)}>
     <SectionNumber index={2} />
     <div className={styles.copy}>
       <SectionKicker className={styles.kicker}>{HowWeWorkStrings.why.KICKER}</SectionKicker>
@@ -16,7 +17,7 @@ const WhySection = () => (
       <p>{HowWeWorkStrings.why.PARAGRAPH_TWO}</p>
     </div>
     <RelayDiagram className={styles.relay} />
-  </section>
+  </Reveal>
 );
 
 export default WhySection;

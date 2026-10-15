@@ -25,6 +25,14 @@ body {
   background: var(--color-bg);
 }
 
+/*
+ * Content sliding in from the side (Reveal) must not widen the page. `clip` on <main> removes the
+ * overflow outright; on <body> it would propagate to the viewport as `hidden`, which still scrolls.
+ */
+main {
+  overflow-x: clip;
+}
+
 button,
 a {
   font: inherit;

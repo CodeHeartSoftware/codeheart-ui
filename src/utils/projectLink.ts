@@ -7,8 +7,16 @@ type ProjectLink = {
   label: string;
 };
 
-/** Where a project card's arrow goes: its public source when there is one, otherwise the contact page. */
-export const getProjectCardLink = (project: Project): ProjectLink =>
-  project.repoUrl
-    ? { destination: { href: project.repoUrl }, label: HomeStrings.work.viewSourceLabel(project.title) }
-    : { destination: { to: Routes.CONTACT }, label: HomeStrings.work.askAboutLabel(project.title) };
+/**
+ * Where a project card's arrow goes: its case study when there is one, then its public source,
+ * otherwise the contact page.
+ */
+export const getProjectCardLink = (project: Project): ProjectLink => {
+  if (project.caseStudyRoute) {
+    return { destination: { to: project.caseStudyRoute }, label: HomeStrings.work.caseStudyLabel(project.title) };
+  }
+  if (project.repoUrl) {
+    return { destination: { href: project.repoUrl }, label: HomeStrings.work.viewSourceLabel(project.title) };
+  }
+  return { destination: { to: Routes.CONTACT }, label: HomeStrings.work.askAboutLabel(project.title) };
+};

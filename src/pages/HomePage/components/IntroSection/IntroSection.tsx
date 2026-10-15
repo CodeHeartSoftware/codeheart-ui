@@ -3,10 +3,11 @@ import UnderlineLink from "@/components/UnderlineLink/UnderlineLink";
 import { Routes, SectionIds } from "@/constants/routes";
 import { HomeStrings } from "@/constants/strings";
 import { cx } from "@/utils/classNames";
+import Reveal from "@/components/Reveal/Reveal";
 import styles from "./IntroSection.module.css";
 
 const IntroSection = () => (
-  <section className={cx("shell", styles.intro)} id={SectionIds.APPROACH}>
+  <Reveal as="section" from="right" className={cx("shell", styles.intro)} id={SectionIds.APPROACH}>
     <SectionKicker>{HomeStrings.intro.KICKER}</SectionKicker>
     <p className={styles.statement}>
       {HomeStrings.intro.STATEMENT_LEAD}
@@ -16,7 +17,7 @@ const IntroSection = () => (
       <p>{HomeStrings.intro.ASIDE}</p>
       <UnderlineLink to={Routes.HOW_WE_WORK}>{HomeStrings.intro.HOW_WE_WORK_LINK}</UnderlineLink>
     </div>
-  </section>
+  </Reveal>
 );
 
 export default IntroSection;

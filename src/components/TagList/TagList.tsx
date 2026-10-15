@@ -12,6 +12,7 @@ type TagListProps = {
 const toneClassNames: Record<TagTone, string> = {
   ink: styles.ink,
   paper: styles.paper,
+  outline: styles.outline,
 };
 
 const TagList = ({ tags, tone, className, ariaLabel }: TagListProps) => (

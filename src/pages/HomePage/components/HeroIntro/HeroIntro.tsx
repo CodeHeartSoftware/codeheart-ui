@@ -1,6 +1,7 @@
+import AppLink from "@/components/AppLink/AppLink";
 import Arrow from "@/components/Arrow/Arrow";
 import Eyebrow from "@/components/Eyebrow/Eyebrow";
-import { SectionIds } from "@/constants/routes";
+import { Routes, SectionIds } from "@/constants/routes";
 import { HomeStrings } from "@/constants/strings";
 import { TestIds } from "@/constants/testIds";
 import { cx } from "@/utils/classNames";
@@ -20,18 +21,24 @@ const HeroIntro = ({ onExplore }: HeroIntroProps) => (
         <em>{HomeStrings.hero.TITLE_EMPHASIS}</em>
       </span>
     </h1>
+    <p className={cx(styles.subtitle, styles.fadeIn, styles.delayOne)}>{HomeStrings.hero.SUBTITLE}</p>
     <p className={cx(styles.copy, styles.fadeIn, styles.delayOne)}>{HomeStrings.hero.COPY}</p>
-    <button
-      className={cx(styles.cta, styles.fadeIn, styles.delayTwo)}
-      type="button"
-      onClick={onExplore}
-      data-testid={TestIds.HERO_EXPLORE_BUTTON}
-    >
-      {HomeStrings.hero.CTA}
-      <span className={styles.ctaArrow}>
-        <Arrow />
-      </span>
-    </button>
+    <div className={cx(styles.actions, styles.fadeIn, styles.delayTwo)}>
+      <AppLink className={styles.cta} to={Routes.CONTACT} data-testid={TestIds.HERO_PRIMARY_CTA}>
+        {HomeStrings.hero.PRIMARY_CTA}
+        <span className={styles.ctaArrow}>
+          <Arrow />
+        </span>
+      </AppLink>
+      <button
+        className={styles.secondaryCta}
+        type="button"
+        onClick={onExplore}
+        data-testid={TestIds.HERO_EXPLORE_BUTTON}
+      >
+        {HomeStrings.hero.SECONDARY_CTA}
+      </button>
+    </div>
   </div>
 );
 
