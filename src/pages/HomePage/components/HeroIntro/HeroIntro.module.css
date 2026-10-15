@@ -97,6 +97,7 @@
 }
 
 .secondaryCta {
+  position: relative;
   padding: 0 0 5px;
   border: 0;
   border-bottom: 1px solid currentColor;
@@ -104,6 +105,13 @@
   font-size: 14px;
   font-weight: 600;
   cursor: pointer;
+}
+
+/* Invisible padding that enlarges the tap target without changing the layout. */
+.secondaryCta::before {
+  position: absolute;
+  inset: -12px -8px;
+  content: "";
 }
 
 .ctaArrow {
