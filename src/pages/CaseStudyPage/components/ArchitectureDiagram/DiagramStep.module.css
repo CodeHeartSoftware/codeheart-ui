@@ -38,3 +38,10 @@
   font-size: 13px;
   line-height: 1.6;
 }
+
+/* Steps stack in a single column on mobile, so the flow arrow points down. */
+@media (max-width: 760px) {
+  .arrow {
+    rotate: 90deg;
+  }
+}
