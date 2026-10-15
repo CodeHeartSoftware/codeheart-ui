@@ -1,7 +1,8 @@
 import { cx } from "@/utils/classNames";
 import styles from "./Tag.module.css";
 
-export type TagTone = "ink" | "paper";
+/** `ink` and `paper` sit on fixed light/dark surfaces; `outline` follows the page theme. */
+export type TagTone = "ink" | "paper" | "outline";
 
 type TagProps = {
   label: string;
@@ -11,6 +12,7 @@ type TagProps = {
 const toneClassNames: Record<TagTone, string> = {
   ink: styles.ink,
   paper: styles.paper,
+  outline: styles.outline,
 };
 
 const Tag = ({ label, tone }: TagProps) => <span className={cx(styles.tag, toneClassNames[tone])}>{label}</span>;

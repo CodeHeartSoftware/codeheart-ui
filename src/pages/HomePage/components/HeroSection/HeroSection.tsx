@@ -7,7 +7,7 @@ import {useHeroSection} from "./useHeroSection";
 import styles from "./HeroSection.module.css";
 
 const HeroSection = () => {
-  const { heroRef, scrollToWork } = useHeroSection();
+  const { heroRef, scrollToWork, scrollToNextSection } = useHeroSection();
 
   return (
     <section className={styles.hero} ref={heroRef}>
@@ -16,7 +16,7 @@ const HeroSection = () => {
       <SiteNav />
       <HeroIntro onExplore={scrollToWork} />
         <HeroShowcase/>
-      <HeroFooter onScroll={scrollToWork} />
+      <HeroFooter onScroll={scrollToNextSection} />
     </section>
   );
 };

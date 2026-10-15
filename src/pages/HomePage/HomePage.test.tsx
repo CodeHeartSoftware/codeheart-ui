@@ -1,6 +1,6 @@
 import { fireEvent, screen, within } from "@testing-library/react";
 import { describe, expect, it } from "vitest";
-import { PROJECTS, SHOWCASE_ITEMS } from "@/constants/content";
+import { PROJECTS, SERVICES, SHOWCASE_ITEMS } from "@/constants/content";
 import { buildProjectCardTestId, buildShowcaseTabTestId, TestIds } from "@/constants/testIds";
 import { renderWithRouter } from "@/test/renderWithRouter";
 import HomePage from "./HomePage";
@@ -13,6 +13,37 @@ describe("HomePage", () => {
     PROJECTS.forEach((project) => {
       expect(within(list).getByTestId(buildProjectCardTestId(project.id))).toHaveTextContent(project.title);
     });
+  });
+
+  it("renders the services right after the intro, each with a contact link", () => {
+    renderWithRouter(<HomePage />);
+    const list = screen.getByTestId(TestIds.SERVICE_LIST);
+    const servicesSection = list.closest("section");
+
+    expect(servicesSection?.previousElementSibling).toHaveTextContent("What we believe");
+    SERVICES.forEach((service) => {
+      expect(within(list).getByRole("heading", { name: service.title })).toBeInTheDocument();
+      expect(within(list).getByRole("link", { name: service.ctaLabel })).toHaveAttribute("href", "/contact");
+    });
+  });
+
+  it("links each project card to its case study", () => {
+    renderWithRouter(<HomePage />);
+    const list = screen.getByTestId(TestIds.PROJECT_LIST);
+
+    PROJECTS.filter((project) => project.caseStudyRoute).forEach((project) => {
+      const card = within(list).getByTestId(buildProjectCardTestId(project.id));
+      expect(within(card).getByRole("link", { name: `Read the case study: ${project.title}` })).toHaveAttribute(
+        "href",
+        project.caseStudyRoute,
+      );
+    });
+  });
+
+  it("sends the primary hero CTA to the contact page", () => {
+    renderWithRouter(<HomePage />);
+
+    expect(screen.getByTestId(TestIds.HERO_PRIMARY_CTA)).toHaveAttribute("href", "/contact");
   });
 
   it("links to the how-we-work page", () => {

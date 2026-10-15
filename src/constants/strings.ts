@@ -4,19 +4,40 @@ export const SharedStrings = {
   BACK_HOME: "Back to home",
 } as const;
 
+/** Per-page <title> and meta description. Case-study meta lives with each case study in caseStudies.ts. */
+export const PageMetaStrings = {
+  HOME: {
+    title: "CodeHeart — Product Design and Engineering",
+    description:
+      "CodeHeart helps small companies and digital agencies turn product designs into polished, production-ready web and mobile apps with React, React Native, and full-stack engineering.",
+  },
+  HOW_WE_WORK: {
+    title: "How We Work | CodeHeart",
+    description:
+      "How CodeHeart runs a project: define, scope, build, and hand off. Clearly scoped engagements with written progress updates and no agency overhead.",
+  },
+  CONTACT: {
+    title: "Discuss a Project | CodeHeart",
+    description:
+      "Tell CodeHeart about your product: approved designs that need building, an idea to prototype, or an application that needs an experienced engineering review.",
+  },
+} as const;
+
 export const HomeStrings = {
   nav: {
     ARIA_LABEL: "Main navigation",
-    CTA: "Start a project",
+    CTA: "Discuss a project",
     MENU_TOGGLE_LABEL: "Toggle menu",
   },
   hero: {
-    EYEBROW: "Digital products, made personal",
+    EYEBROW: "Product design & engineering",
     TITLE_LINE_ONE: "We put heart",
     TITLE_LINE_TWO: "into making",
     TITLE_EMPHASIS: "digital art.",
-    COPY: "Product engineering, team leadership, or a senior hand on your existing team — we plug in wherever your project needs us. No agency overhead, no management fees. Just experience you can put to work.",
-    CTA: "Explore our work",
+    SUBTITLE: "Digital products, real results.",
+    COPY: "We help small companies and digital agencies turn product designs into polished, production-ready web and mobile apps.",
+    PRIMARY_CTA: "Discuss a project",
+    SECONDARY_CTA: "Explore selected work",
   },
   showcase: {
     REGION_LABEL: "Featured project preview",
@@ -24,12 +45,13 @@ export const HomeStrings = {
     featuredKicker: (number: string) => `Featured · ${number}`,
     CTA: "See how we built it",
     VIEW_CODE_CTA: "View the code",
+    CASE_STUDY_CTA: "Read the case study",
     nextProject: {
       TITLE: "Your next project",
-      DESCRIPTION: "A new product, a team that needs leading, or a senior hand on the one you have. Tell us what you’re building.",
-      TAGS: ["Your idea", "Senior engineering", "Zero overhead"],
+      DESCRIPTION: "Approved designs that need building, an idea worth prototyping, or an app that needs a second opinion. Tell us what you’re working on.",
+      TAGS: ["Design to production", "Senior engineering", "Zero overhead"],
       KICKER: "Up next",
-      CTA: "Start a project",
+      CTA: "Discuss a project",
     },
     statusBuilding: (title: string) => `Building ${title}…`,
     STATUS_LIVE: "Live · ready to explore",
@@ -38,7 +60,7 @@ export const HomeStrings = {
     CODE_COMMENT: "// shipped with heart",
   },
   heroFooter: {
-    STUDIO: "Independent digital studio",
+    STUDIO: "Independent product studio",
     LOCATION: "Chicago · Working everywhere",
     SCROLL: "Scroll to discover",
   },
@@ -46,15 +68,22 @@ export const HomeStrings = {
     KICKER: "What we believe",
     STATEMENT_LEAD: "Impact doesn’t scale with headcount.",
     STATEMENT_EMPHASIS: "It scales with heart.",
-    ASIDE: "One experienced engineer, plugged in where it matters, can move a product further than a crowded team. That’s our model: product engineering, team leadership, or senior help on your existing team — without the fees and red tape of a traditional agency.",
+    ASIDE: "One experienced engineer, close to the work, can move a product further than a crowded team. That’s our model: senior product design and engineering, delivered as clearly defined projects — without the fees and red tape of a traditional agency.",
     HOW_WE_WORK_LINK: "How we work",
+  },
+  services: {
+    KICKER: "Services",
+    TITLE: "Three ways to work together.",
+    SUMMARY: "Each engagement has a defined scope, clear deliverables, and an agreed timeline, so you know what you’re getting before any work begins.",
+    IDEAL_FOR_LABEL: "Ideal for",
   },
   work: {
     KICKER: "Selected work",
     TITLE: "Made with purpose.",
-    SUMMARY: "Real systems, built end to end. Developed lean, with no layers or handoffs between the idea and the code.",
+    SUMMARY: "Real systems, built end to end. Developed lean, with no additional layers or handoffs between the idea and the code.",
     askAboutLabel: (title: string) => `Ask us about ${title}`,
     viewSourceLabel: (title: string) => `View ${title} source code on GitHub (opens in a new tab)`,
+    caseStudyLabel: (title: string) => `Read the case study: ${title}`,
   },
   financeArt: {
     HEADING_KICKER: "Your overview",
@@ -91,16 +120,16 @@ export const HomeStrings = {
     KICKER: "Your idea, our next chapter",
     TITLE_LEAD: "Let’s make something",
     TITLE_EMPHASIS: "people care about.",
-    CTA: "Start a project",
+    CTA: "Discuss a project",
   },
 } as const;
 
 export const ContactStrings = {
   hero: {
-    EYEBROW: "Start a project",
+    EYEBROW: "Discuss a project",
     TITLE_LEAD: "Let’s build",
     TITLE_EMPHASIS: " something together.",
-    COPY: "Whether it’s a new product, a team that needs leading, or a senior hand on the one you already have, it starts with a quick note. Tell us what you’re working on and we’ll take it from there.",
+    COPY: "Whether you have approved designs that need building, an idea worth prototyping, or an application that needs a second opinion, it starts with a quick note. Tell us what you’re working on and we’ll take it from there.",
     EMAIL_CTA: "Email us about your project",
     EMAIL_SUBJECT: "New project inquiry",
   },
@@ -119,7 +148,7 @@ export const HowWeWorkStrings = {
     EYEBROW: "How we work",
     TITLE_LEAD: "Senior expertise.",
     TITLE_EMPHASIS: " A smaller footprint.",
-    COPY: "CodeHeart is a lean engineering studio that plugs into whatever your project needs — building the product, leading the team, or strengthening the one you already have — without the weight of a traditional agency.",
+    COPY: "CodeHeart is a lean product design and engineering studio. We take on clearly defined projects — building features from approved designs, prototyping new ideas, or assessing an existing application — without the weight of a traditional agency.",
     PORTRAIT_ALT: "Portrait of Tom Sarver, founder of CodeHeart",
     FOUNDER_NAME: "Tom Sarver",
     PORTRAIT_ROLE: "Founder & engineer",
@@ -129,12 +158,12 @@ export const HowWeWorkStrings = {
     KICKER: "Who we are",
     TITLE: "A small software studio with deep experience.",
     LEAD: "CodeHeart was founded in early 2026 by a software engineer with more than seven years of experience in the technology industry.",
-    BODY: "You work directly with the person doing the work — designing the technical approach, writing the code, or running the team. That means fewer handoffs, faster decisions, and a partner who understands the whole picture, not just one piece of it.",
+    BODY: "You work directly with the person doing the work — shaping the technical approach, designing the interface, and writing the code. That means fewer handoffs, faster decisions, and a partner who understands the whole picture, not just one piece of it.",
   },
   capabilities: {
     KICKER: "What we do",
-    TITLE: "Configured to what your project needs.",
-    SUMMARY: "Bring CodeHeart in for one of these, or all three. Either way, you’re paying for experience — not overhead.",
+    TITLE: "Design and engineering, in one pair of hands.",
+    SUMMARY: "Product design, front-end craft, and the systems behind them: the combination that turns a design file into software people can use.",
     TAGS_LABEL: "Our capabilities",
   },
   why: {
@@ -148,13 +177,38 @@ export const HowWeWorkStrings = {
     peopleInBetween: (count: number) => (count === 0 ? "No one in between" : `${count} people in between`),
   },
   process: {
-    KICKER: "A simple process",
-    TITLE: "Plug in. Ship. Adapt.",
+    KICKER: "How a project runs",
+    TITLE: "Define. Scope. Build. Hand off.",
+    SUMMARY: "Every engagement follows the same four stages, so you always know where things stand, what’s next, and what you’ll have at the end.",
+    NOTE: "Ongoing maintenance, emergency support, and additional features aren’t part of a project by default. We’re happy to arrange them under a separate agreement, or build them into the original scope.",
   },
   contact: {
     KICKER: "Have something in mind?",
     TITLE_LEAD: "Let’s make the complicated",
     TITLE_EMPHASIS: " feel simple.",
-    CTA: "Tell us about your project or team",
+    CTA: "Tell us about your project",
+  },
+} as const;
+
+export const CaseStudyStrings = {
+  EYEBROW: "Case study",
+  FACTS_LABEL: "Project details",
+  STACK_LABEL: "Technologies",
+  REPO_CTA: "View the source on GitHub",
+  DIAGRAM_LABEL: "Architecture overview",
+  status: {
+    implemented: "Implemented",
+    inProgress: "In development",
+    planned: "Planned",
+  },
+  next: {
+    KICKER: "Next case study",
+  },
+  contact: {
+    KICKER: "Have something in mind?",
+    TITLE_LEAD: "Building something technically challenging?",
+    TITLE_EMPHASIS: " Let’s talk about your project.",
+    CTA: "Discuss a project",
+    SERVICES_LINK: "See our services",
   },
 } as const;

@@ -6,9 +6,14 @@ describe("getNavigationDirection", () => {
     expect(getNavigationDirection("/")).toBe("back");
   });
 
+  it("treats a home page section as going back", () => {
+    expect(getNavigationDirection("/#services")).toBe("back");
+  });
+
   it("treats every other page as going forward", () => {
     expect(getNavigationDirection("/contact")).toBe("forward");
     expect(getNavigationDirection("/how-we-work")).toBe("forward");
+    expect(getNavigationDirection("/work/thunderdome")).toBe("forward");
   });
 });
 

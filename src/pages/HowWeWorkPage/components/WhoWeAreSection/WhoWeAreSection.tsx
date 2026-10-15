@@ -1,12 +1,13 @@
+import Reveal from "@/components/Reveal/Reveal";
 import SectionKicker from "@/components/SectionKicker/SectionKicker";
 import { HowWeWorkStrings } from "@/constants/strings";
 import { cx } from "@/utils/classNames";
-import SectionNumber from "../SectionNumber/SectionNumber";
-import SectionTitle from "../SectionTitle/SectionTitle";
+import SectionNumber from "@/components/SectionNumber/SectionNumber";
+import SectionTitle from "@/components/SectionTitle/SectionTitle";
 import styles from "./WhoWeAreSection.module.css";
 
 const WhoWeAreSection = () => (
-  <section className={cx("shell", styles.section)}>
+  <Reveal as="section" from="right" className={cx("shell", styles.section)}>
     <SectionNumber index={0} />
     <div>
       <SectionKicker className={styles.kicker}>{HowWeWorkStrings.whoWeAre.KICKER}</SectionKicker>
@@ -16,7 +17,7 @@ const WhoWeAreSection = () => (
         <p>{HowWeWorkStrings.whoWeAre.BODY}</p>
       </div>
     </div>
-  </section>
+  </Reveal>
 );
 
 export default WhoWeAreSection;

@@ -1,3 +1,4 @@
+import Reveal from "@/components/Reveal/Reveal";
 import SectionKicker from "@/components/SectionKicker/SectionKicker";
 import UnderlineLink from "@/components/UnderlineLink/UnderlineLink";
 import {Routes} from "@/constants/routes";
@@ -6,7 +7,7 @@ import styles from "./AboutContactSection.module.css";
 
 const AboutContactSection = () => (
   <section className={styles.section}>
-    <div className="shell">
+    <Reveal from="right" className="shell">
       <SectionKicker tone="muted">{HowWeWorkStrings.contact.KICKER}</SectionKicker>
       <h2 className={styles.title}>
         {HowWeWorkStrings.contact.TITLE_LEAD}
@@ -15,7 +16,7 @@ const AboutContactSection = () => (
       <UnderlineLink to={Routes.CONTACT} size="md">
         {HowWeWorkStrings.contact.CTA}
       </UnderlineLink>
-    </div>
+    </Reveal>
   </section>
 );
 

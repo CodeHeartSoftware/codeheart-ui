@@ -40,6 +40,14 @@ describe("useHeroSection", () => {
     expect(scrollToSection).toHaveBeenCalledWith(SectionIds.WORK);
   });
 
+  it("scrolls to the section right below the hero", () => {
+    const { result } = renderHook(() => useHeroSection());
+
+    result.current.scrollToNextSection();
+
+    expect(scrollToSection).toHaveBeenCalledWith(SectionIds.APPROACH);
+  });
+
   it("writes pointer variables to the hero on pointer move", () => {
     const hero = renderHero();
 

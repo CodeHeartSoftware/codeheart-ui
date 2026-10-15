@@ -40,8 +40,11 @@ const ProjectCard = ({ project, index }: ProjectCardProps) => {
       <div className={styles.art}>
         <ProjectArt type={project.art} />
       </div>
+      {/* One link covering the whole card; the arrow badge is its only visible cue. */}
       <AppLink className={styles.cardLink} {...link.destination} aria-label={link.label}>
-        <Arrow diagonal />
+        <span className={styles.arrowBadge}>
+          <Arrow diagonal />
+        </span>
       </AppLink>
     </article>
   );

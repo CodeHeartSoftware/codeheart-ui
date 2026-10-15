@@ -1,0 +1,17 @@
+.item {
+  position: relative;
+  padding-left: 18px;
+  font-size: 13px;
+  line-height: 1.6;
+}
+
+.item::before {
+  position: absolute;
+  top: 0.62em;
+  left: 0;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--color-coral);
+  content: "";
+}

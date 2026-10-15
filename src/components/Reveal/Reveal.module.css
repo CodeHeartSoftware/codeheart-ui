@@ -1,0 +1,41 @@
+/*
+ * Uses the standalone `translate` property so it never fights a child's own `transform`.
+ * Reduced-motion users get the global override in index.css, so content simply appears.
+ */
+.reveal {
+  opacity: 0;
+  transition:
+    opacity 0.8s ease,
+    translate 1s var(--ease-rise);
+}
+
+.fromLeft {
+  translate: -80px 0;
+}
+
+.fromRight {
+  translate: 80px 0;
+}
+
+.delayed {
+  transition-delay: 0.15s;
+}
+
+.visible {
+  opacity: 1;
+  translate: 0 0;
+}
+
+@media (max-width: 760px) {
+  .fromLeft {
+    translate: -36px 0;
+  }
+
+  .fromRight {
+    translate: 36px 0;
+  }
+
+  .visible {
+    translate: 0 0;
+  }
+}

@@ -23,5 +23,8 @@ export function useHeroSection() {
 
   const scrollToWork = () => scrollToSection(SectionIds.WORK);
 
-  return { heroRef, scrollToWork };
+  /** The section directly below the hero. */
+  const scrollToNextSection = () => scrollToSection(SectionIds.APPROACH);
+
+  return { heroRef, scrollToWork, scrollToNextSection };
 }

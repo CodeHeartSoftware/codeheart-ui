@@ -35,4 +35,14 @@ describe("projectToShowcaseItem", () => {
     expect(item.destination).toEqual({ href: "https://github.com/me/kite" });
     expect(item.ctaLabel).toBe("View the code");
   });
+
+  it("links the CTA to the case study when there is one", () => {
+    const item = projectToShowcaseItem(
+      { ...project, repoUrl: "https://github.com/me/kite", caseStudyRoute: "/work/kite" },
+      0,
+    );
+
+    expect(item.destination).toEqual({ to: "/work/kite" });
+    expect(item.ctaLabel).toBe("Read the case study");
+  });
 });

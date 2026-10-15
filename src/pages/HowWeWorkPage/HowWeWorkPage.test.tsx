@@ -16,4 +16,14 @@ describe("HowWeWorkPage", () => {
     expect(steps).toHaveLength(PROCESS_STEPS.length);
     expect(steps[3]).toHaveTextContent("04");
   });
+
+  it("lists the points under each process step", () => {
+    renderWithRouter(<HowWeWorkPage />, "/how-we-work");
+
+    const steps = within(screen.getByTestId(TestIds.PROCESS_LIST)).getAllByRole("article");
+
+    PROCESS_STEPS.forEach((step, index) => {
+      expect(within(steps[index]).getAllByRole("listitem")).toHaveLength(step.points?.length ?? 0);
+    });
+  });
 });
