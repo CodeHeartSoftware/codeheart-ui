@@ -5,7 +5,7 @@ import { renderWithRouter } from "@/test/renderWithRouter";
 import ServiceCard from "./ServiceCard";
 
 const rescue = SERVICES.find((service) => service.process)!;
-const assessment = SERVICES.find((service) => !service.process && !service.isFeatured)!;
+const plainService = SERVICES.find((service) => !service.process && !service.isFeatured)!;
 
 const renderCard = (service = rescue, isActive = false) => {
   const onHover = vi.fn();
@@ -44,7 +44,7 @@ describe("ServiceCard", () => {
   });
 
   it("leaves the engagement path out otherwise", () => {
-    renderCard(assessment);
+    renderCard(plainService);
 
     expect(screen.queryByText(rescue.process!.label)).not.toBeInTheDocument();
   });

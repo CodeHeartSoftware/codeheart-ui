@@ -26,3 +26,48 @@
   transform: scaleX(1);
   transform-origin: left;
 }
+
+.index,
+.arrow {
+  display: none;
+}
+
+/* In the mobile menu each link is a full-width row: index, label, arrow. */
+@media (max-width: 760px) {
+  .link {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding: 18px 0;
+    border-bottom: 1px solid var(--color-line);
+    font-family: var(--font-display);
+    font-size: 26px;
+    font-weight: 500;
+    letter-spacing: -0.04em;
+  }
+
+  .link::before {
+    inset: 0;
+  }
+
+  .link::after {
+    display: none;
+  }
+
+  /* A fixed width so every label starts at the same x, whatever the digits. */
+  .index {
+    display: block;
+    min-width: 24px;
+    color: var(--color-coral);
+    font-family: var(--font-sans);
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.18em;
+  }
+
+  .arrow {
+    display: block;
+    margin-left: auto;
+    color: var(--color-text-muted);
+  }
+}

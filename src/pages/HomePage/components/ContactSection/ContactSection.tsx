@@ -21,7 +21,7 @@ const ContactSection = () => (
         {HomeStrings.contact.CTA}
       </UnderlineLink>
       <div className={styles.markRings}>
-        <LogoMark size={CONTACT_MARK_SIZE} />
+        <LogoMark size={CONTACT_MARK_SIZE} className={styles.mark} />
       </div>
     </Reveal>
   </section>

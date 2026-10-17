@@ -51,9 +51,6 @@ export type ProcessStep = {
   points?: string[];
 };
 
-/** The color of a service card's spine in the services stack. */
-export type ServiceTone = "rose" | "blush" | "berry" | "coral";
-
 /** A short, ordered engagement path shown on a service card (e.g. Vibe Code Rescue's diagnostic-first process). */
 export type ServiceProcess = {
   label: string;
@@ -71,8 +68,7 @@ export type Service = {
   details: string[];
   idealFor: string;
   ctaLabel: string;
-  tone: ServiceTone;
-  /** The flagship engagement, open on top of the stack by default. */
+  /** The card open on top of the stack by default. */
   isFeatured?: boolean;
   process?: ServiceProcess;
 };

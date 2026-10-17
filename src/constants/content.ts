@@ -57,8 +57,6 @@ export const SERVICES: Service[] = [
     ],
     idealFor: "SaaS teams and digital agencies with approved designs or defined product requirements that need experienced engineering capacity to ship them.",
     ctaLabel: "Discuss a project",
-    tone: "rose",
-    isFeatured: true,
   },
   {
     id: "ui-ux-improvement",
@@ -76,7 +74,6 @@ export const SERVICES: Service[] = [
     ],
     idealFor: "Product teams that need to improve usability, refine a workflow, or turn an inconsistent interface into a polished experience.",
     ctaLabel: "Improve your product",
-    tone: "blush",
   },
   {
     id: "engineering-assessment",
@@ -93,7 +90,6 @@ export const SERVICES: Service[] = [
     ],
     idealFor: "SaaS companies and software teams that need clarity on technical debt, architecture, delivery risks, or the next engineering investment to make.",
     ctaLabel: "Assess your application",
-    tone: "berry",
   },
   {
     id: "vibe-code-rescue",
@@ -117,7 +113,7 @@ export const SERVICES: Service[] = [
     ],
     idealFor: "Founders and teams who built with tools like Claude Code, Cursor, Lovable, or Replit and are stuck on bugs, fragile architecture, failed deployments, or the last steps to a dependable launch.",
     ctaLabel: "Rescue your application",
-    tone: "coral",
+    isFeatured: true,
   },
 ];
 
