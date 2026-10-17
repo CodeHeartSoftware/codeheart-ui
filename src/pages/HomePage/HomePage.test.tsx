@@ -22,9 +22,31 @@ describe("HomePage", () => {
 
     expect(servicesSection?.previousElementSibling).toHaveTextContent("What we believe");
     SERVICES.forEach((service) => {
-      expect(within(list).getByRole("heading", { name: service.title })).toBeInTheDocument();
+      expect(within(list).getByRole("heading", { name: new RegExp(service.title) })).toBeInTheDocument();
       expect(within(list).getByRole("link", { name: service.ctaLabel })).toHaveAttribute("href", "/contact");
     });
+  });
+
+  it("opens the flagship service by default and never shows prices", () => {
+    renderWithRouter(<HomePage />);
+    const list = screen.getByTestId(TestIds.SERVICE_LIST);
+
+    SERVICES.forEach((service) => {
+      const spine = within(list).getByRole("button", { name: new RegExp(service.title) });
+      expect(spine).toHaveAttribute("aria-expanded", String(Boolean(service.isFeatured)));
+    });
+    expect(list.textContent).not.toMatch(/\$\s?\d/);
+  });
+
+  it("opens a service when its spine is clicked", () => {
+    renderWithRouter(<HomePage />);
+    const list = screen.getByTestId(TestIds.SERVICE_LIST);
+    const lastService = SERVICES[SERVICES.length - 1];
+
+    fireEvent.click(within(list).getByRole("button", { name: new RegExp(lastService.title) }));
+
+    expect(within(list).getAllByRole("button", { expanded: true })).toHaveLength(1);
+    expect(within(list).getByRole("button", { name: new RegExp(lastService.title) })).toHaveAttribute("aria-expanded", "true");
   });
 
   it("links each project card to its case study", () => {

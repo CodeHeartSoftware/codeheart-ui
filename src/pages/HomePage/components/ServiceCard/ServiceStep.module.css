@@ -1,0 +1,14 @@
+.step {
+  display: grid;
+  gap: 4px;
+  padding-top: 10px;
+  border-top: 2px solid var(--color-coral-dark);
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.number {
+  font-size: 11px;
+  letter-spacing: 0.12em;
+  opacity: 0.7;
+}

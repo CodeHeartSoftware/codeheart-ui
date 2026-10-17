@@ -20,30 +20,44 @@
   line-height: 1;
 }
 
-.heading p {
+.summary {
   max-width: 340px;
+}
+
+.summary p {
   margin: 0;
   color: var(--color-text-muted);
   font-size: 13px;
   line-height: 1.7;
 }
 
+.summary p + p {
+  margin-top: 12px;
+}
+
+.summary .hint {
+  color: var(--color-text);
+  font-weight: 600;
+}
+
 /*
- * A flex row on desktop so cards can animate their share of the width (see ServiceCard). Narrowing a
- * card rewraps its text, so the row reserves its tallest hover state (~825px at 1120px wide) up front;
- * otherwise hovering would push the rest of the page down.
+ * The services stack: a row of cards where only the open one shows its panel (see ServiceCard).
+ * The cards sit flush, so the border wraps the whole stack rather than each card. `--spine-width` is
+ * read by ServiceCard to size the open panel against this container's width, so its text never
+ * rewraps while the card slides open.
  */
-.grid {
+.stack {
+  --spine-width: 88px;
+
   display: flex;
-  min-height: 840px;
-  gap: 20px;
+  overflow: hidden;
+  border: 1px solid var(--color-line);
+  container-type: inline-size;
 }
 
 @media (max-width: 1100px) {
-  .grid {
-    display: grid;
-    min-height: 0;
-    grid-template-columns: 1fr 1fr;
+  .stack {
+    --spine-width: 64px;
   }
 }
 
@@ -61,11 +75,11 @@
     font-size: 46px;
   }
 
-  .heading p {
+  .summary {
     margin-top: 25px;
   }
 
-  .grid {
-    grid-template-columns: 1fr;
+  .stack {
+    flex-direction: column;
   }
 }

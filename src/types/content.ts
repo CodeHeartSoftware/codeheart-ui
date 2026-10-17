@@ -51,17 +51,30 @@ export type ProcessStep = {
   points?: string[];
 };
 
+/** The color of a service card's spine in the services stack. */
+export type ServiceTone = "rose" | "blush" | "berry" | "coral";
+
+/** A short, ordered engagement path shown on a service card (e.g. Vibe Code Rescue's diagnostic-first process). */
+export type ServiceProcess = {
+  label: string;
+  note: string;
+  steps: string[];
+};
+
 /** A defined way to engage CodeHeart, shown in the homepage Services section. */
 export type Service = {
   id: string;
   kicker: string;
   title: string;
+  headline: string;
   summary: string;
   details: string[];
   idealFor: string;
   ctaLabel: string;
-  /** The primary engagement, given more visual weight than the others. */
+  tone: ServiceTone;
+  /** The flagship engagement, open on top of the stack by default. */
   isFeatured?: boolean;
+  process?: ServiceProcess;
 };
 
 export type PageMeta = {
