@@ -198,6 +198,9 @@ export const CaseStudyStrings = {
   FACTS_LABEL: "Project details",
   STACK_LABEL: "Technologies",
   REPO_CTA: "View the source on GitHub",
+  API_REPO_CTA: "View the API source on GitHub",
+  UI_REPO_CTA: "View the UI source on GitHub",
+  REPOS_LABEL: "Source code",
   DIAGRAM_LABEL: "Architecture overview",
   status: {
     implemented: "Implemented",

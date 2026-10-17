@@ -11,6 +11,7 @@ const buildCaseStudy = (id: string): CaseStudy => ({
   summary: "",
   tags: [],
   facts: [],
+  repos: [],
   sections: [],
 });
 

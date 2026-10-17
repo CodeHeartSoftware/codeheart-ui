@@ -107,6 +107,12 @@ export type CaseStudyFact = {
   value: string;
 };
 
+/** A public repository linked from the case study hero. */
+export type CaseStudyRepo = {
+  label: string;
+  url: string;
+};
+
 export type CaseStudy = {
   id: string;
   route: string;
@@ -116,7 +122,7 @@ export type CaseStudy = {
   summary: string;
   tags: string[];
   facts: CaseStudyFact[];
-  repoUrl?: string;
+  repos: CaseStudyRepo[];
   sections: CaseStudySection[];
 };
 
