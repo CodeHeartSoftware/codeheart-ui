@@ -36,7 +36,7 @@ export const PROJECTS: Project[] = [
     tags: ["React", "TypeScript", "Express", "Quantitative analytics"],
     tone: "rose",
     art: "finance",
-    repoUrl: ExternalLinks.QUANT_FUSION_SOURCE,
+    repoUrl: ExternalLinks.QUANT_FUSION_API_REPO,
     caseStudyRoute: Routes.WORK_QUANT_FUSION,
   },
 ];

@@ -1,5 +1,6 @@
 import type { CaseStudy } from "@/types/content";
 import { ExternalLinks, Routes } from "./routes";
+import { CaseStudyStrings } from "./strings";
 
 /*
  * Case-study copy. Every claim here is drawn from the project's own source and docs; anything not
@@ -25,7 +26,7 @@ export const THUNDERDOME_CASE_STUDY: CaseStudy = {
     { label: "Started", value: "August 2026" },
     { label: "Scope", value: "8 games · 3 tournament formats · 2 bot SDKs" },
   ],
-  repoUrl: ExternalLinks.THUNDERDOME_REPO,
+  repos: [{ label: CaseStudyStrings.REPO_CTA, url: ExternalLinks.THUNDERDOME_REPO }],
   sections: [
     {
       id: "overview",
@@ -155,7 +156,10 @@ export const QUANT_FUSION_CASE_STUDY: CaseStudy = {
     { label: "Built on", value: "The Thunderdome Engine" },
     { label: "Money at risk", value: "None: simulation only" },
   ],
-  repoUrl: ExternalLinks.QUANT_FUSION_SOURCE,
+  repos: [
+    { label: CaseStudyStrings.API_REPO_CTA, url: ExternalLinks.QUANT_FUSION_API_REPO },
+    { label: CaseStudyStrings.UI_REPO_CTA, url: ExternalLinks.QUANT_FUSION_UI_REPO },
+  ],
   sections: [
     {
       id: "overview",
@@ -262,7 +266,7 @@ export const QUANT_FUSION_CASE_STUDY: CaseStudy = {
       title: "A working application, still evolving.",
       paragraphs: [
         "Quant Fusion is a personal project, not client work. Its fleet, simulation, and research workflows run today against real historical data, backed by an extensive automated test suite. Paper trading, the news agent, and parts of the jobs dashboard are still in development.",
-        "It runs locally or with Docker Compose as a single-user tool, so there’s no public demo. The source is available on GitHub as part of the Thunderdome repository, where it’s known as Stock Market 4.",
+        "It runs locally or with Docker Compose as a single-user tool, so there’s no public demo. The source is public on GitHub, split into an API repository and a UI repository.",
       ],
     },
   ],

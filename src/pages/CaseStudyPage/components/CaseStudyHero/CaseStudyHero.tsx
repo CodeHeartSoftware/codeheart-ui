@@ -1,10 +1,10 @@
 import Eyebrow from "@/components/Eyebrow/Eyebrow";
 import TagList from "@/components/TagList/TagList";
-import UnderlineLink from "@/components/UnderlineLink/UnderlineLink";
 import { CaseStudyStrings } from "@/constants/strings";
 import type { CaseStudy } from "@/types/content";
 import { cx } from "@/utils/classNames";
 import CaseStudyFact from "./CaseStudyFact";
+import CaseStudyRepoLinks from "./CaseStudyRepoLinks";
 import styles from "./CaseStudyHero.module.css";
 
 type CaseStudyHeroProps = {
@@ -27,11 +27,7 @@ const CaseStudyHero = ({ caseStudy }: CaseStudyHeroProps) => (
           <CaseStudyFact key={fact.label} fact={fact} />
         ))}
       </dl>
-      {caseStudy.repoUrl && (
-        <UnderlineLink href={caseStudy.repoUrl} className={styles.repoLink}>
-          {CaseStudyStrings.REPO_CTA}
-        </UnderlineLink>
-      )}
+      {caseStudy.repos.length > 0 && <CaseStudyRepoLinks repos={caseStudy.repos} />}
     </div>
   </section>
 );

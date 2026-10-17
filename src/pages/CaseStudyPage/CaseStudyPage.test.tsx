@@ -1,6 +1,7 @@
 import { screen } from "@testing-library/react";
 import { describe, expect, it } from "vitest";
 import { CASE_STUDIES, QUANT_FUSION_CASE_STUDY, THUNDERDOME_CASE_STUDY } from "@/constants/caseStudies";
+import { ExternalLinks } from "@/constants/routes";
 import { renderWithRouter } from "@/test/renderWithRouter";
 import CaseStudyPage from "./CaseStudyPage";
 
@@ -20,7 +21,7 @@ describe("CaseStudyPage", () => {
 
     expect(screen.getByRole("link", { name: /View the source on GitHub/ })).toHaveAttribute(
       "href",
-      THUNDERDOME_CASE_STUDY.repoUrl,
+      ExternalLinks.THUNDERDOME_REPO,
     );
     expect(screen.getByRole("link", { name: new RegExp(QUANT_FUSION_CASE_STUDY.title) })).toHaveAttribute(
       "href",
@@ -28,5 +29,18 @@ describe("CaseStudyPage", () => {
     );
     expect(screen.getByRole("link", { name: /Discuss a project/ })).toHaveAttribute("href", "/contact");
     expect(screen.getByRole("link", { name: /See our services/ })).toHaveAttribute("href", "/#services");
+  });
+
+  it("links to both public Quant Fusion repositories", () => {
+    renderWithRouter(<CaseStudyPage caseStudy={QUANT_FUSION_CASE_STUDY} />, QUANT_FUSION_CASE_STUDY.route);
+
+    expect(screen.getByRole("link", { name: /View the API source on GitHub/ })).toHaveAttribute(
+      "href",
+      ExternalLinks.QUANT_FUSION_API_REPO,
+    );
+    expect(screen.getByRole("link", { name: /View the UI source on GitHub/ })).toHaveAttribute(
+      "href",
+      ExternalLinks.QUANT_FUSION_UI_REPO,
+    );
   });
 });
