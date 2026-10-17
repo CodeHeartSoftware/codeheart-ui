@@ -1,84 +1,131 @@
 /*
- * The highlighted card gets the project cards' pink-on-ink treatment and a bigger share of the row.
- * By default that's the featured engagement; on hover-capable devices it follows the hovered (or
- * keyboard-focused) card instead. Colors are card-scoped vars so one rule can swap the whole palette.
- * Requires the global `group` class on the parent row. The flex values only apply in the desktop flex
- * row; the tablet and mobile grids ignore them.
+ * One card in the services stack. A collapsed card shows only its colored spine; the active card also
+ * opens its panel. On desktop and tablet the spine is a vertical strip and the card slides open
+ * sideways. The panel keeps a fixed width (the stack's width minus every spine, read from
+ * `--spine-width` on the stack, which is the size container) and is clipped while
+ * collapsed, so its text never rewraps mid-slide. Hidden panels still take up height, which keeps the
+ * stack the same height whichever card is open. On mobile the spine becomes a header strip and the
+ * panel opens below it.
  */
 .card {
-  --card-text: var(--color-text);
-  --card-muted: var(--color-text-muted);
-  --card-background: var(--color-surface);
-  --card-border: var(--color-line);
-  --card-rule: var(--color-line);
+  --spine-background: var(--color-tone-rose);
+  --spine-text: var(--color-ink);
 
   display: flex;
   min-width: 0;
-  flex: 2 1 0;
-  flex-direction: column;
-  padding: 36px;
-  border: 1px solid var(--card-border);
-  border-radius: 24px;
-  color: var(--card-text);
-  background: var(--card-background);
-  transition:
-    flex-grow 0.6s var(--ease-spring),
-    color 0.35s ease,
-    background-color 0.35s ease,
-    border-color 0.35s ease;
+  flex: 0 0 var(--spine-width);
+  overflow: hidden;
+  background: var(--color-surface);
+  box-shadow: -14px 0 28px -22px rgba(50, 16, 29, 0.55);
+  transition: flex-grow 0.6s var(--ease-spring);
 }
 
-.featured {
-  --card-text: var(--color-ink);
-  --card-muted: rgba(50, 16, 29, 0.82);
-  --card-background: var(--color-tone-rose);
-  --card-border: transparent;
-  --card-rule: rgba(50, 16, 29, 0.2);
-
-  flex-grow: 2.6;
+.active {
+  flex-grow: 1;
 }
 
-@media (hover: hover) {
-  .card:hover,
-  .card:focus-within {
-    --card-text: var(--color-ink);
-    --card-muted: rgba(50, 16, 29, 0.82);
-    --card-background: var(--color-tone-rose);
-    --card-border: transparent;
-    --card-rule: rgba(50, 16, 29, 0.2);
-
-    flex-grow: 3;
-  }
-
-  /* Another card is hovered or focused, so the featured card hands the highlight over. */
-  :global(.group):has(> :hover, > :focus-within) .featured:not(:hover, :focus-within) {
-    --card-text: var(--color-text);
-    --card-muted: var(--color-text-muted);
-    --card-background: var(--color-surface);
-    --card-border: var(--color-line);
-    --card-rule: var(--color-line);
-
-    flex-grow: 2;
-  }
+.rose {
+  --spine-background: var(--color-tone-rose);
 }
 
-.meta {
+.blush {
+  --spine-background: var(--color-tone-blush);
+}
+
+.berry {
+  --spine-background: var(--color-tone-berry);
+}
+
+.coral {
+  --spine-background: var(--color-coral-dark);
+  --spine-text: var(--color-paper);
+}
+
+.heading {
   display: flex;
+  flex: 0 0 var(--spine-width);
+  margin: 0;
+}
+
+.spine {
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  align-items: center;
   justify-content: space-between;
+  padding: 28px 0;
+  border: 0;
+  color: var(--spine-text);
+  background: var(--spine-background);
+  font: inherit;
+  cursor: pointer;
+}
+
+.spine:focus-visible {
+  outline: 2px solid currentColor;
+  outline-offset: -8px;
+}
+
+.spineIndex {
   font-size: 11px;
   font-weight: 600;
   letter-spacing: 0.18em;
+  opacity: 0.75;
+}
+
+/* Reads bottom to top, like the spine of a book lying on its side. */
+.spineWord {
+  font-family: var(--font-display);
+  font-size: 26px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
   text-transform: uppercase;
-  opacity: 0.7;
+  transform: rotate(180deg);
+  writing-mode: vertical-rl;
+}
+
+.spineTitle {
+  display: none;
+}
+
+.panel {
+  display: grid;
+  width: calc(100cqw - 4 * var(--spine-width));
+  flex-shrink: 0;
+  grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr);
+  column-gap: 64px;
+  padding: 44px;
+  opacity: 0;
+  visibility: hidden;
+  transition:
+    opacity 0.2s ease,
+    visibility 0s linear 0.2s;
+}
+
+.active .panel {
+  opacity: 1;
+  visibility: visible;
+  transition:
+    opacity 0.4s ease 0.2s,
+    visibility 0s;
 }
 
 .title {
-  margin: 56px 0 14px;
+  margin: 0 0 14px;
   font-family: var(--font-display);
-  font-size: clamp(26px, 2.3vw, 34px);
+  font-size: clamp(32px, 3.4vw, 48px);
   font-weight: 500;
   letter-spacing: -0.045em;
-  line-height: 1.08;
+  line-height: 1.05;
+}
+
+.headline {
+  margin: 0 0 12px;
+  font-family: var(--font-display);
+  font-size: 19px;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  line-height: 1.35;
 }
 
 .summary {
@@ -87,17 +134,20 @@
   line-height: 1.6;
 }
 
+.specifics {
+  display: flex;
+  flex-direction: column;
+}
+
 .details {
-  margin-bottom: 28px;
-  color: var(--card-muted);
-  transition: color 0.35s ease;
+  margin: 10px 0 28px;
+  color: var(--color-text-muted);
 }
 
 .idealFor {
   margin-top: auto;
   padding-top: 20px;
-  border-top: 1px solid var(--card-rule);
-  transition: border-color 0.35s ease;
+  border-top: 1px solid var(--color-line);
 }
 
 .idealForLabel {
@@ -120,21 +170,75 @@
 }
 
 @media (max-width: 1100px) {
-  .featured {
-    grid-column: 1 / -1;
+  .spine {
+    padding: 22px 0;
+  }
+
+  .spineWord {
+    font-size: 21px;
+  }
+
+  .panel {
+    column-gap: 32px;
+    padding: 32px;
   }
 
   .title {
-    margin-top: 40px;
+    font-size: 32px;
   }
 }
 
 @media (max-width: 760px) {
   .card {
-    padding: 28px 24px;
+    flex-direction: column;
+    flex-basis: auto;
+    box-shadow: 0 -12px 24px -20px rgba(50, 16, 29, 0.55);
+  }
+
+  .heading {
+    flex-basis: auto;
+  }
+
+  .spine {
+    flex-direction: row;
+    align-items: baseline;
+    justify-content: flex-start;
+    gap: 14px;
+    padding: 20px 22px;
+    text-align: left;
+  }
+
+  .spineWord {
+    font-size: 19px;
+    transform: none;
+    writing-mode: horizontal-tb;
+  }
+
+  .spineTitle {
+    display: block;
+    margin-left: auto;
+    font-size: 12px;
+    font-weight: 600;
+    text-align: right;
+  }
+
+  /* The open card already shows its title in the panel. */
+  .active .spineTitle {
+    display: none;
+  }
+
+  .panel {
+    display: none;
+    width: auto;
+    grid-template-columns: minmax(0, 1fr);
+    padding: 26px 22px 30px;
+  }
+
+  .active .panel {
+    display: grid;
   }
 
   .title {
-    margin-top: 32px;
+    font-size: 30px;
   }
 }

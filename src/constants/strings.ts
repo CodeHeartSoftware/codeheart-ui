@@ -19,7 +19,7 @@ export const PageMetaStrings = {
   CONTACT: {
     title: "Discuss a Project | CodeHeart",
     description:
-      "Tell CodeHeart about your product: approved designs that need building, an idea to prototype, or an application that needs an experienced engineering review.",
+      "Tell CodeHeart about your product: approved designs that need building, an experience that needs improving, an application that needs an engineering review, or an AI-built app that needs rescuing.",
   },
 } as const;
 
@@ -48,7 +48,7 @@ export const HomeStrings = {
     CASE_STUDY_CTA: "Read the case study",
     nextProject: {
       TITLE: "Your next project",
-      DESCRIPTION: "Approved designs that need building, an idea worth prototyping, or an app that needs a second opinion. Tell us what you’re working on.",
+      DESCRIPTION: "Approved designs that need building, a product experience that needs work, or an app that needs a second opinion. Tell us what you’re working on.",
       TAGS: ["Design to production", "Senior engineering", "Zero overhead"],
       KICKER: "Up next",
       CTA: "Discuss a project",
@@ -73,9 +73,12 @@ export const HomeStrings = {
   },
   services: {
     KICKER: "Services",
-    TITLE: "Three ways to work together.",
-    SUMMARY: "Each engagement has a defined scope, clear deliverables, and an agreed timeline, so you know what you’re getting before any work begins.",
+    TITLE: "Some ways to work together.",
+    SUMMARY: "Every project is scoped around clear deliverables and agreed expectations, so you know what you’re getting before any work begins.",
+    OTHER_WAYS: "Need something different? We’re happy to shape a project around what your team needs.",
+    HINT: "Hover or tap a card to see what’s included.",
     IDEAL_FOR_LABEL: "Ideal for",
+    spineLabel: (kicker: string, title: string) => `${kicker}: ${title}`,
   },
   work: {
     KICKER: "Selected work",
@@ -129,7 +132,7 @@ export const ContactStrings = {
     EYEBROW: "Discuss a project",
     TITLE_LEAD: "Let’s build",
     TITLE_EMPHASIS: " something together.",
-    COPY: "Whether you have approved designs that need building, an idea worth prototyping, or an application that needs a second opinion, it starts with a quick note. Tell us what you’re working on and we’ll take it from there.",
+    COPY: "Whether you have approved designs that need building, a product experience that needs work, an application that needs a second opinion, or an AI-built app that’s stuck before launch, it starts with a quick note. Tell us what you’re working on and we’ll take it from there.",
     EMAIL_CTA: "Email us about your project",
     EMAIL_SUBJECT: "New project inquiry",
   },
@@ -148,7 +151,7 @@ export const HowWeWorkStrings = {
     EYEBROW: "How we work",
     TITLE_LEAD: "Senior expertise.",
     TITLE_EMPHASIS: " A smaller footprint.",
-    COPY: "CodeHeart is a lean product design and engineering studio. We take on clearly defined projects — building features from approved designs, prototyping new ideas, or assessing an existing application — without the weight of a traditional agency.",
+    COPY: "CodeHeart is a lean product design and engineering studio. We take on clearly defined projects — building features from approved designs, improving product experiences, assessing existing applications, or stabilizing AI-built software — without the weight of a traditional agency.",
     PORTRAIT_ALT: "Portrait of Tom Sarver, founder of CodeHeart",
     FOUNDER_NAME: "Tom Sarver",
     PORTRAIT_ROLE: "Founder & engineer",

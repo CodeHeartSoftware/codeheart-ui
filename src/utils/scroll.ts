@@ -16,3 +16,10 @@ export const isSectionHref = (href: string): boolean => href.startsWith("#") && 
 export const scrollToSection = (sectionId: string): void => {
   document.getElementById(sectionId)?.scrollIntoView({ behavior: prefersReducedMotion() ? "auto" : "smooth" });
 };
+
+/** Scrolls an element's top back into view when it sits above the viewport (e.g. after content above it collapses). */
+export const scrollIntoViewIfAbove = (element: HTMLElement): void => {
+  if (element.getBoundingClientRect().top >= 0) return;
+
+  element.scrollIntoView({ block: "start", behavior: prefersReducedMotion() ? "auto" : "smooth" });
+};

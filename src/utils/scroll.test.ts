@@ -1,5 +1,5 @@
 import { afterEach, describe, expect, it, vi } from "vitest";
-import { isSectionHref, scrollToSection, toHomeSectionRoute, toSectionHref } from "./scroll";
+import { isSectionHref, scrollIntoViewIfAbove, scrollToSection, toHomeSectionRoute, toSectionHref } from "./scroll";
 
 describe("toSectionHref", () => {
   it("prefixes the section id with a hash", () => {
@@ -53,5 +53,34 @@ describe("isSectionHref", () => {
     expect(isSectionHref("#")).toBe(false);
     expect(isSectionHref("/contact")).toBe(false);
     expect(isSectionHref("https://github.com/x#readme")).toBe(false);
+  });
+});
+
+describe("scrollIntoViewIfAbove", () => {
+  afterEach(() => {
+    vi.restoreAllMocks();
+  });
+
+  const buildElement = (top: number) => {
+    const element = document.createElement("div");
+    element.getBoundingClientRect = () => ({ top }) as DOMRect;
+    element.scrollIntoView = vi.fn();
+    return element;
+  };
+
+  it("scrolls an element that starts above the viewport", () => {
+    const element = buildElement(-120);
+
+    scrollIntoViewIfAbove(element);
+
+    expect(element.scrollIntoView).toHaveBeenCalledWith({ block: "start", behavior: "smooth" });
+  });
+
+  it("leaves an element whose top is visible alone", () => {
+    const element = buildElement(40);
+
+    scrollIntoViewIfAbove(element);
+
+    expect(element.scrollIntoView).not.toHaveBeenCalled();
   });
 });
