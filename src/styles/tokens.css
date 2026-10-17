@@ -19,6 +19,11 @@
   --color-tone-blush: #e8b0c6;
   --color-tone-rose: #f19ab0;
   --color-tone-berry: #d86a8e;
+  /* Light pink to red, one step per card in the services stack. Dark text reads on 1–3, light on 4. */
+  --color-ramp-1: #f7b8c9;
+  --color-ramp-2: #eb8ba3;
+  --color-ramp-3: #dc5f7e;
+  --color-ramp-4: var(--color-coral-dark);
   --color-line: rgba(50, 16, 29, 0.16);
   --color-line-on-dark: rgba(255, 255, 255, 0.17);
 

@@ -5,10 +5,11 @@
  * `--spine-width` on the stack, which is the size container) and is clipped while
  * collapsed, so its text never rewraps mid-slide. Hidden panels still take up height, which keeps the
  * stack the same height whichever card is open. On mobile the spine becomes a header strip and the
- * panel opens below it.
+ * panel slides open below it: the card's second grid row animates from 0fr to 1fr, with the panel's
+ * vertical padding animating alongside so a closed panel collapses to nothing.
  */
 .card {
-  --spine-background: var(--color-tone-rose);
+  --spine-background: var(--color-ramp-1);
   --spine-text: var(--color-ink);
 
   display: flex;
@@ -24,20 +25,17 @@
   flex-grow: 1;
 }
 
-.rose {
-  --spine-background: var(--color-tone-rose);
+/* Spine colors follow the card's place in the stack, not the service, so the ramp always runs light pink to red. */
+.card:nth-child(2) {
+  --spine-background: var(--color-ramp-2);
 }
 
-.blush {
-  --spine-background: var(--color-tone-blush);
+.card:nth-child(3) {
+  --spine-background: var(--color-ramp-3);
 }
 
-.berry {
-  --spine-background: var(--color-tone-berry);
-}
-
-.coral {
-  --spine-background: var(--color-coral-dark);
+.card:nth-child(n + 4) {
+  --spine-background: var(--color-ramp-4);
   --spine-text: var(--color-paper);
 }
 
@@ -190,9 +188,15 @@
 
 @media (max-width: 760px) {
   .card {
-    flex-direction: column;
+    display: grid;
     flex-basis: auto;
+    grid-template-rows: auto 0fr;
     box-shadow: 0 -12px 24px -20px rgba(50, 16, 29, 0.55);
+    transition: grid-template-rows 0.5s var(--ease-spring);
+  }
+
+  .active {
+    grid-template-rows: auto 1fr;
   }
 
   .heading {
@@ -228,14 +232,23 @@
   }
 
   .panel {
-    display: none;
     width: auto;
+    min-height: 0;
+    overflow: hidden;
     grid-template-columns: minmax(0, 1fr);
-    padding: 26px 22px 30px;
+    padding: 0 22px;
+    transition:
+      padding 0.5s var(--ease-spring),
+      opacity 0.2s ease,
+      visibility 0s linear 0.5s;
   }
 
   .active .panel {
-    display: grid;
+    padding-block: 26px 30px;
+    transition:
+      padding 0.5s var(--ease-spring),
+      opacity 0.35s ease 0.15s,
+      visibility 0s;
   }
 
   .title {

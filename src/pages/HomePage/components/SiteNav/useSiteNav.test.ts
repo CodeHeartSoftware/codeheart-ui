@@ -27,4 +27,26 @@ describe("useSiteNav", () => {
 
     expect(result.current.isMenuOpen).toBe(false);
   });
+
+  it("closes the open menu on Escape", () => {
+    const { result } = renderHook(() => useSiteNav());
+
+    act(() => result.current.toggleMenu());
+    act(() => {
+      document.dispatchEvent(new KeyboardEvent("keydown", { key: "Escape" }));
+    });
+
+    expect(result.current.isMenuOpen).toBe(false);
+  });
+
+  it("ignores other keys", () => {
+    const { result } = renderHook(() => useSiteNav());
+
+    act(() => result.current.toggleMenu());
+    act(() => {
+      document.dispatchEvent(new KeyboardEvent("keydown", { key: "Enter" }));
+    });
+
+    expect(result.current.isMenuOpen).toBe(true);
+  });
 });

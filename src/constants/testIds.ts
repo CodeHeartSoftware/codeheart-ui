@@ -5,6 +5,7 @@ export const TestIds = {
   SHOWCASE_PREVIEW_CTA: "showcase-preview-cta",
   CONTACT_EMAIL_CTA: "contact-email-cta",
   SITE_NAV_CTA: "site-nav-cta",
+  SITE_NAV_MENU_CTA: "site-nav-menu-cta",
   PROJECT_LIST: "project-list",
   CAPABILITY_LIST: "capability-list",
   PROCESS_LIST: "process-list",

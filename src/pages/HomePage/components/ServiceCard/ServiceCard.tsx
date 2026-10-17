@@ -2,7 +2,7 @@ import BulletList from "@/components/BulletList/BulletList";
 import UnderlineLink from "@/components/UnderlineLink/UnderlineLink";
 import { Routes } from "@/constants/routes";
 import { HomeStrings } from "@/constants/strings";
-import type { Service, ServiceTone } from "@/types/content";
+import type { Service } from "@/types/content";
 import { cx } from "@/utils/classNames";
 import { formatIndexNumber } from "@/utils/formatIndexNumber";
 import { buildServicePanelId, buildServiceSpineId } from "@/utils/serviceStack";
@@ -17,16 +17,9 @@ type ServiceCardProps = {
   onSelect: (serviceId: string, card: HTMLElement | null) => void;
 };
 
-const toneClassNames: Record<ServiceTone, string> = {
-  rose: styles.rose,
-  blush: styles.blush,
-  berry: styles.berry,
-  coral: styles.coral,
-};
-
 const ServiceCard = ({ service, index, isActive, onHover, onSelect }: ServiceCardProps) => (
   <article
-    className={cx(styles.card, toneClassNames[service.tone], isActive && styles.active)}
+    className={cx(styles.card, isActive && styles.active)}
     onPointerEnter={(event) => onHover(service.id, event.pointerType)}
   >
     <h3 className={styles.heading}>

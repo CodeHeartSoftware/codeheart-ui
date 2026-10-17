@@ -11,7 +11,6 @@ const buildService = (id: string, isFeatured?: boolean): Service => ({
   details: [],
   idealFor: id,
   ctaLabel: id,
-  tone: "rose",
   isFeatured,
 });
 

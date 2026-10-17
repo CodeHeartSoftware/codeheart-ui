@@ -35,7 +35,8 @@
   background: var(--color-text);
 }
 
-.menuButton {
+.menuButton,
+.menuCta {
   display: none;
 }
 
@@ -55,7 +56,7 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    gap: 5px;
+    gap: 6px;
     margin-right: -10px;
     margin-left: auto;
     padding: 0;
@@ -64,28 +65,68 @@
     cursor: pointer;
   }
 
+  /* Two lines that rotate into an "×" while the menu is open (each moves half the gap plus half a line). */
   .menuButton span {
-    width: 25px;
-    height: 1px;
+    width: 24px;
+    height: 1.5px;
+    border-radius: 1px;
     background: var(--color-text);
+    transition: transform 0.45s var(--ease-spring);
   }
 
+  .menuButtonOpen span:first-child {
+    transform: translateY(3.75px) rotate(45deg);
+  }
+
+  .menuButtonOpen span:last-child {
+    transform: translateY(-3.75px) rotate(-45deg);
+  }
+
+  /* A full-width card under the nav that fades and drops into place. Hidden links leave the tab order. */
   .links {
     position: absolute;
-    top: 66px;
+    top: calc(100% + 10px);
     right: 0;
-    display: none;
+    left: 0;
     flex-direction: column;
-    gap: 20px;
-    width: 170px;
-    padding: 22px;
+    gap: 0;
+    margin-left: 0;
+    padding: 6px 22px 22px;
     border: 1px solid var(--color-line);
-    border-radius: 12px;
+    border-radius: 20px;
     background: var(--color-surface);
-    box-shadow: 0 20px 40px rgba(50, 16, 29, 0.12);
+    box-shadow: 0 28px 48px -16px rgba(50, 16, 29, 0.35);
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-10px) scale(0.98);
+    transform-origin: top right;
+    transition:
+      opacity 0.25s ease,
+      transform 0.45s var(--ease-spring),
+      visibility 0s linear 0.25s;
   }
 
   .linksOpen {
-    display: flex;
+    opacity: 1;
+    visibility: visible;
+    transform: none;
+    transition:
+      opacity 0.25s ease,
+      transform 0.45s var(--ease-spring),
+      visibility 0s;
+  }
+
+  .menuCta {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    margin-top: 22px;
+    padding: 15px 20px;
+    border-radius: var(--radius-pill);
+    color: var(--color-on-action);
+    background: var(--color-action);
+    font-size: 14px;
+    font-weight: 600;
   }
 }

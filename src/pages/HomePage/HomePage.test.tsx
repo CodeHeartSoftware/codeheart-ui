@@ -27,7 +27,7 @@ describe("HomePage", () => {
     });
   });
 
-  it("opens the flagship service by default and never shows prices", () => {
+  it("opens the featured service by default and never shows prices", () => {
     renderWithRouter(<HomePage />);
     const list = screen.getByTestId(TestIds.SERVICE_LIST);
 

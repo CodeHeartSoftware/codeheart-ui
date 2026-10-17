@@ -27,16 +27,25 @@
   white-space: nowrap;
 }
 
+/*
+ * A heartbeat: the mark gives a "lub-dub" double beat, then each ring brightens in turn from the inside
+ * out, like the pulse traveling outward. Every animation shares one cycle so they stay in step, and
+ * the rings animate only their border color so the mark inside them never moves with them. The global
+ * reduced-motion rule stops it.
+ */
 .markRings {
+  --heartbeat: 1.5s;
+
   position: absolute;
   right: 5%;
   bottom: -24%;
   display: grid;
   width: 360px;
   height: 360px;
-  border: 1px solid rgba(237, 51, 91, 0.22);
+  border: 1px dashed rgba(237, 51, 91, 0.2);
   border-radius: 50%;
   place-items: center;
+  animation: ring-pulse var(--heartbeat) ease-out 0.34s infinite;
 }
 
 .markRings::before,
@@ -46,10 +55,48 @@
   border: 1px dashed rgba(237, 51, 91, 0.2);
   border-radius: 50%;
   content: "";
+  animation: ring-pulse var(--heartbeat) ease-out 0.22s infinite;
 }
 
 .markRings::after {
   inset: 29%;
+  animation-delay: 0.1s;
+}
+
+.mark {
+  animation: heartbeat var(--heartbeat) ease-in-out infinite;
+}
+
+@keyframes heartbeat {
+  0%,
+  38%,
+  100% {
+    transform: scale(1);
+  }
+
+  8% {
+    transform: scale(1.14);
+  }
+
+  16% {
+    transform: scale(1);
+  }
+
+  26% {
+    transform: scale(1.08);
+  }
+}
+
+@keyframes ring-pulse {
+  0%,
+  45%,
+  100% {
+    border-color: rgba(237, 51, 91, 0.2);
+  }
+
+  12% {
+    border-color: rgba(237, 51, 91, 0.6);
+  }
 }
 
 @media (max-width: 760px) {
@@ -68,7 +115,8 @@
 
   .markRings {
     right: -90px;
-    bottom: -170px;
+    /* Keeps the mark itself inside the section, which clips the rings. */
+    bottom: -90px;
     width: 300px;
     height: 300px;
   }
