@@ -7,6 +7,7 @@ export const Routes = {
 } as const;
 
 export const ExternalLinks = {
+  GITHUB_ORG: "https://github.com/CodeHeartSoftware",
   THUNDERDOME_REPO: "https://github.com/tsarvs/thunderdome",
   QUANT_FUSION_API_REPO: "https://github.com/CodeHeartSoftware/qf-api",
   QUANT_FUSION_UI_REPO: "https://github.com/CodeHeartSoftware/qf-ui",

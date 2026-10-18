@@ -26,14 +26,13 @@ export const PageMetaStrings = {
 export const HomeStrings = {
   nav: {
     ARIA_LABEL: "Main navigation",
-    CTA: "Discuss a project",
+    CTA: "Contact",
     MENU_TOGGLE_LABEL: "Toggle menu",
   },
   hero: {
     EYEBROW: "Product design & engineering",
-    TITLE_LINE_ONE: "We put heart",
-    TITLE_LINE_TWO: "into making",
-    TITLE_EMPHASIS: "digital art.",
+    TITLE_LEAD: "We ship software",
+    TITLE_EMPHASIS: "with heart.",
     SUBTITLE: "Digital products, real results.",
     COPY: "We help small companies and digital agencies turn product designs into polished, production-ready web and mobile apps.",
     PRIMARY_CTA: "Discuss a project",
@@ -88,11 +87,16 @@ export const HomeStrings = {
     viewSourceLabel: (title: string) => `View ${title} source code on GitHub (opens in a new tab)`,
     caseStudyLabel: (title: string) => `Read the case study: ${title}`,
   },
+  /** Mirrors the real Quant Fusion UI: its header, tab bar, and a model’s simulation detail. */
   financeArt: {
-    HEADING_KICKER: "Your overview",
-    GREETING: "Good morning, Maya",
-    BALANCE_LABEL: "Total balance",
-    BALANCE: "£24,680",
+    APP_NAME: "⫸ QUANT FUSION",
+    SIMULATIONS_BADGE: "2 FORWARD SIMULATIONS",
+    TABS: ["FLEET", "LIVE", "SIMULATION", "RESEARCH", "JOBS"],
+    ACTIVE_TAB: "SIMULATION",
+    MODEL_NAME: "quant-v0",
+    MODEL_STATUS: "Active",
+    SIMULATION_DETAILS: "64 trading days",
+    CHART_LABEL: "Daily P&L",
   },
   mobileArt: {
     DATE: "Tuesday, 24 June",
@@ -125,6 +129,19 @@ export const HomeStrings = {
     TITLE_EMPHASIS: "people care about.",
     CTA: "Discuss a project",
   },
+} as const;
+
+/** The site footer, shown on every page. */
+export const FooterStrings = {
+  TAGLINE: "Senior product design and engineering, without the agency overhead.",
+  NAV_LABEL: "Footer",
+  EXPLORE_HEADING: "Explore",
+  ELSEWHERE_HEADING: "Elsewhere",
+  HOW_WE_WORK: "How we work",
+  CONTACT: "Contact",
+  GITHUB: "GitHub",
+  LOCATION: HomeStrings.heroFooter.LOCATION,
+  copyright: (year: number) => `© ${year} CodeHeart`,
 } as const;
 
 export const ContactStrings = {

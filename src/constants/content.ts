@@ -1,5 +1,7 @@
 import type {
   Capability,
+  FooterLink,
+  FinanceMetricData,
   LeaderboardEntry,
   NavItem,
   ProcessStep,
@@ -9,13 +11,23 @@ import type {
   ShowcaseItem,
 } from "@/types/content";
 import {projectToShowcaseItem} from "@/utils/showcaseItem";
-import {HomeStrings} from "./strings";
+import {FooterStrings, HomeStrings} from "./strings";
 import {ExternalLinks, Routes, SectionIds} from "./routes";
 
 export const NAV_ITEMS: NavItem[] = [
   { label: "Approach", sectionId: SectionIds.APPROACH },
   { label: "Services", sectionId: SectionIds.SERVICES },
   { label: "Work", sectionId: SectionIds.WORK },
+];
+
+/** Footer links to other pages; the homepage sections come from NAV_ITEMS. */
+export const FOOTER_PAGE_LINKS: FooterLink[] = [
+  { label: FooterStrings.HOW_WE_WORK, destination: { to: Routes.HOW_WE_WORK } },
+  { label: FooterStrings.CONTACT, destination: { to: Routes.CONTACT } },
+];
+
+export const FOOTER_EXTERNAL_LINKS: FooterLink[] = [
+  { label: FooterStrings.GITHUB, destination: { href: ExternalLinks.GITHUB_ORG } },
 ];
 
 export const PROJECTS: Project[] = [
@@ -142,6 +154,14 @@ export const TERMINAL_LEADERBOARD: LeaderboardEntry[] = [
   { bot: "monte-carlo", record: "18–6" },
   { bot: "greedy-gus", record: "12–12" },
   { bot: "random-rex", record: "4–20" },
+];
+
+/** Illustrative figures in the shape of Quant Fusion’s model detail panel, not real results. */
+export const FINANCE_METRICS: FinanceMetricData[] = [
+  { label: "Equity", value: "$104,820", tone: "neutral" },
+  { label: "Total return", value: "+4.8%", tone: "positive" },
+  { label: "Sharpe", value: "0.92", tone: "neutral" },
+  { label: "Max drawdown", value: "−6.1%", tone: "negative" },
 ];
 
 export const CAPABILITIES: Capability[] = [

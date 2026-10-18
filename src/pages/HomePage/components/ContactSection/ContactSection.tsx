@@ -5,9 +5,15 @@ import {Routes, SectionIds} from "@/constants/routes";
 import {HomeStrings} from "@/constants/strings";
 import {cx} from "@/utils/classNames";
 import Reveal from "@/components/Reveal/Reveal";
+import MarkRing from "./MarkRing";
 import styles from "./ContactSection.module.css";
 
 const CONTACT_MARK_SIZE = 75;
+
+/** Enough rings at even spacing to reach the section's far corner from the mark. */
+const RING_COUNT = 40;
+
+const RING_INDICES = Array.from({ length: RING_COUNT }, (_, index) => index);
 
 const ContactSection = () => (
   <section className={styles.contact} id={SectionIds.STUDIO}>
@@ -21,6 +27,9 @@ const ContactSection = () => (
         {HomeStrings.contact.CTA}
       </UnderlineLink>
       <div className={styles.markRings}>
+        {RING_INDICES.map((index) => (
+          <MarkRing key={index} index={index} count={RING_COUNT} />
+        ))}
         <LogoMark size={CONTACT_MARK_SIZE} className={styles.mark} />
       </div>
     </Reveal>

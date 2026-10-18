@@ -1,0 +1,32 @@
+/*
+ * Size and pulse delay grow with --ring-index, and both alphas shrink with --ring-fade (set per ring by
+ * buildRingStyleVars). --ring-base, --ring-step, --ring-delay-step, and --heartbeat come from the
+ * ContactSection container. Only border-color animates, so the rings never move.
+ */
+.ring {
+  --ring-rest: rgb(237 51 91 / calc(0.2 * var(--ring-fade)));
+  --ring-peak: rgb(237 51 91 / calc(0.6 * var(--ring-fade)));
+
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: calc(var(--ring-base) + var(--ring-index) * var(--ring-step));
+  aspect-ratio: 1;
+  border: 1px dashed var(--ring-rest);
+  border-radius: 50%;
+  translate: -50% -50%;
+  pointer-events: none;
+  animation: ring-pulse var(--heartbeat) ease-out calc(0.1s + var(--ring-index) * var(--ring-delay-step)) infinite;
+}
+
+@keyframes ring-pulse {
+  0%,
+  45%,
+  100% {
+    border-color: var(--ring-rest);
+  }
+
+  12% {
+    border-color: var(--ring-peak);
+  }
+}

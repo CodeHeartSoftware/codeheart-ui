@@ -40,6 +40,15 @@ export type LeaderboardEntry = {
   record: string;
 };
 
+export type FinanceMetricTone = "neutral" | "positive" | "negative";
+
+/** One figure in the Quant Fusion mockup’s metric row. */
+export type FinanceMetricData = {
+  label: string;
+  value: string;
+  tone: FinanceMetricTone;
+};
+
 export type Capability = {
   title: string;
   detail: string;
@@ -129,4 +138,10 @@ export type CaseStudy = {
 export type NavItem = {
   label: string;
   sectionId: string;
+};
+
+/** A labelled link in the site footer. */
+export type FooterLink = {
+  label: string;
+  destination: LinkDestination;
 };

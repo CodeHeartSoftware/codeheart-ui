@@ -40,6 +40,8 @@
   --color-bg: var(--color-cream);
   --color-bg-deep: var(--color-plum);
   --color-bg-accent: var(--color-blush);
+  /* A section that steps forward from its neighbors (the homepage’s “What we believe” band). */
+  --color-bg-band: var(--color-tone-blush);
   --color-surface: var(--color-paper);
   --color-text: var(--color-ink);
   --color-line-strong: rgba(50, 16, 29, 0.22);
@@ -68,6 +70,7 @@
   --color-bg: var(--color-plum);
   --color-bg-deep: #1a060e;
   --color-bg-accent: #3b1323;
+  --color-bg-band: #4a152c;
   --color-surface: #3a1424;
   --color-text: #fbeef2;
   --color-text-muted: #d1b2bd;

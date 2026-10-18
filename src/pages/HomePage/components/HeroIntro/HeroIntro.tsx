@@ -15,9 +15,8 @@ const HeroIntro = ({ onExplore }: HeroIntroProps) => (
   <div className={cx("shell", styles.content)} id={SectionIds.TOP}>
     <Eyebrow className={styles.fadeIn}>{HomeStrings.hero.EYEBROW}</Eyebrow>
     <h1 className={styles.title}>
-      <span className={styles.titleLine}>{HomeStrings.hero.TITLE_LINE_ONE}</span>
-      <span className={cx(styles.titleLine, styles.titleLineTwo)}>{HomeStrings.hero.TITLE_LINE_TWO}</span>
-      <span className={cx(styles.titleLine, styles.titleLineThree)}>
+      <span className={styles.titleLine}>{HomeStrings.hero.TITLE_LEAD}</span>
+      <span className={cx(styles.titleLine, styles.titleLineTwo)}>
         <em>{HomeStrings.hero.TITLE_EMPHASIS}</em>
       </span>
     </h1>

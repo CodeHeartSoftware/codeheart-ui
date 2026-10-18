@@ -1,0 +1,9 @@
+.link {
+  color: var(--color-text);
+  font-size: 15px;
+  transition: color 0.2s ease;
+}
+
+.link:hover {
+  color: var(--color-coral);
+}
