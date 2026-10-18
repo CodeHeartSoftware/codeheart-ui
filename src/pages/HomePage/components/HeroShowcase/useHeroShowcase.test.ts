@@ -11,7 +11,6 @@ const buildItem = (id: string): ShowcaseItem => ({
   title: id.toUpperCase(),
   description: "",
   tags: [],
-  tone: "blush",
   kicker: "",
   ctaLabel: "",
   destination: { href: `#${id}` },

@@ -22,7 +22,6 @@ export const projectToShowcaseItem = (project: Project, index: number): Showcase
   title: project.title,
   description: project.description,
   tags: project.tags,
-  tone: project.tone,
   kicker: HomeStrings.showcase.featuredKicker(formatIndexNumber(index)),
   ...getShowcaseCta(project),
 });

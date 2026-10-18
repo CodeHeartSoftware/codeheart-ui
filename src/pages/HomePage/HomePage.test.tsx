@@ -82,11 +82,10 @@ describe("HomePage", () => {
     });
   });
 
-  it("ends the showcase with a link to the contact page", () => {
+  it("opens the showcase on a link to the contact page", () => {
     renderWithRouter(<HomePage />);
-    const lastItem = SHOWCASE_ITEMS[SHOWCASE_ITEMS.length - 1];
 
-    fireEvent.click(screen.getByTestId(buildShowcaseTabTestId(lastItem.id)));
+    expect(screen.getByTestId(buildShowcaseTabTestId(SHOWCASE_ITEMS[0].id))).toHaveAttribute("aria-selected", "true");
 
     expect(screen.getByTestId(TestIds.SHOWCASE_PREVIEW_CTA)).toHaveAttribute("href", "/contact");
   });

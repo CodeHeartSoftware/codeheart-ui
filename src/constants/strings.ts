@@ -7,7 +7,7 @@ export const SharedStrings = {
 /** Per-page <title> and meta description. Case-study meta lives with each case study in caseStudies.ts. */
 export const PageMetaStrings = {
   HOME: {
-    title: "CodeHeart — Product Design and Engineering",
+    title: "CodeHeart — Product Design and Engineering Studio",
     description:
       "CodeHeart helps small companies and digital agencies turn product designs into polished, production-ready web and mobile apps with React, React Native, and full-stack engineering.",
   },

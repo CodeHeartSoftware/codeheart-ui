@@ -6,20 +6,10 @@
   padding: 28px 30px;
   border-radius: 12px;
   color: var(--color-ink);
+  /* Every project's preview shares the lightest project tone, whatever its card uses below. */
+  background: var(--color-tone-blush);
   box-shadow: 0 -20px 40px rgba(0, 0, 0, 0.25);
   animation: preview-reveal 0.7s var(--ease-rise) 3s both;
-}
-
-.blush {
-  background: var(--color-tone-blush);
-}
-
-.rose {
-  background: var(--color-tone-rose);
-}
-
-.berry {
-  background: var(--color-tone-berry);
 }
 
 .kicker {

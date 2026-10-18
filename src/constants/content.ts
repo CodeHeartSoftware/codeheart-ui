@@ -1,7 +1,7 @@
 import type {
   Capability,
-  FooterLink,
   FinanceMetricData,
+  FooterLink,
   LeaderboardEntry,
   NavItem,
   ProcessStep,
@@ -10,9 +10,9 @@ import type {
   Service,
   ShowcaseItem,
 } from "@/types/content";
-import {projectToShowcaseItem} from "@/utils/showcaseItem";
-import {FooterStrings, HomeStrings} from "./strings";
-import {ExternalLinks, Routes, SectionIds} from "./routes";
+import { projectToShowcaseItem } from "@/utils/showcaseItem";
+import { ExternalLinks, Routes, SectionIds } from "./routes";
+import { FooterStrings, HomeStrings } from "./strings";
 
 export const NAV_ITEMS: NavItem[] = [
   { label: "Approach", sectionId: SectionIds.APPROACH },
@@ -129,7 +129,10 @@ export const SERVICES: Service[] = [
   },
 ];
 
-/** Projects featured in the hero showcase, in order. Everything else still appears in the Work section. */
+/**
+ * Projects featured in the hero showcase. They keep their PROJECTS order, not this list's; anything left
+ * out still appears in the Work section.
+ */
 const HERO_SHOWCASE_PROJECT_IDS = ["thunderdome-engine", "quant-fusion"];
 
 const NEXT_PROJECT_SHOWCASE_ITEM: ShowcaseItem = {
@@ -137,15 +140,15 @@ const NEXT_PROJECT_SHOWCASE_ITEM: ShowcaseItem = {
   title: HomeStrings.showcase.nextProject.TITLE,
   description: HomeStrings.showcase.nextProject.DESCRIPTION,
   tags: HomeStrings.showcase.nextProject.TAGS,
-  tone: "berry",
   kicker: HomeStrings.showcase.nextProject.KICKER,
   ctaLabel: HomeStrings.showcase.nextProject.CTA,
   destination: { to: Routes.CONTACT },
 };
 
+/** The visitor's own project leads, so the showcase opens on an invitation before the past work. */
 export const SHOWCASE_ITEMS: ShowcaseItem[] = [
-  ...PROJECTS.filter((project) => HERO_SHOWCASE_PROJECT_IDS.includes(project.id)).map(projectToShowcaseItem),
   NEXT_PROJECT_SHOWCASE_ITEM,
+  ...PROJECTS.filter((project) => HERO_SHOWCASE_PROJECT_IDS.includes(project.id)).map(projectToShowcaseItem),
 ];
 
 /** Sample standings shown in the Thunderdome terminal mockup. */
@@ -268,4 +271,4 @@ export const AGENCY_RELAY: RelayNodeData[] = [
   { label: "Developer" },
 ];
 
-export const CODEHEART_RELAY: RelayNodeData[] = [{ label: "You" }, { label: "CodeHeart Engineer", showMark: true }];
+export const CODEHEART_RELAY: RelayNodeData[] = [{ label: "You" }, { label: "CodeHeart engineer", showMark: true }];

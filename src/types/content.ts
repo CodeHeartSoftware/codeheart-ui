@@ -23,7 +23,6 @@ export type ShowcaseItem = {
   title: string;
   description: string;
   tags: readonly string[];
-  tone: ProjectTone;
   kicker: string;
   ctaLabel: string;
   destination: LinkDestination;
