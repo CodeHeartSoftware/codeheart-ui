@@ -1,0 +1,13 @@
+/* Quant Fusion's own palette: muted gray tabs, the active one in its green accent. */
+.tab {
+  padding: 0.9em 1.1em;
+  border-bottom: 2px solid transparent;
+  color: #444444;
+  letter-spacing: 0.08em;
+  white-space: nowrap;
+}
+
+.active {
+  border-bottom-color: #00ff87;
+  color: #00ff87;
+}

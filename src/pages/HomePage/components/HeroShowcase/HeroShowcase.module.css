@@ -1,11 +1,12 @@
 .showcase {
   position: absolute;
-  top: calc(50% + 20px);
+  /* Sits high, since the deck folds out below the screen without taking up layout space. */
+  top: calc(50% - 45px);
   right: 4vw;
   /* Above HeroIntro (z-index 3), whose full-width text box overlaps this area. */
   z-index: 4;
   width: min(46vw, 640px);
-  perspective: 1400px;
+  perspective: 2200px;
   translate: 0 -50%;
   animation: showcase-enter 1s var(--ease-rise) 0.45s both;
 }
@@ -20,17 +21,162 @@
   filter: blur(80px);
 }
 
-.window {
-  overflow: hidden;
+/*
+ * A 3D laptop: the lid stands upright and the deck (.base) folds flat toward the viewer at the hinge.
+ * The resting pose looks down a little and turns the screen toward the headline; the pointer tilt
+ * is added on top, so the screen and deck always move as one object.
+ */
+.laptop {
+  --laptop-pitch: -10deg;
+  --laptop-turn: -14deg;
+
+  position: relative;
+  transform: rotateX(calc(var(--laptop-pitch) + var(--tilt-y) * 0.6))
+    rotateY(calc(var(--laptop-turn) + var(--tilt-x) * -0.6));
+  transform-style: preserve-3d;
+  transition: transform 0.8s var(--ease-spring);
+}
+
+/* The screen's bezel, with a camera dot centered in its top edge. */
+.lid {
+  position: relative;
+  padding: 18px 14px 14px;
   border: 1px solid rgba(255, 255, 255, 0.08);
-  border-radius: 18px;
-  color: var(--color-paper);
-  background: var(--color-bg-deep);
+  border-bottom: 0;
+  border-radius: 20px 20px 0 0;
+  background: #0d0307;
   box-shadow:
     0 45px 90px rgba(42, 11, 23, 0.35),
     0 12px 24px rgba(42, 11, 23, 0.2);
-  transform: rotateY(calc(var(--tilt-x) * -0.6)) rotateX(calc(var(--tilt-y) * 0.6));
-  transition: transform 0.8s var(--ease-spring);
+}
+
+.lid::before {
+  position: absolute;
+  top: 7px;
+  left: 50%;
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.14);
+  content: "";
+  translate: -50% 0;
+}
+
+/* The app window on the laptop's screen. */
+.window {
+  overflow: hidden;
+  border-radius: 6px;
+  color: var(--color-paper);
+  background: var(--color-bg-deep);
+}
+
+/*
+ * The keyboard deck, hinged at the lid's bottom edge and folded 90deg so it lies flat and runs toward
+ * the viewer. It has the screen's exact footprint (as wide as the lid, and as deep as the lid is tall,
+ * since .laptop's height is the lid's), and sits out of the layout flow so its depth adds no height
+ * to the hero.
+ */
+.base {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  left: 0;
+  height: 100%;
+  border-radius: 4px 4px 22px 22px;
+  background: linear-gradient(#5b2039, var(--color-surface) 60%, #2f0f1d);
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.1);
+  pointer-events: none;
+  transform: rotateX(90deg);
+  transform-origin: top;
+  transform-style: preserve-3d;
+}
+
+/* The deck's front edge, folded back down so it shows the laptop's thickness. */
+.base::before {
+  position: absolute;
+  top: 100%;
+  right: 22px;
+  left: 22px;
+  height: 14px;
+  border-radius: 0 0 10px 10px;
+  background: linear-gradient(#3a1424, #1a060e);
+  content: "";
+  transform: rotateX(-90deg);
+  transform-origin: top;
+}
+
+/*
+ * Key caps: a dark well cut into a grid by deck-colored gaps along each key's top and left edges,
+ * 15 keys across and 5 rows deep. Enter and the spacebar are laid over the grid, each spanning
+ * several cells, so they hide the gaps between the keys they replace.
+ */
+.keyboard {
+  --key-gap: 3px;
+  --key-column: calc(100% / 15);
+  --key-row: 20%;
+  --key-cap: #14040b;
+
+  position: absolute;
+  inset: 8% 9% 44%;
+  border-radius: 6px;
+  background:
+    linear-gradient(90deg, #4a1a2e var(--key-gap), transparent var(--key-gap)) 0 0 / var(--key-column) 100%,
+    linear-gradient(#4a1a2e var(--key-gap), transparent var(--key-gap)) 0 0 / 100% var(--key-row),
+    var(--key-cap);
+}
+
+.enterKey,
+.spacebar {
+  position: absolute;
+  background: var(--key-cap);
+}
+
+/* Home row, the last two columns. */
+.enterKey {
+  top: calc(2 * var(--key-row) + var(--key-gap));
+  right: 0;
+  left: calc(13 * var(--key-column) + var(--key-gap));
+  height: calc(var(--key-row) - var(--key-gap));
+}
+
+/* Bottom row, columns 5 through 11. */
+.spacebar {
+  top: calc(4 * var(--key-row) + var(--key-gap));
+  bottom: 0;
+  left: calc(4 * var(--key-column) + var(--key-gap));
+  width: calc(7 * var(--key-column) - var(--key-gap));
+}
+
+.trackpad {
+  position: absolute;
+  right: 33%;
+  bottom: 8%;
+  left: 33%;
+  height: 28%;
+  border-radius: 8px;
+  background: rgba(0, 0, 0, 0.2);
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.08);
+}
+
+/*
+ * A CodeHeart decal in the palm rest's bottom-right corner, where laptops carry their CPU and GPU
+ * stickers: a matte decal with a slightly lifted edge.
+ */
+.sticker {
+  position: absolute;
+  right: 5%;
+  bottom: 6%;
+  display: grid;
+  width: 9%;
+  aspect-ratio: 5 / 4;
+  border-radius: 4px;
+  background: var(--color-plum);
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.45);
+  place-items: center;
+}
+
+.stickerMark {
+  max-width: 60%;
 }
 
 .toolbar {
@@ -78,14 +224,28 @@
   }
 }
 
+/* On short desktop windows the laptop and its deck are taller than the hero has room for. */
+@media (min-width: 1101px) and (max-height: 820px) {
+  .showcase {
+    scale: 0.8;
+    transform-origin: right center;
+  }
+}
+
 @media (max-width: 1100px) {
   .showcase {
     position: relative;
     top: auto;
     right: auto;
-    width: min(100% - 48px, 640px);
-    margin: 56px auto 120px;
+    width: min(100% - 48px, 600px);
+    /* The bottom margin makes room for the deck, which folds out below the screen, and the hero footer. */
+    margin: 56px auto 240px;
     translate: none;
+  }
+
+  /* Centered under the copy now, so face the viewer head-on; turned, the deck would run off the page. */
+  .laptop {
+    --laptop-turn: 0deg;
   }
 }
 
@@ -97,6 +257,34 @@
 
   .stage {
     height: 340px;
+  }
+
+  /*
+   * No laptop on phones: the screen has to be taller than it is wide to fit the code and preview,
+   * which makes a laptop look wrong. The window stands on its own, flat, and the lid and deck go away.
+   */
+  .laptop {
+    --laptop-pitch: 0deg;
+  }
+
+  .lid {
+    padding: 0;
+    border: 0;
+    background: none;
+    box-shadow: none;
+  }
+
+  .lid::before,
+  .base {
+    display: none;
+  }
+
+  .window {
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 18px;
+    box-shadow:
+      0 45px 90px rgba(42, 11, 23, 0.35),
+      0 12px 24px rgba(42, 11, 23, 0.2);
   }
 
   /* Give the three tabs the whole toolbar so none hide off-screen. */

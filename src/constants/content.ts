@@ -1,5 +1,7 @@
 import type {
   Capability,
+  FinanceMetricData,
+  FooterLink,
   LeaderboardEntry,
   NavItem,
   ProcessStep,
@@ -8,14 +10,24 @@ import type {
   Service,
   ShowcaseItem,
 } from "@/types/content";
-import {projectToShowcaseItem} from "@/utils/showcaseItem";
-import {HomeStrings} from "./strings";
-import {ExternalLinks, Routes, SectionIds} from "./routes";
+import { projectToShowcaseItem } from "@/utils/showcaseItem";
+import { ExternalLinks, Routes, SectionIds } from "./routes";
+import { FooterStrings, HomeStrings } from "./strings";
 
 export const NAV_ITEMS: NavItem[] = [
   { label: "Approach", sectionId: SectionIds.APPROACH },
   { label: "Services", sectionId: SectionIds.SERVICES },
   { label: "Work", sectionId: SectionIds.WORK },
+];
+
+/** Footer links to other pages; the homepage sections come from NAV_ITEMS. */
+export const FOOTER_PAGE_LINKS: FooterLink[] = [
+  { label: FooterStrings.HOW_WE_WORK, destination: { to: Routes.HOW_WE_WORK } },
+  { label: FooterStrings.CONTACT, destination: { to: Routes.CONTACT } },
+];
+
+export const FOOTER_EXTERNAL_LINKS: FooterLink[] = [
+  { label: FooterStrings.GITHUB, destination: { href: ExternalLinks.GITHUB_ORG } },
 ];
 
 export const PROJECTS: Project[] = [
@@ -117,7 +129,10 @@ export const SERVICES: Service[] = [
   },
 ];
 
-/** Projects featured in the hero showcase, in order. Everything else still appears in the Work section. */
+/**
+ * Projects featured in the hero showcase. They keep their PROJECTS order, not this list's; anything left
+ * out still appears in the Work section.
+ */
 const HERO_SHOWCASE_PROJECT_IDS = ["thunderdome-engine", "quant-fusion"];
 
 const NEXT_PROJECT_SHOWCASE_ITEM: ShowcaseItem = {
@@ -125,15 +140,15 @@ const NEXT_PROJECT_SHOWCASE_ITEM: ShowcaseItem = {
   title: HomeStrings.showcase.nextProject.TITLE,
   description: HomeStrings.showcase.nextProject.DESCRIPTION,
   tags: HomeStrings.showcase.nextProject.TAGS,
-  tone: "berry",
   kicker: HomeStrings.showcase.nextProject.KICKER,
   ctaLabel: HomeStrings.showcase.nextProject.CTA,
   destination: { to: Routes.CONTACT },
 };
 
+/** The visitor's own project leads, so the showcase opens on an invitation before the past work. */
 export const SHOWCASE_ITEMS: ShowcaseItem[] = [
-  ...PROJECTS.filter((project) => HERO_SHOWCASE_PROJECT_IDS.includes(project.id)).map(projectToShowcaseItem),
   NEXT_PROJECT_SHOWCASE_ITEM,
+  ...PROJECTS.filter((project) => HERO_SHOWCASE_PROJECT_IDS.includes(project.id)).map(projectToShowcaseItem),
 ];
 
 /** Sample standings shown in the Thunderdome terminal mockup. */
@@ -142,6 +157,14 @@ export const TERMINAL_LEADERBOARD: LeaderboardEntry[] = [
   { bot: "monte-carlo", record: "18–6" },
   { bot: "greedy-gus", record: "12–12" },
   { bot: "random-rex", record: "4–20" },
+];
+
+/** Illustrative figures in the shape of Quant Fusion’s model detail panel, not real results. */
+export const FINANCE_METRICS: FinanceMetricData[] = [
+  { label: "Equity", value: "$104,820", tone: "neutral" },
+  { label: "Total return", value: "+4.8%", tone: "positive" },
+  { label: "Sharpe", value: "0.92", tone: "neutral" },
+  { label: "Max drawdown", value: "−6.1%", tone: "negative" },
 ];
 
 export const CAPABILITIES: Capability[] = [
@@ -248,4 +271,4 @@ export const AGENCY_RELAY: RelayNodeData[] = [
   { label: "Developer" },
 ];
 
-export const CODEHEART_RELAY: RelayNodeData[] = [{ label: "You" }, { label: "CodeHeart Engineer", showMark: true }];
+export const CODEHEART_RELAY: RelayNodeData[] = [{ label: "You" }, { label: "CodeHeart engineer", showMark: true }];

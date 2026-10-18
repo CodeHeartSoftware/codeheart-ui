@@ -1,5 +1,12 @@
 import { afterEach, describe, expect, it, vi } from "vitest";
-import { isSectionHref, scrollIntoViewIfAbove, scrollToSection, toHomeSectionRoute, toSectionHref } from "./scroll";
+import {
+  isSectionHref,
+  scrollIntoViewIfAbove,
+  scrollToSection,
+  toHomeSectionDestination,
+  toHomeSectionRoute,
+  toSectionHref,
+} from "./scroll";
 
 describe("toSectionHref", () => {
   it("prefixes the section id with a hash", () => {
@@ -10,6 +17,16 @@ describe("toSectionHref", () => {
 describe("toHomeSectionRoute", () => {
   it("points at the section on the home page", () => {
     expect(toHomeSectionRoute("services")).toBe("/#services");
+  });
+});
+
+describe("toHomeSectionDestination", () => {
+  it("links to the in-page section on the home page", () => {
+    expect(toHomeSectionDestination("work", "/")).toEqual({ href: "#work" });
+  });
+
+  it("routes to the home page section from any other page", () => {
+    expect(toHomeSectionDestination("work", "/contact")).toEqual({ to: "/#work" });
   });
 });
 

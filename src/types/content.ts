@@ -23,7 +23,6 @@ export type ShowcaseItem = {
   title: string;
   description: string;
   tags: readonly string[];
-  tone: ProjectTone;
   kicker: string;
   ctaLabel: string;
   destination: LinkDestination;
@@ -38,6 +37,15 @@ export type RelayNodeData = {
 export type LeaderboardEntry = {
   bot: string;
   record: string;
+};
+
+export type FinanceMetricTone = "neutral" | "positive" | "negative";
+
+/** One figure in the Quant Fusion mockup’s metric row. */
+export type FinanceMetricData = {
+  label: string;
+  value: string;
+  tone: FinanceMetricTone;
 };
 
 export type Capability = {
@@ -129,4 +137,10 @@ export type CaseStudy = {
 export type NavItem = {
   label: string;
   sectionId: string;
+};
+
+/** A labelled link in the site footer. */
+export type FooterLink = {
+  label: string;
+  destination: LinkDestination;
 };

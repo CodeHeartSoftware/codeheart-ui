@@ -7,16 +7,19 @@
 
 .title {
   max-width: 890px;
-  margin: 22px 0 22px;
+  /* The bottom margin clears the underline swash, which hangs below the last line. */
+  margin: 22px 0 40px;
   font-family: var(--font-display);
-  font-size: clamp(64px, 6.6vw, 104px);
+  font-size: clamp(64px, 6.2vw, 104px);
   font-weight: 500;
   letter-spacing: -0.075em;
   line-height: 0.91;
 }
 
+/* Each line stays on one row; the title’s font size is set so the lead fits its column. */
 .titleLine {
   display: block;
+  white-space: nowrap;
   opacity: 0;
   transform: translateY(55px);
   animation: title-rise 0.9s var(--ease-rise) forwards;
@@ -24,10 +27,6 @@
 
 .titleLineTwo {
   animation-delay: 0.12s;
-}
-
-.titleLineThree {
-  animation-delay: 0.24s;
 }
 
 .title em {
@@ -38,11 +37,12 @@
   letter-spacing: -0.045em;
 }
 
+/* Spans the whole phrase, stopping short of the trailing period. */
 .title em::after {
   position: absolute;
-  right: 10%;
+  right: 0.3em;
   bottom: -7px;
-  left: 14%;
+  left: 0;
   height: 9px;
   background: url("data:image/svg+xml,%3Csvg viewBox='0 0 300 12' preserveAspectRatio='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M2 8C82 2 208 2 298 5' fill='none' stroke='%23ed335b' stroke-width='3' stroke-linecap='round'/%3E%3C/svg%3E")
     center / 100% 100% no-repeat;
@@ -173,8 +173,8 @@
   }
 
   .title {
-    margin-top: 20px;
-    font-size: clamp(52px, 15vw, 75px);
+    margin-block: 20px 32px;
+    font-size: min(12.8vw, 75px);
     line-height: 0.96;
   }
 

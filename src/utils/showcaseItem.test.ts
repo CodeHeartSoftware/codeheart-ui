@@ -15,7 +15,7 @@ describe("projectToShowcaseItem", () => {
   it("carries over the project's content", () => {
     const item = projectToShowcaseItem(project, 0);
 
-    expect(item).toMatchObject({ id: "kite", title: "Kite", description: "Money, calmer.", tags: ["React"], tone: "rose" });
+    expect(item).toMatchObject({ id: "kite", title: "Kite", description: "Money, calmer.", tags: ["React"] });
   });
 
   it("numbers the kicker from the list position", () => {

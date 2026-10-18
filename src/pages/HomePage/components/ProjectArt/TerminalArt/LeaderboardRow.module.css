@@ -18,6 +18,7 @@
   background: rgba(237, 51, 91, 0.18);
 }
 
+/* Lighter than coral so the leader’s rank still reads on the tinted row. */
 .leader .rank {
-  color: var(--color-coral);
+  color: var(--color-tone-rose);
 }

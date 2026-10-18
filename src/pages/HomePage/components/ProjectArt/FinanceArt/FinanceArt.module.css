@@ -1,103 +1,174 @@
-.device {
+/*
+ * Quant Fusion's real look: near-black surfaces, hairline borders, monospace type, and a single green
+ * accent. These one-off illustration colors come from its theme, not CodeHeart's tokens.
+ */
+.window {
   position: absolute;
+  display: flex;
   width: 91%;
   height: 73%;
+  flex-direction: column;
   overflow: hidden;
-  border: 9px solid var(--color-ink);
-  border-radius: 20px 20px 0 0;
-  background: var(--color-paper);
-  box-shadow: 0 35px 65px rgba(91, 24, 51, 0.25);
+  border: 1px solid #222222;
+  border-radius: 14px 14px 0 0;
+  color: #e8e8e8;
+  background: #080808;
+  box-shadow: 0 35px 65px rgba(91, 24, 51, 0.3);
+  font-family: var(--font-mono);
+  font-size: clamp(8px, 0.72vw, 11px);
   transform: translateY(12%);
 }
 
-.deviceBar {
+.titleBar {
   display: flex;
-  gap: 5px;
-  height: 25px;
-  padding: 9px 12px;
-  background: #f5e7ec;
+  flex: none;
+  gap: 6px;
+  padding: 11px 14px;
+  background: #0f0f0f;
 }
 
-.deviceBar i {
-  width: 6px;
-  height: 6px;
+.titleBar i {
+  width: 8px;
+  height: 8px;
   border-radius: 50%;
-  background: #ba96a3;
+  background: #2a2a2a;
 }
 
-.screen {
-  padding: 5% 8%;
-}
-
-.heading {
+.header {
   display: flex;
-  flex-direction: column;
-  gap: 4px;
-  font-size: 9px;
+  flex: none;
+  align-items: center;
+  gap: 1.2em;
+  padding: 1.6em 2em 0.4em;
 }
 
-.heading b {
-  font-size: clamp(13px, 1.4vw, 20px);
+.brand {
+  color: #00ff87;
+  font-size: 1.15em;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  white-space: nowrap;
 }
 
-.balanceCard {
-  position: relative;
-  height: 180px;
-  margin-top: 5%;
-  padding: 25px;
+.badge {
+  padding: 0.25em 0.7em;
+  border: 1px solid #1a3323;
+  border-radius: 1px;
+  color: #00ff87;
+  background: #0d1a12;
+  font-size: 0.8em;
+  white-space: nowrap;
+}
+
+.tabs {
+  display: flex;
+  flex: none;
   overflow: hidden;
-  border-radius: 12px;
-  color: white;
-  background: #57152f;
+  padding-inline: 0.9em;
+  border-bottom: 1px solid #161616;
 }
 
-.balanceCard small {
-  display: block;
-  font-size: 8px;
-  opacity: 0.7;
+.panel {
+  display: flex;
+  min-height: 0;
+  flex: 1;
+  flex-direction: column;
+  margin: 1.8em 2em 0;
+  padding: 1.6em 1.8em 0;
+  border: 1px solid #1e1e1e;
+  border-bottom: 0;
+  border-radius: 2px 2px 0 0;
+  background: #0f0f0f;
 }
 
-.balanceCard strong {
-  display: block;
-  margin-top: 5px;
-  font-size: clamp(18px, 2vw, 30px);
+.model {
+  display: flex;
+  align-items: center;
+  gap: 1em;
+  white-space: nowrap;
 }
 
-.chartLine {
-  position: absolute;
-  right: 0;
-  bottom: 10px;
-  left: 0;
-  height: 80px;
+.model b {
+  font-size: 1.15em;
 }
 
-.chartLine svg {
+/* Quant Fusion's StatusPill: a green dot and a small uppercase label. */
+.status {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5em;
+  color: #00ff87;
+  font-size: 0.8em;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.status::before {
+  width: 0.65em;
+  height: 0.65em;
+  border-radius: 50%;
+  background: #00ff87;
+  content: "";
+}
+
+.details {
+  margin-left: auto;
+  color: #555555;
+}
+
+.metrics {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 1.4em;
+  margin-top: 1.8em;
+}
+
+.chartLabel {
+  margin: 2em 0 0.8em;
+  color: #555555;
+  font-size: 0.8em;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.chart {
   width: 100%;
-  height: 100%;
+  min-height: 0;
+  flex: 1;
 }
 
-.chartLine path {
-  fill: none;
-  stroke: #ff6b8e;
-  stroke-width: 4;
+.gridLine {
+  stroke: #161616;
+  stroke-width: 1;
   vector-effect: non-scaling-stroke;
 }
 
-.statRow {
-  display: flex;
-  gap: 12px;
-  margin-top: 18px;
+.baseline {
+  stroke: #2a2a2a;
+  stroke-dasharray: 3 3;
+  stroke-width: 1;
+  vector-effect: non-scaling-stroke;
 }
 
-.statRow span {
-  width: 30%;
-  height: 50px;
-  border-radius: 8px;
-  background: #f2dce5;
+.area {
+  fill: rgba(0, 255, 135, 0.1);
+}
+
+.line {
+  fill: none;
+  stroke: #00ff87;
+  stroke-width: 2;
+  vector-effect: non-scaling-stroke;
 }
 
 @media (max-width: 760px) {
-  .device {
+  .window {
     height: 90%;
+    font-size: clamp(7px, 2.2vw, 10px);
+  }
+
+  .metrics {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1.2em 1.4em;
   }
 }

@@ -9,7 +9,6 @@ const item: ShowcaseItem = {
   title: "Kite",
   description: "",
   tags: [],
-  tone: "blush",
   kicker: "",
   ctaLabel: "",
   destination: { href: "#kite" },

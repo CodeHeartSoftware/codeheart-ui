@@ -1,0 +1,37 @@
+/* Matches Quant Fusion's Metric component: a tracked uppercase label over a bold figure. */
+.metric {
+  display: flex;
+  min-width: 0;
+  flex-direction: column;
+  gap: 0.45em;
+}
+
+.label {
+  overflow: hidden;
+  color: #555555;
+  font-size: 0.8em;
+  letter-spacing: 0.14em;
+  text-overflow: ellipsis;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.neutral,
+.positive,
+.negative {
+  font-size: 1.3em;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.neutral {
+  color: #e8e8e8;
+}
+
+.positive {
+  color: #00ff87;
+}
+
+.negative {
+  color: #ff3b3b;
+}
