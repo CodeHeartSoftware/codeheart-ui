@@ -10,9 +10,9 @@ import type {
   Service,
   ShowcaseItem,
 } from "@/types/content";
-import { projectToShowcaseItem } from "@/utils/showcaseItem";
-import { ExternalLinks, Routes, SectionIds } from "./routes";
-import { FooterStrings, HomeStrings } from "./strings";
+import {projectToShowcaseItem} from "@/utils/showcaseItem";
+import {ExternalLinks, Routes, SectionIds} from "./routes";
+import {FooterStrings, HomeStrings} from "./strings";
 
 export const NAV_ITEMS: NavItem[] = [
   { label: "Approach", sectionId: SectionIds.APPROACH },
@@ -170,28 +170,33 @@ export const FINANCE_METRICS: FinanceMetricData[] = [
 export const CAPABILITIES: Capability[] = [
   {
     title: "Product design",
-    detail: "UX reviews and UX/UI design for clearly defined workflows: user flows, interaction patterns, and polished interfaces that are ready to build.",
+    detail: "UX reviews, user flows, and UI design for clearly defined workflows: research-backed interaction patterns and polished interfaces that are ready to build.",
   },
   {
-    title: "React & React Native",
-    detail: "Responsive web and mobile interfaces built from approved designs, with reusable components and careful attention to every state and interaction.",
+    title: "Full-stack development",
+    detail: "React and React Native front ends built from approved designs, backed by the APIs, databases, and integrations behind them, with tests throughout.",
   },
   {
-    title: "Full-stack & cloud",
-    detail: "APIs, backend integration, and deployment on AWS or Azure, backed by senior judgment on architecture and technical tradeoffs.",
+    title: "Cloud infrastructure",
+    detail: "Architecture, deployment, and CI/CD on AWS or Azure, sized to what your product needs today and ready for where it’s headed.",
   },
 ];
 
 export const CAPABILITY_TAGS = [
-  "UX/UI design",
-  "Figma to code",
   "React",
   "React Native",
   "TypeScript",
+  "Python",
+    "SQL",
+    "Database Design",
+  "UX/UI design",
+  "Figma to code",
   "APIs & integrations",
   "AWS",
   "Azure",
-  "Technical architecture",
+  "Cloud architecture",
+    "IoT",
+  "Agile delivery",
 ];
 
 export const PROCESS_STEPS: ProcessStep[] = [
@@ -199,20 +204,18 @@ export const PROCESS_STEPS: ProcessStep[] = [
     step: "Define",
     text: "We get to know the problem, the user workflow, and the outcome you’re after. Together, we agree on:",
     points: [
-      "Scope and deliverables",
+      "Problems that require digital solutions",
+      "Desired user experiences and features",
       "Platform and integration requirements",
-      "Acceptance criteria",
-      "Dependencies and access we’ll need from you",
     ],
   },
   {
     step: "Scope",
     text: "The requirements become a clear project plan that spells out:",
     points: [
-      "Deliverables, and what’s out of scope",
+        "Agreed-upon acceptance criteria and a list of deliverables, and what’s out of scope",
       "Timeline and review milestones",
       "A fixed price or other agreed pricing",
-      "Your responsibilities and feedback windows",
       "How changes to scope are handled",
     ],
   },
@@ -220,7 +223,8 @@ export const PROCESS_STEPS: ProcessStep[] = [
     step: "Build",
     text: "The work happens in focused development blocks, with:",
     points: [
-      "Regular written progress updates",
+        "Well-documented code",
+      "Regular written progress updates with accurate forecasts for hitting future project milestones",
       "Review checkpoints agreed up front",
       "Testing and quality checks throughout",
       "Clear reasoning behind technical decisions",

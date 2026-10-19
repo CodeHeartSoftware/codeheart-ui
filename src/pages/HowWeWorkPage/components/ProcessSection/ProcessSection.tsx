@@ -10,14 +10,14 @@ import styles from "./ProcessSection.module.css";
 
 const ProcessSection = () => (
   <section className={styles.section}>
-    <Reveal from="right" className={cx("shell", styles.heading)}>
+    <Reveal from="left" className={cx("shell", styles.heading)}>
       <div>
         <SectionKicker>{HowWeWorkStrings.process.KICKER}</SectionKicker>
         <SectionTitle className={styles.title}>{HowWeWorkStrings.process.TITLE}</SectionTitle>
       </div>
       <p className={styles.summary}>{HowWeWorkStrings.process.SUMMARY}</p>
     </Reveal>
-    <Reveal from="right" delayed>
+    <Reveal from="left" delayed>
       <div className={cx("shell", styles.list)} data-testid={TestIds.PROCESS_LIST}>
         {PROCESS_STEPS.map((step, index) => (
           <ProcessStepCard key={step.step} step={step} index={index} />

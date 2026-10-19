@@ -1,9 +1,11 @@
+/* Colors come from StickyHeader's custom properties, so the divider fades with its backdrop. */
 .header {
   display: flex;
   align-items: center;
   justify-content: space-between;
   height: 100px;
-  border-bottom: 1px solid var(--color-line);
+  border-bottom: 1px solid var(--header-line);
+  transition: border-color 0.35s ease;
 }
 
 .backLink {

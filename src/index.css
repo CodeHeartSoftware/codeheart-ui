@@ -15,6 +15,17 @@
   font-synthesis: none;
 }
 
+/* Section links and hash routes stop below the fixed StickyHeader instead of underneath it. */
+html {
+  scroll-padding-top: 100px;
+}
+
+@media (max-width: 760px) {
+  html {
+    scroll-padding-top: 76px;
+  }
+}
+
 * {
   box-sizing: border-box;
 }

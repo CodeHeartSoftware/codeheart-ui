@@ -1,10 +1,11 @@
+/* Colors come from StickyHeader's custom properties, so the nav fades with its backdrop. */
 .nav {
   position: relative;
-  z-index: 20;
   display: flex;
   align-items: center;
   height: 100px;
-  border-bottom: 1px solid var(--color-line);
+  border-bottom: 1px solid var(--header-line);
+  transition: border-color 0.35s ease;
 }
 
 .links {
@@ -21,18 +22,19 @@
   gap: 13px;
   margin-left: 52px;
   padding: 12px 18px;
-  border: 1px solid var(--color-text);
+  border: 1px solid var(--header-text);
   border-radius: var(--radius-pill);
   font-size: 13px;
   font-weight: 600;
   transition:
     background 0.2s ease,
-    color 0.2s ease;
+    color 0.2s ease,
+    border-color 0.35s ease;
 }
 
 .cta:hover {
-  color: var(--color-bg);
-  background: var(--color-text);
+  color: var(--header-surface);
+  background: var(--header-text);
 }
 
 .menuButton,
@@ -70,8 +72,10 @@
     width: 24px;
     height: 1.5px;
     border-radius: 1px;
-    background: var(--color-text);
-    transition: transform 0.45s var(--ease-spring);
+    background: var(--header-text);
+    transition:
+      transform 0.45s var(--ease-spring),
+      background 0.35s ease;
   }
 
   .menuButtonOpen span:first-child {
@@ -93,6 +97,8 @@
     margin-left: 0;
     padding: 6px 22px 22px;
     border: 1px solid var(--color-line);
+    /* The card keeps the page's colors, even when the bar behind it has turned plum. */
+    color: var(--color-text);
     border-radius: 20px;
     background: var(--color-surface);
     box-shadow: 0 28px 48px -16px rgba(50, 16, 29, 0.35);

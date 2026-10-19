@@ -1,0 +1,32 @@
+/* Both layers fade out over the bottom of the section, so neither stops at a hard line. */
+.paper {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  mask-image: linear-gradient(black 55%, transparent);
+  pointer-events: none;
+}
+
+.glows,
+.grain {
+  position: absolute;
+  inset: 0;
+}
+
+.glows {
+  background: var(--paper-glows, none);
+}
+
+/* A fractal-noise SVG used as a mask over a solid token color, so the speckles follow the theme. */
+.grain {
+  background: var(--color-hero-grain);
+  mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 2.2 0 0 0 -0.8'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  mask-size: 180px 180px;
+}
+
+/* Lighter on phones, where the copy sits closer together. */
+@media (max-width: 760px) {
+  .grain {
+    opacity: 0.7;
+  }
+}

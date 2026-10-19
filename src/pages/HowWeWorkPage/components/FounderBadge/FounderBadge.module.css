@@ -1,0 +1,30 @@
+/*
+ * The canvas fills this box, which AboutHero sizes. Vertical swipes still scroll the page on touch
+ * screens; grabbing the card itself is handled by the 3D scene.
+ */
+.badge {
+  position: relative;
+  touch-action: pan-y;
+}
+
+/*
+ * Hidden until the lanyard has mounted, then faded in as the badge swings into place. The top edge
+ * fades out, so the strap drifts in from above instead of starting at a hard line. The canvas is
+ * transparent, so the drop shadow traces the card and strap and follows them as they swing.
+ */
+.canvas {
+  opacity: 0;
+  filter: drop-shadow(0 18px 16px var(--color-badge-shadow));
+  transition: opacity 0.4s ease;
+  mask-image: linear-gradient(transparent, black 22%);
+}
+
+.ready {
+  opacity: 1;
+}
+
+/* Covers the canvas while the physics engine loads. */
+.loading {
+  position: absolute;
+  inset: 0;
+}

@@ -32,6 +32,8 @@
   --color-text-faint: #865f6c;
   --color-text-on-dark: #c9aeb7;
   --color-text-on-coral: rgba(255, 255, 255, 0.72);
+  /* Muted copy on --color-bg-band and --color-bg-tint, where --color-text-muted falls short of 4.5:1. */
+  --color-text-on-band: #5c3a47;
 
   /*
    * Theme roles. Page chrome uses these instead of the raw palette so the
@@ -42,6 +44,8 @@
   --color-bg-accent: var(--color-blush);
   /* A section that steps forward from its neighbors (the homepage’s “What we believe” band). */
   --color-bg-band: var(--color-tone-blush);
+  /* A gentler step from the page than the band: a pale blush wash. */
+  --color-bg-tint: #f7dbe3;
   --color-surface: var(--color-paper);
   --color-text: var(--color-ink);
   --color-line-strong: rgba(50, 16, 29, 0.22);
@@ -49,6 +53,10 @@
   --color-on-action: var(--color-paper);
   --color-hero-glow: rgba(255, 255, 255, 0.88);
   --color-hero-dots: rgba(50, 16, 29, 0.11);
+  --color-hero-grain: rgba(50, 16, 29, 0.2);
+  /* A faint coral wash in a textured hero's far corner, opposite its main glow. */
+  --color-hero-coral-glow: rgba(237, 51, 91, 0.06);
+  --color-badge-shadow: rgba(50, 16, 29, 0.24);
   --color-shape-blush: rgba(243, 191, 208, 0.7);
   --color-shape-line: rgba(50, 16, 29, 0.14);
 
@@ -71,17 +79,21 @@
   --color-bg-deep: #1a060e;
   --color-bg-accent: #3b1323;
   --color-bg-band: #4a152c;
+  --color-bg-tint: #3b1323;
   --color-surface: #3a1424;
   --color-text: #fbeef2;
   --color-text-muted: #d1b2bd;
   --color-text-subtle: #b994a2;
   --color-text-faint: #a8838f;
+  --color-text-on-band: #d1b2bd;
   --color-line: rgba(255, 255, 255, 0.14);
   --color-line-strong: rgba(255, 255, 255, 0.2);
   --color-action: #fbeef2;
   --color-on-action: var(--color-plum);
   --color-hero-glow: rgba(237, 51, 91, 0.12);
   --color-hero-dots: rgba(255, 255, 255, 0.2);
+  --color-hero-grain: rgba(255, 255, 255, 0.1);
+  --color-badge-shadow: rgba(0, 0, 0, 0.45);
   --color-shape-blush: rgba(243, 191, 208, 0.12);
   --color-shape-line: rgba(255, 255, 255, 0.14);
 }

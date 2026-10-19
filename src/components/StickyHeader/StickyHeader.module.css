@@ -1,0 +1,46 @@
+/* Holds the header's place in the page flow, since the bar itself is fixed. */
+.slot {
+  height: 100px;
+}
+
+.overlay {
+  height: 0;
+}
+
+/*
+ * Children read these instead of the theme tokens, so text, outlines, and the divider fade with the
+ * backdrop:
+ *   --header-text     text, outlines, and icon strokes
+ *   --header-surface  the backdrop behind the bar (for inverted hover fills)
+ *   --header-line     the divider under the bar; it disappears once the backdrop fills in
+ */
+.backdrop {
+  --header-text: var(--color-text);
+  --header-surface: var(--color-bg);
+  --header-line: var(--color-line);
+  position: fixed;
+  inset: 0 0 auto;
+  z-index: 20;
+  color: var(--header-text);
+  background-color: transparent;
+  transition:
+    color 0.35s ease,
+    background-color 0.35s ease;
+}
+
+.scrolled {
+  --header-text: var(--color-paper);
+  --header-surface: var(--color-bg-deep);
+  --header-line: transparent;
+  background-color: var(--color-bg-deep);
+}
+
+@media (max-width: 760px) {
+  .slot {
+    height: 76px;
+  }
+
+  .overlay {
+    height: 0;
+  }
+}

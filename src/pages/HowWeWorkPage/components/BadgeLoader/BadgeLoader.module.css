@@ -1,0 +1,29 @@
+.loader {
+  display: grid;
+  place-items: center;
+}
+
+/* The ring turns on its ::before, so the mark at its center stays still. */
+.spinner {
+  position: relative;
+  display: grid;
+  width: 52px;
+  height: 52px;
+  place-items: center;
+}
+
+.spinner::before {
+  position: absolute;
+  inset: 0;
+  border: 3px solid var(--color-line);
+  border-top-color: var(--color-coral);
+  border-radius: 50%;
+  content: "";
+  animation: spin 0.9s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    rotate: 360deg;
+  }
+}
