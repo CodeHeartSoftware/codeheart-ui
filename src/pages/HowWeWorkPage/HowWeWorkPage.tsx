@@ -14,12 +14,12 @@ const HowWeWorkPage = () => {
 
   return (
     <main className={styles.page}>
-      <PageHeader />
+      <PageHeader overlay />
       <AboutHero />
       <WhoWeAreSection />
+      <WhySection />
       <CapabilitySection />
       <ProcessSection />
-      <WhySection />
       <AboutContactSection />
     </main>
   );

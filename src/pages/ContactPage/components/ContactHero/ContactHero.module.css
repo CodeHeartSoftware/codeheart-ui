@@ -1,72 +1,100 @@
+/*
+ * Full-bleed, so the PaperGrain runs edge to edge while the content stays in the shell. The top padding
+ * matches the PageHeader's height, so the grain shows through it while the content clears it.
+ */
 .hero {
-  padding-block: 110px 120px;
+    position: relative;
+    padding-top: 100px;
+    --paper-glows: radial-gradient(circle at 82% 30%, var(--color-hero-glow), transparent 32%),
+    radial-gradient(circle at 8% 85%, var(--color-hero-coral-glow), transparent 30%);
+    background: var(--color-bg);
+    isolation: isolate;
+}
+
+.inner {
+    padding-block: 110px 120px;
 }
 
 .title {
-  max-width: 980px;
-  margin: 28px 0 35px;
-  font-family: var(--font-display);
-  font-size: clamp(64px, 8vw, 118px);
-  font-weight: 500;
-  letter-spacing: -0.075em;
-  line-height: 0.92;
+    max-width: 980px;
+    margin: 28px 0 35px;
+    font-family: var(--font-display);
+    font-size: clamp(64px, 8vw, 118px);
+    font-weight: 500;
+    letter-spacing: -0.075em;
+    line-height: 0.92;
+}
+
+/* Two lines: the lead on one row, the emphasis below it. */
+.titleLead {
+    display: block;
+    white-space: nowrap;
 }
 
 .title em {
-  color: var(--color-coral);
-  font-family: var(--font-serif);
-  font-weight: 500;
+    display: block;
+    color: var(--color-coral);
+    font-family: var(--font-serif);
+    font-weight: 500;
 }
 
 .lead {
-  max-width: 620px;
-  margin: 0 0 45px;
-  color: var(--color-text-muted);
-  font-size: 18px;
-  line-height: 1.65;
+    max-width: 620px;
+    margin: 0 0 45px;
+    color: var(--color-text-muted);
+    font-size: 18px;
+    line-height: 1.65;
 }
 
 .cta {
-  display: inline-flex;
-  border: 0;
-  cursor: pointer;
-  align-items: center;
-  gap: 20px;
-  padding: 8px 8px 8px 24px;
-  border-radius: var(--radius-pill);
-  color: var(--color-on-action);
-  background: var(--color-action);
-  font-size: 15px;
-  font-weight: 600;
-  transition:
-    transform 0.25s ease,
+    display: inline-flex;
+    border: 0;
+    cursor: pointer;
+    align-items: center;
+    gap: 20px;
+    padding: 8px 8px 8px 24px;
+    border-radius: var(--radius-pill);
+    color: var(--color-on-action);
+    background: var(--color-action);
+    font-size: 15px;
+    font-weight: 600;
+    transition: transform 0.25s ease,
     box-shadow 0.25s ease;
 }
 
 .cta:hover {
-  box-shadow: 0 12px 30px rgba(50, 16, 29, 0.2);
-  transform: translateY(-3px);
+    box-shadow: 0 12px 30px rgba(50, 16, 29, 0.2);
+    transform: translateY(-3px);
 }
 
 .ctaArrow {
-  display: grid;
-  width: 42px;
-  height: 42px;
-  border-radius: 50%;
-  background: var(--color-coral);
-  place-items: center;
+    display: grid;
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    background: var(--color-coral);
+    place-items: center;
 }
 
 @media (max-width: 760px) {
-  .hero {
-    padding-block: 70px 80px;
-  }
+    .hero {
+        padding-top: 76px;
+    }
 
-  .title {
-    font-size: clamp(54px, 15vw, 76px);
-  }
+    .inner {
+        padding-block: 70px 80px;
+    }
 
-  .lead {
-    font-size: 16px;
-  }
+    .title {
+        font-size: clamp(54px, 15vw, 76px);
+    }
+
+    /* Too long for one row at phone widths, so the lead wraps there. */
+    .titleLead {
+        white-space: normal;
+    }
+
+    .lead {
+        font-size: 16px;
+    }
 }

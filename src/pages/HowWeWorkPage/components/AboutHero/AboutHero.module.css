@@ -1,10 +1,24 @@
+/*
+ * Full-bleed, so the PaperGrain runs edge to edge while the content stays in the shell. The top padding
+ * matches the PageHeader's height, so the grain shows through it while the content clears it.
+ */
 .hero {
+  position: relative;
+  overflow: hidden;
+  padding-top: 100px;
+  --paper-glows:
+    radial-gradient(circle at 80% 45%, var(--color-hero-glow), transparent 30%),
+    radial-gradient(circle at 10% 15%, var(--color-hero-coral-glow), transparent 30%);
+  background: var(--color-bg);
+  isolation: isolate;
+}
+
+.inner {
   position: relative;
   display: grid;
   grid-template-columns: minmax(0, 1.4fr) minmax(300px, 0.6fr);
   align-items: center;
   min-height: 690px;
-  overflow: hidden;
 }
 
 .copy {
@@ -43,20 +57,41 @@
   justify-self: end;
 }
 
+/*
+ * Runs the hero's full height, so the lanyard drops in from the hero's top edge. The loading spinner
+ * gets the same box, so nothing shifts when the badge replaces it.
+ */
+.badge {
+  width: min(36vw, 460px);
+  min-height: 600px;
+  align-self: stretch;
+  justify-self: end;
+}
+
 @media (max-width: 1100px) {
-  .hero {
+  .inner {
     min-height: 610px;
   }
 }
 
+/*
+ * On phones the copy's box dissolves into the hero's column, so the badge can sit between the title
+ * and the lead paragraph. The portrait keeps its place after the copy.
+ */
 @media (max-width: 760px) {
   .hero {
-    display: block;
+    padding-top: 76px;
+  }
+
+  .inner {
+    display: flex;
+    flex-direction: column;
     min-height: 0;
+    padding-top: 70px;
   }
 
   .copy {
-    padding-top: 70px;
+    display: contents;
   }
 
   .title {
@@ -64,11 +99,22 @@
   }
 
   .lead {
+    order: 2;
+    margin-bottom: 70px;
     font-size: 16px;
   }
 
   .portrait {
+    order: 3;
     width: min(100% - 22px, 360px);
-    margin: 0 0 90px;
+    margin: 30px 0 90px;
+  }
+
+  .badge {
+    order: 1;
+    width: 100%;
+    min-height: 0;
+    height: 520px;
+    margin-bottom: 0;
   }
 }

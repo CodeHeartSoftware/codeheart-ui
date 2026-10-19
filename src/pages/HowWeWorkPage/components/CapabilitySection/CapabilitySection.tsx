@@ -6,21 +6,17 @@ import { HowWeWorkStrings } from "@/constants/strings";
 import { TestIds } from "@/constants/testIds";
 import { cx } from "@/utils/classNames";
 import CapabilityCard from "../CapabilityCard/CapabilityCard";
-import SectionNumber from "@/components/SectionNumber/SectionNumber";
 import SectionTitle from "@/components/SectionTitle/SectionTitle";
 import styles from "./CapabilitySection.module.css";
 
 const CapabilitySection = () => (
   <section className={styles.section}>
-    <Reveal from="left" className={cx("shell", styles.heading)}>
-      <SectionNumber index={1} />
-      <div>
-        <SectionKicker className={styles.kicker}>{HowWeWorkStrings.capabilities.KICKER}</SectionKicker>
-        <SectionTitle className={styles.title}>{HowWeWorkStrings.capabilities.TITLE}</SectionTitle>
-        <p className={styles.summary}>{HowWeWorkStrings.capabilities.SUMMARY}</p>
-      </div>
+    <Reveal from="right" className="shell">
+      <SectionKicker>{HowWeWorkStrings.capabilities.KICKER}</SectionKicker>
+      <SectionTitle className={styles.title}>{HowWeWorkStrings.capabilities.TITLE}</SectionTitle>
+      <p className={styles.summary}>{HowWeWorkStrings.capabilities.SUMMARY}</p>
     </Reveal>
-    <Reveal from="left" delayed>
+    <Reveal from="right" delayed>
       <div className={cx("shell", styles.grid)} data-testid={TestIds.CAPABILITY_LIST}>
         {CAPABILITIES.map((capability, index) => (
           <CapabilityCard key={capability.title} capability={capability} index={index} />

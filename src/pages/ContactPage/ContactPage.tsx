@@ -12,7 +12,7 @@ const ContactPage = () => {
 
   return (
     <main className={styles.page}>
-      <PageHeader />
+      <PageHeader overlay />
       <ContactHero />
       <div className={cx("shell", styles.details)}>
         <InquiryChecklist />

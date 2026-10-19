@@ -1,9 +1,19 @@
+/*
+ * Full-bleed, so the tint separates the cream Who we are section above from the plum What we do below.
+ * The muted text tones are too light for the tint, so they're darkened for everything inside it,
+ * the kicker and the relay diagram's labels included.
+ */
+.band {
+  --color-text-muted: var(--color-text-on-band);
+  --color-text-subtle: var(--color-text-on-band);
+  background: var(--color-bg-tint);
+}
+
 .section {
   display: grid;
-  grid-template-columns: 120px minmax(0, 1.1fr) minmax(280px, 0.65fr);
+  grid-template-columns: minmax(0, 1.1fr) minmax(280px, 0.65fr);
   gap: 45px;
   padding-block: 140px;
-  border-top: 1px solid var(--color-line);
 }
 
 .title {
@@ -26,12 +36,11 @@
 
 @media (max-width: 1100px) {
   .section {
-    grid-template-columns: 70px minmax(0, 1fr);
+    grid-template-columns: minmax(0, 1fr);
     gap: 30px;
   }
 
   .relay {
-    grid-column: 2;
     max-width: 500px;
     margin: 20px 0 0;
   }
@@ -41,10 +50,6 @@
   .section {
     display: block;
     padding-block: 90px;
-  }
-
-  .kicker {
-    margin-top: 25px;
   }
 
   .title {

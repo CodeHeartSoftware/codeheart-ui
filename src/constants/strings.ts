@@ -147,8 +147,8 @@ export const FooterStrings = {
 export const ContactStrings = {
   hero: {
     EYEBROW: "Discuss a project",
-    TITLE_LEAD: "Let’s build",
-    TITLE_EMPHASIS: " something together.",
+    TITLE_LEAD: "Let’s build something",
+    TITLE_EMPHASIS: "with heart.",
     COPY: "Whether you have approved designs that need building, a product experience that needs work, an application that needs a second opinion, or an AI-built app that’s stuck before launch, it starts with a quick note. Tell us what you’re working on and we’ll take it from there.",
     EMAIL_CTA: "Email us about your project",
     EMAIL_SUBJECT: "New project inquiry",
@@ -166,13 +166,16 @@ export const ContactStrings = {
 export const HowWeWorkStrings = {
   hero: {
     EYEBROW: "How we work",
-    TITLE_LEAD: "Senior expertise.",
+    TITLE_LEAD: "Big impact.",
     TITLE_EMPHASIS: " A smaller footprint.",
     COPY: "CodeHeart is a lean product design and engineering studio. We take on clearly defined projects — building features from approved designs, improving product experiences, assessing existing applications, or stabilizing AI-built software — without the weight of a traditional agency.",
     PORTRAIT_ALT: "Portrait of Tom Sarver, founder of CodeHeart",
     FOUNDER_NAME: "Tom Sarver",
     PORTRAIT_ROLE: "Founder & engineer",
     ESTABLISHED: "Est. 2026",
+    BADGE_LABEL: "Tom Sarver’s CodeHeart badge, with his portrait and the title Founder & engineer, hanging from a lanyard you can drag, or click to flip",
+    BADGE_WEBSITE: "codeheart.dev",
+    BADGE_LOADING: "Loading Tom’s badge",
   },
   whoWeAre: {
     KICKER: "Who we are",
@@ -183,7 +186,7 @@ export const HowWeWorkStrings = {
   capabilities: {
     KICKER: "What we do",
     TITLE: "Design and engineering, in one pair of hands.",
-    SUMMARY: "Product design, front-end craft, and the systems behind them: the combination that turns a design file into software people can use.",
+    SUMMARY: "Product design, full-stack development, and the cloud infrastructure it runs on: everything it takes to turn a design file into software people can use.",
     TAGS_LABEL: "Our capabilities",
   },
   why: {

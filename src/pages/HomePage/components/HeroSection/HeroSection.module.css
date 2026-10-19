@@ -7,6 +7,8 @@
   --pointer-ratio-y: 0;
   position: relative;
   min-height: 100svh;
+  /* Room for the SiteNav, which overlays the hero's top edge. */
+  padding-top: 100px;
   overflow: hidden;
   background:
     radial-gradient(circle at 76% 25%, var(--color-hero-glow), transparent 28%),
@@ -46,5 +48,6 @@
 @media (max-width: 760px) {
   .hero {
     min-height: 890px;
+    padding-top: 76px;
   }
 }

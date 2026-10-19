@@ -3,21 +3,21 @@ import SectionKicker from "@/components/SectionKicker/SectionKicker";
 import { HowWeWorkStrings } from "@/constants/strings";
 import { cx } from "@/utils/classNames";
 import RelayDiagram from "../RelayDiagram/RelayDiagram";
-import SectionNumber from "@/components/SectionNumber/SectionNumber";
 import SectionTitle from "@/components/SectionTitle/SectionTitle";
 import styles from "./WhySection.module.css";
 
 const WhySection = () => (
-  <Reveal as="section" from="left" className={cx("shell", styles.section)}>
-    <SectionNumber index={2} />
-    <div className={styles.copy}>
-      <SectionKicker className={styles.kicker}>{HowWeWorkStrings.why.KICKER}</SectionKicker>
-      <SectionTitle className={styles.title}>{HowWeWorkStrings.why.TITLE}</SectionTitle>
-      <p>{HowWeWorkStrings.why.PARAGRAPH_ONE}</p>
-      <p>{HowWeWorkStrings.why.PARAGRAPH_TWO}</p>
-    </div>
-    <RelayDiagram className={styles.relay} />
-  </Reveal>
+  <section className={styles.band}>
+    <Reveal from="left" className={cx("shell", styles.section)}>
+      <div className={styles.copy}>
+        <SectionKicker>{HowWeWorkStrings.why.KICKER}</SectionKicker>
+        <SectionTitle className={styles.title}>{HowWeWorkStrings.why.TITLE}</SectionTitle>
+        <p>{HowWeWorkStrings.why.PARAGRAPH_ONE}</p>
+        <p>{HowWeWorkStrings.why.PARAGRAPH_TWO}</p>
+      </div>
+      <RelayDiagram className={styles.relay} />
+    </Reveal>
+  </section>
 );
 
 export default WhySection;
